@@ -972,23 +972,6 @@
 <body>
     <!-- Header -->
     <header class="header" id="header">
-        <div class="header-top">
-            <div class="container">
-                <a href="/cdn-cgi/l/email-protection#85efe7f7e0f2e0f7c5e2f1e6e4e1f3ecf6e0f7f6abe6eae8">
-                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                        <polyline points="22,6 12,13 2,6"/>
-                    </svg>
-                    <span class="__cf_email__" data-cfemail="7a1018081f0d1f083a1d0e191b1e0c13091f080954191517">[email&#160;protected]</span>
-                </a>
-                <a href="tel:7705332544">
-                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                    </svg>
-                    (770) 533-2544
-                </a>
-            </div>
-        </div>
         <div class="header-main">
             <div class="container">
                 <a href="index.html" class="logo">
@@ -1277,7 +1260,7 @@
             <p>Schedule a free expense audit. We'll identify exactly where you're overpaying and show you how much you can save.</p>
             <div class="cta-buttons">
                 <a href="index.html#contact" class="btn btn-primary">Book a Call</a>
-                <a href="/cdn-cgi/l/email-protection#0d676f7f687a687f4d6a796e6c697b647e687f7e236e6260" class="btn btn-outline">Email Us</a>
+                <a href="mailto:jbrewer@gtcadvisers.com" class="btn btn-outline">Email Us</a>
             </div>
         </div>
     </section>
@@ -1349,7 +1332,7 @@
                     <h5>Company</h5>
                     <ul>
                         <li><a href="index.html#about">About Us</a></li>
-                        <li><a href="team.html">Our Team</a></li>
+                        <li><a href="#">Our Team</a></li>
                         <li><a href="index.html#results">Case Studies</a></li>
                         <li><a href="index.html#contact">Contact</a></li>
                     </ul>
@@ -1362,7 +1345,7 @@
                             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                             <polyline points="22,6 12,13 2,6"/>
                         </svg>
-                        <a href="/cdn-cgi/l/email-protection#1f757d6d7a687a6d5f786b7c7e7b69766c7a6d6c317c7072"><span class="__cf_email__" data-cfemail="214b4353445644536146554240455748524453520f424e4c">[email&#160;protected]</span></a>
+                        <a href="mailto:jbrewer@gtcadvisers.com">jbrewer@gtcadvisers.com</a>
                     </div>
                     <div class="footer-contact-item">
                         <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -1391,7 +1374,7 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // Header scroll effect
         const header = document.getElementById('header');
         window.addEventListener('scroll', () => {
@@ -1405,4 +1388,18 @@
         // FAQ Accordion
         document.querySelectorAll('.faq-question').forEach(button => {
             button.addEventListener('click', () => {
-                const item = button.parentElement
+                const item = button.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // Close all
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                
+                // Open clicked if wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
