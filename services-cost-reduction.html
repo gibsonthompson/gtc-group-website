@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cost Reduction Services | The GTC Group</title>
+    <meta name="description" content="Reduce your carrier operating costs through bulk-negotiated insurance, fuel programs, maintenance networks, and driver services. Enterprise pricing for independent carriers.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy-900: #0a1628;
+            --navy-800: #0f2140;
+            --navy-700: #162d54;
+            --navy-600: #1e3a6a;
+            --gold-500: #c9a227;
+            --gold-400: #d4b14a;
+            --gold-300: #e0c36d;
+            --cream-100: #faf8f5;
+            --cream-200: #f5f0e8;
+            --gray-100: #f8f9fa;
+            --gray-200: #e9ecef;
+            --gray-300: #dee2e6;
+            --gray-500: #6c757d;
+            --gray-700: #495057;
+            --gray-900: #212529;
+            --white: #ffffff;
+            --font-display: 'Cormorant Garamond', Georgia, serif;
+            --font-body: 'Source Sans 3', -apple-system, sans-serif;
+            --shadow-sm: 0 1px 2px rgba(10, 22, 40, 0.05);
+            --shadow-md: 0 4px 12px rgba(10, 22, 40, 0.08);
+            --shadow-lg: 0 12px 40px rgba(10, 22, 40, 0.12);
+            --shadow-xl: 0 24px 60px rgba(10, 22, 40, 0.16);
+            --transition-fast: 150ms ease;
+            --transition-base: 250ms ease;
+            --transition-slow: 400ms ease;
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: 17px;
+            line-height: 1.7;
+            color: var(--gray-900);
+            background: var(--white);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-display);
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--navy-900);
+        }
+
+        h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); }
+        h2 { font-size: clamp(2rem, 4vw, 2.75rem); }
+        h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+        h4 { font-size: 1.35rem; }
+
+        p { color: var(--gray-700); }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color var(--transition-fast);
+        }
+
+        img { max-width: 100%; height: auto; }
+
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 32px;
+            font-family: var(--font-body);
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: all var(--transition-base);
+        }
+
+        .btn-primary {
+            background: var(--gold-500);
+            color: var(--navy-900);
+        }
+
+        .btn-primary:hover {
+            background: var(--gold-400);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--navy-900);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--navy-900);
+            border: 2px solid var(--navy-900);
+        }
+
+        .btn-outline:hover {
+            background: var(--navy-900);
+            color: var(--white);
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-family: var(--font-body);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold-500);
+            margin-bottom: 16px;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: var(--navy-900);
+            transition: all var(--transition-base);
+        }
+
+        .header.scrolled {
+            background: rgba(10, 22, 40, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .header-top {
+            background: var(--navy-800);
+            padding: 10px 0;
+            font-size: 14px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .header-top .container {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .header-top a {
+            color: rgba(255,255,255,0.8);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .header-top a:hover {
+            color: var(--gold-400);
+        }
+
+        .header-main {
+            padding: 20px 0;
+        }
+
+        .header-main .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--gold-500);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--navy-900);
+        }
+
+        .logo-text {
+            color: var(--white);
+        }
+
+        .logo-text .name {
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text .tagline {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold-400);
+            opacity: 0.9;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 36px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.9);
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            position: relative;
+            padding: 8px 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold-500);
+            transition: width var(--transition-base);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-cta .btn {
+            padding: 12px 24px;
+        }
+
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .mobile-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--white);
+        }
+
+        /* Page Hero */
+        .page-hero {
+            position: relative;
+            padding: 180px 0 100px;
+            background: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-700) 100%);
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.12;
+        }
+
+        .page-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+            font-size: 14px;
+        }
+
+        .breadcrumb a {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--gold-400);
+        }
+
+        .breadcrumb span {
+            color: rgba(255,255,255,0.4);
+        }
+
+        .breadcrumb .current {
+            color: var(--gold-400);
+        }
+
+        .page-hero h1 {
+            color: var(--white);
+            margin-bottom: 24px;
+            max-width: 700px;
+        }
+
+        .page-hero .lead {
+            font-size: 20px;
+            color: rgba(255,255,255,0.8);
+            max-width: 600px;
+            line-height: 1.7;
+        }
+
+        /* Service Overview */
+        .service-overview {
+            background: var(--white);
+        }
+
+        .service-overview .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .overview-content h2 {
+            margin-bottom: 24px;
+        }
+
+        .overview-content p {
+            margin-bottom: 20px;
+            font-size: 17px;
+        }
+
+        .overview-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .stat-card {
+            background: var(--cream-100);
+            padding: 24px;
+            border-radius: 4px;
+            border-left: 4px solid var(--gold-500);
+        }
+
+        .stat-card .number {
+            font-family: var(--font-display);
+            font-size: 36px;
+            font-weight: 600;
+            color: var(--navy-900);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-card .label {
+            font-size: 14px;
+            color: var(--gray-500);
+        }
+
+        .overview-image {
+            position: relative;
+        }
+
+        .overview-image img {
+            border-radius: 4px;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .overview-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 100%;
+            height: 100%;
+            border: 3px solid var(--gold-500);
+            border-radius: 4px;
+            z-index: -1;
+        }
+
+        /* Service Areas */
+        .service-areas {
+            background: var(--gray-100);
+        }
+
+        .service-areas .container > .section-label,
+        .service-areas .container > h2,
+        .service-areas .container > p {
+            text-align: center;
+        }
+
+        .service-areas .container > p {
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .areas-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .area-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 4px;
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-base);
+        }
+
+        .area-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .area-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--navy-900), var(--navy-700));
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .area-icon svg {
+            width: 28px;
+            height: 28px;
+            color: var(--gold-400);
+        }
+
+        .area-card h4 {
+            margin-bottom: 12px;
+        }
+
+        .area-card p {
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+
+        .area-features {
+            list-style: none;
+        }
+
+        .area-features li {
+            padding: 8px 0;
+            padding-left: 24px;
+            position: relative;
+            font-size: 15px;
+            color: var(--gray-700);
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .area-features li:last-child {
+            border-bottom: none;
+        }
+
+        .area-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--gold-500);
+            font-weight: 600;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            background: var(--white);
+        }
+
+        .how-it-works .container > .section-label,
+        .how-it-works .container > h2 {
+            text-align: center;
+        }
+
+        .how-it-works .container > h2 {
+            margin-bottom: 60px;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .step-card {
+            text-align: center;
+            padding: 40px 24px;
+        }
+
+        .step-number {
+            width: 64px;
+            height: 64px;
+            background: var(--navy-900);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--gold-400);
+            margin: 0 auto 24px;
+        }
+
+        .step-card h4 {
+            margin-bottom: 12px;
+        }
+
+        .step-card p {
+            font-size: 15px;
+        }
+
+        /* Results Section */
+        .results-section {
+            background: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-700) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .results-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(201, 162, 39, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .results-section .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .results-section .section-label,
+        .results-section h2 {
+            text-align: center;
+        }
+
+        .results-section h2 {
+            color: var(--white);
+            margin-bottom: 60px;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .result-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .result-card .metric {
+            font-family: var(--font-display);
+            font-size: 48px;
+            font-weight: 600;
+            color: var(--gold-400);
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+
+        .result-card .description {
+            color: rgba(255,255,255,0.8);
+            font-size: 16px;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: var(--cream-100);
+        }
+
+        .faq-section .container > .section-label,
+        .faq-section .container > h2 {
+            text-align: center;
+        }
+
+        .faq-section .container > h2 {
+            margin-bottom: 60px;
+        }
+
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--white);
+            margin-bottom: 16px;
+            border-radius: 4px;
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 24px 32px;
+            background: var(--white);
+            border: none;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: var(--font-body);
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--navy-900);
+            transition: background var(--transition-fast);
+        }
+
+        .faq-question:hover {
+            background: var(--gray-100);
+        }
+
+        .faq-question svg {
+            width: 20px;
+            height: 20px;
+            color: var(--gold-500);
+            transition: transform var(--transition-fast);
+        }
+
+        .faq-item.active .faq-question svg {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height var(--transition-base);
+        }
+
+        .faq-answer-inner {
+            padding: 0 32px 24px;
+            color: var(--gray-700);
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--white);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* Other Services */
+        .other-services {
+            background: var(--gray-100);
+        }
+
+        .other-services .container > .section-label,
+        .other-services .container > h2 {
+            text-align: center;
+        }
+
+        .other-services .container > h2 {
+            margin-bottom: 48px;
+        }
+
+        .other-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .other-card {
+            background: var(--white);
+            padding: 32px;
+            border-radius: 4px;
+            box-shadow: var(--shadow-md);
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            transition: all var(--transition-base);
+        }
+
+        .other-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .other-card .icon {
+            width: 48px;
+            height: 48px;
+            background: var(--navy-900);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .other-card .icon svg {
+            width: 24px;
+            height: 24px;
+            color: var(--gold-400);
+        }
+
+        .other-card h4 {
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+        }
+
+        .other-card p {
+            font-size: 15px;
+            margin-bottom: 12px;
+        }
+
+        .other-card a {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--gold-500);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .other-card a:hover {
+            color: var(--navy-900);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy-900);
+            color: rgba(255,255,255,0.7);
+            padding: 80px 0 0;
+        }
+
+        .footer-main {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            padding-bottom: 60px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-brand {
+            max-width: 300px;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 20px;
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.6);
+            font-size: 15px;
+        }
+
+        .footer-column h5 {
+            color: var(--white);
+            font-family: var(--font-body);
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column a {
+            color: rgba(255,255,255,0.6);
+            font-size: 15px;
+        }
+
+        .footer-column a:hover {
+            color: var(--gold-400);
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .footer-contact-item svg {
+            width: 18px;
+            height: 18px;
+            color: var(--gold-500);
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+
+        .footer-bottom {
+            padding: 24px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            color: rgba(255,255,255,0.4);
+            font-size: 14px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-fast);
+        }
+
+        .footer-social a:hover {
+            background: var(--gold-500);
+            border-color: var(--gold-500);
+        }
+
+        .footer-social svg {
+            width: 18px;
+            height: 18px;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .footer-social a:hover svg {
+            color: var(--navy-900);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .service-overview .container,
+            .areas-grid,
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .footer-main {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 0;
+            }
+
+            .header-top {
+                display: none;
+            }
+
+            .nav-links,
+            .nav-cta {
+                display: none;
+            }
+
+            .mobile-toggle {
+                display: flex;
+            }
+
+            .page-hero {
+                padding: 140px 0 60px;
+            }
+
+            .overview-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .other-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-main {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-top">
+            <div class="container">
+                <a href="/cdn-cgi/l/email-protection#85efe7f7e0f2e0f7c5e2f1e6e4e1f3ecf6e0f7f6abe6eae8">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                    <span class="__cf_email__" data-cfemail="7a1018081f0d1f083a1d0e191b1e0c13091f080954191517">[email&#160;protected]</span>
+                </a>
+                <a href="tel:7705332544">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                    (770) 533-2544
+                </a>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="container">
+                <a href="gtc-group-website.html" class="logo">
+                    <div class="logo-icon">G</div>
+                    <div class="logo-text">
+                        <div class="name">The GTC Group</div>
+                        <div class="tagline">Carrier Resources, Brokerage Results</div>
+                    </div>
+                </a>
+                <nav class="nav">
+                    <ul class="nav-links">
+                        <li><a href="gtc-group-website.html#about">About</a></li>
+                        <li><a href="gtc-group-website.html#services" class="active">Services</a></li>
+                        <li><a href="gtc-group-website.html#process">Process</a></li>
+                        <li><a href="gtc-group-website.html#results">Results</a></li>
+                        <li><a href="gtc-group-website.html#contact">Contact</a></li>
+                    </ul>
+                    <div class="nav-cta">
+                        <a href="gtc-group-website.html#contact" class="btn btn-primary">Book a Call</a>
+                    </div>
+                </nav>
+                <button class="mobile-toggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="gtc-group-website.html">Home</a>
+                <span>/</span>
+                <a href="gtc-group-website.html#services">Services</a>
+                <span>/</span>
+                <span class="current">Cost Reduction</span>
+            </nav>
+            <h1>Cost Reduction Services</h1>
+            <p class="lead">Leverage collective buying power to access enterprise-level pricing on insurance, fuel, maintenance, and driver services—typically reserved for large fleets.</p>
+        </div>
+    </section>
+
+    <!-- Service Overview -->
+    <section class="service-overview">
+        <div class="container">
+            <div class="overview-content">
+                <span class="section-label">The Opportunity</span>
+                <h2>Why Are You Paying More Than Mega-Carriers?</h2>
+                <p>Independent carriers and small fleets routinely pay 15-40% more for essential operating expenses than their larger competitors. Not because of risk profiles or service quality—simply because of volume.</p>
+                <p>The GTC Group changes that equation. By pooling the purchasing power of our carrier clients, we negotiate the same bulk rates that nationwide fleets enjoy. You maintain your independence while accessing enterprise-level savings.</p>
+                <div class="overview-stats">
+                    <div class="stat-card">
+                        <div class="number">15-40%</div>
+                        <div class="label">Typical premium over large carriers</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number">$30K+</div>
+                        <div class="label">Average annual savings per carrier</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number">7 Days</div>
+                        <div class="label">To see measurable ROI</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number">100%</div>
+                        <div class="label">Money-back guarantee</div>
+                    </div>
+                </div>
+            </div>
+            <div class="overview-image">
+                <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80" alt="Fleet of trucks">
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Areas -->
+    <section class="service-areas">
+        <div class="container">
+            <span class="section-label">What We Cover</span>
+            <h2>Four Pillars of Cost Reduction</h2>
+            <p>We target the largest expense categories in your operation, negotiating better rates across the board.</p>
+            
+            <div class="areas-grid">
+                <div class="area-card">
+                    <div class="area-icon">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <h4>Insurance Optimization</h4>
+                    <p>Commercial trucking insurance is one of your largest fixed costs. We pool carriers to negotiate rates typically reserved for 100+ truck fleets.</p>
+                    <ul class="area-features">
+                        <li>Primary liability coverage</li>
+                        <li>Cargo insurance</li>
+                        <li>Physical damage coverage</li>
+                        <li>General liability</li>
+                        <li>Workers' compensation</li>
+                        <li>Umbrella/excess policies</li>
+                    </ul>
+                </div>
+                
+                <div class="area-card">
+                    <div class="area-icon">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <h4>Fuel Programs</h4>
+                    <p>Fuel represents 20-30% of operating costs. Our network partnerships deliver meaningful per-gallon savings that compound across your miles.</p>
+                    <ul class="area-features">
+                        <li>National fuel card programs</li>
+                        <li>Bulk purchasing discounts</li>
+                        <li>Preferred pricing at major chains</li>
+                        <li>DEF and reefer fuel savings</li>
+                        <li>Fuel tax reporting integration</li>
+                        <li>Route optimization for fuel costs</li>
+                    </ul>
+                </div>
+                
+                <div class="area-card">
+                    <div class="area-icon">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                        </svg>
+                    </div>
+                    <h4>Maintenance Networks</h4>
+                    <p>Access our vetted network of service providers with pre-negotiated rates. Reduce downtime and control repair costs.</p>
+                    <ul class="area-features">
+                        <li>Preventive maintenance programs</li>
+                        <li>Tire purchasing & retreading</li>
+                        <li>Parts procurement discounts</li>
+                        <li>Roadside assistance programs</li>
+                        <li>Preferred shop networks</li>
+                        <li>Fleet maintenance tracking</li>
+                    </ul>
+                </div>
+                
+                <div class="area-card">
+                    <div class="area-icon">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h4>Driver Services</h4>
+                    <p>Recruiting and retaining drivers is expensive. We help reduce costs associated with hiring, training, and supporting your workforce.</p>
+                    <ul class="area-features">
+                        <li>Driver recruitment assistance</li>
+                        <li>Background check services</li>
+                        <li>Drug testing programs</li>
+                        <li>Training & certification</li>
+                        <li>Benefits administration</li>
+                        <li>Compliance management</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <span class="section-label">The Process</span>
+            <h2>How We Reduce Your Costs</h2>
+            
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h4>Expense Audit</h4>
+                    <p>We review your current insurance policies, fuel spending, maintenance contracts, and driver-related costs to identify savings opportunities.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h4>Rate Negotiation</h4>
+                    <p>Using our collective purchasing power, we negotiate better rates with vendors, often achieving 15-40% reductions on major expense categories.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h4>Implementation</h4>
+                    <p>We handle the transition to new providers and programs, ensuring zero disruption to your operations while savings start immediately.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results-section">
+        <div class="container">
+            <span class="section-label">Proven Results</span>
+            <h2>What Our Clients Save</h2>
+            
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="metric">$47K</div>
+                    <div class="description">Annual insurance savings for a 12-truck regional carrier</div>
+                </div>
+                <div class="result-card">
+                    <div class="metric">$0.12</div>
+                    <div class="description">Per-gallon fuel savings through our fuel card program</div>
+                </div>
+                <div class="result-card">
+                    <div class="metric">23%</div>
+                    <div class="description">Average reduction in maintenance costs</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <span class="section-label">Questions</span>
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How do you negotiate better rates than I can on my own?
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <polyline points="6 9 12 15 18 9"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Volume. Insurance companies, fuel providers, and maintenance networks offer their best rates to large fleets. By pooling our clients' purchasing power, we present vendors with the volume of a major carrier—unlocking the same pricing tiers they enjoy.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Will I lose control over my vendor relationships?
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <polyline points="6 9 12 15 18 9"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            No. You maintain full control over your operations. We negotiate on your behalf, but you decide which programs to participate in. There's no lock-in, and you can opt out of any program at any time.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What if I'm already locked into contracts?
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <polyline points="6 9 12 15 18 9"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            We'll review your existing contracts to understand renewal dates and any early termination provisions. We can often renegotiate current contracts mid-term or prepare better alternatives for when they expire. Many savings can be implemented immediately without changing providers.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How quickly will I see savings?
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <polyline points="6 9 12 15 18 9"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Most clients see measurable savings within the first week. Fuel card savings are immediate. Insurance and maintenance savings depend on contract timing, but we prioritize quick wins. If we don't deliver ROI equal to our fee in week one, you don't pay.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <span class="section-label">Get Started</span>
+            <h2>Ready to Cut Your Operating Costs?</h2>
+            <p>Schedule a free expense audit. We'll identify exactly where you're overpaying and show you how much you can save.</p>
+            <div class="cta-buttons">
+                <a href="gtc-group-website.html#contact" class="btn btn-primary">Book a Call</a>
+                <a href="/cdn-cgi/l/email-protection#0d676f7f687a687f4d6a796e6c697b647e687f7e236e6260" class="btn btn-outline">Email Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Other Services -->
+    <section class="other-services">
+        <div class="container">
+            <span class="section-label">Explore More</span>
+            <h2>Other Services</h2>
+            
+            <div class="other-grid">
+                <a href="services-revenue-growth.html" class="other-card">
+                    <div class="icon">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M23 6l-9.5 9.5-5-5L1 18"/>
+                            <path d="M17 6h6v6"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h4>Revenue Growth</h4>
+                        <p>Dedicated sales team, lane acquisition, and rate renegotiation to increase your top line.</p>
+                        <span>Learn More →</span>
+                    </div>
+                </a>
+                
+                <a href="services-brand-marketing.html" class="other-card">
+                    <div class="icon">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                            <line x1="8" y1="21" x2="16" y2="21"/>
+                            <line x1="12" y1="17" x2="12" y2="21"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h4>Brand & Marketing</h4>
+                        <p>Professional website, online presence, and marketing to compete for enterprise contracts.</p>
+                        <span>Learn More →</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <a href="gtc-group-website.html" class="logo">
+                        <div class="logo-icon">G</div>
+                        <div class="logo-text">
+                            <div class="name">The GTC Group</div>
+                            <div class="tagline">Carrier Resources, Brokerage Results</div>
+                        </div>
+                    </a>
+                    <p>Founded by brokerage professionals to help independent carriers compete with large nationwide carriers. We combine resources to deliver enterprise-level pricing and support.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h5>Services</h5>
+                    <ul>
+                        <li><a href="services-cost-reduction.html">Cost Reduction</a></li>
+                        <li><a href="services-revenue-growth.html">Revenue Growth</a></li>
+                        <li><a href="services-brand-marketing.html">Brand & Marketing</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h5>Company</h5>
+                    <ul>
+                        <li><a href="gtc-group-website.html#about">About Us</a></li>
+                        <li><a href="team.html">Our Team</a></li>
+                        <li><a href="gtc-group-website.html#results">Case Studies</a></li>
+                        <li><a href="gtc-group-website.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h5>Contact</h5>
+                    <div class="footer-contact-item">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                        <a href="/cdn-cgi/l/email-protection#1f757d6d7a687a6d5f786b7c7e7b69766c7a6d6c317c7072"><span class="__cf_email__" data-cfemail="214b4353445644536146554240455748524453520f424e4c">[email&#160;protected]</span></a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
+                        <a href="tel:7705332544">(770) 533-2544</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 The GTC Group. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="LinkedIn">
+                        <svg fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Twitter">
+                        <svg fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement

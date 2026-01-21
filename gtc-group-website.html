@@ -1,0 +1,1743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The GTC Group | Carrier Resources, Brokerage Results</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy-900: #0a1628;
+            --navy-800: #0f2140;
+            --navy-700: #162d54;
+            --navy-600: #1e3a6a;
+            --gold-500: #c9a227;
+            --gold-400: #d4b14a;
+            --gold-300: #e0c36d;
+            --cream-100: #faf8f5;
+            --cream-200: #f5f0e8;
+            --gray-100: #f8f9fa;
+            --gray-200: #e9ecef;
+            --gray-300: #dee2e6;
+            --gray-500: #6c757d;
+            --gray-700: #495057;
+            --gray-900: #212529;
+            --white: #ffffff;
+            --font-display: 'Cormorant Garamond', Georgia, serif;
+            --font-body: 'Source Sans 3', -apple-system, sans-serif;
+            --shadow-sm: 0 1px 2px rgba(10, 22, 40, 0.05);
+            --shadow-md: 0 4px 12px rgba(10, 22, 40, 0.08);
+            --shadow-lg: 0 12px 40px rgba(10, 22, 40, 0.12);
+            --shadow-xl: 0 24px 60px rgba(10, 22, 40, 0.16);
+            --transition-fast: 150ms ease;
+            --transition-base: 250ms ease;
+            --transition-slow: 400ms ease;
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: 17px;
+            line-height: 1.7;
+            color: var(--gray-900);
+            background: var(--white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-display);
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--navy-900);
+        }
+
+        h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+        h2 { font-size: clamp(2rem, 4vw, 3rem); }
+        h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+        h4 { font-size: 1.35rem; }
+
+        p {
+            color: var(--gray-700);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color var(--transition-fast);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .container-narrow {
+            max-width: 900px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 32px;
+            font-family: var(--font-body);
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: all var(--transition-base);
+        }
+
+        .btn-primary {
+            background: var(--gold-500);
+            color: var(--navy-900);
+        }
+
+        .btn-primary:hover {
+            background: var(--gold-400);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--navy-900);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--navy-900);
+            border: 2px solid var(--navy-900);
+        }
+
+        .btn-outline:hover {
+            background: var(--navy-900);
+            color: var(--white);
+        }
+
+        /* Section styling */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-family: var(--font-body);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold-500);
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            margin-bottom: 24px;
+        }
+
+        .section-subtitle {
+            font-size: 19px;
+            color: var(--gray-500);
+            max-width: 700px;
+        }
+
+        /* ==================== HEADER ==================== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: var(--navy-900);
+            transition: all var(--transition-base);
+        }
+
+        .header.scrolled {
+            background: rgba(10, 22, 40, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .header-top {
+            background: var(--navy-800);
+            padding: 10px 0;
+            font-size: 14px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .header-top .container {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .header-top a {
+            color: rgba(255,255,255,0.8);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .header-top a:hover {
+            color: var(--gold-400);
+        }
+
+        .header-main {
+            padding: 20px 0;
+        }
+
+        .header-main .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--gold-500);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--navy-900);
+        }
+
+        .logo-text {
+            color: var(--white);
+        }
+
+        .logo-text .name {
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text .tagline {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold-400);
+            opacity: 0.9;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 36px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.9);
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            position: relative;
+            padding: 8px 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold-500);
+            transition: width var(--transition-base);
+        }
+
+        .nav-links a:hover {
+            color: var(--white);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta .btn {
+            padding: 12px 24px;
+        }
+
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .mobile-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--white);
+            transition: var(--transition-fast);
+        }
+
+        /* ==================== HERO ==================== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-700) 100%);
+            overflow: hidden;
+            padding-top: 120px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: linear-gradient(to top, var(--navy-900), transparent);
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(201, 162, 39, 0.15);
+            border: 1px solid rgba(201, 162, 39, 0.3);
+            padding: 10px 20px;
+            border-radius: 30px;
+            margin-bottom: 32px;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .hero-label span {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--gold-400);
+        }
+
+        .hero h1 {
+            color: var(--white);
+            margin-bottom: 24px;
+            animation: fadeInUp 0.8s ease 0.1s forwards;
+            opacity: 0;
+        }
+
+        .hero h1 .highlight {
+            color: var(--gold-400);
+        }
+
+        .hero-description {
+            font-size: 20px;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 40px;
+            max-width: 600px;
+            line-height: 1.8;
+            animation: fadeInUp 0.8s ease 0.2s forwards;
+            opacity: 0;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.3s forwards;
+            opacity: 0;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            animation: fadeInUp 0.8s ease 0.4s forwards;
+            opacity: 0;
+        }
+
+        .hero-stat {
+            text-align: left;
+        }
+
+        .hero-stat .number {
+            font-family: var(--font-display);
+            font-size: 48px;
+            font-weight: 600;
+            color: var(--gold-400);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .hero-stat .label {
+            font-size: 14px;
+            color: rgba(255,255,255,0.7);
+            letter-spacing: 0.5px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ==================== INTRO / ABOUT ==================== */
+        .intro {
+            background: var(--cream-100);
+            position: relative;
+        }
+
+        .intro::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--gold-500), var(--gold-300), var(--gold-500));
+        }
+
+        .intro .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .intro-content {
+            padding-right: 40px;
+        }
+
+        .intro-content h2 {
+            margin-bottom: 24px;
+        }
+
+        .intro-content p {
+            margin-bottom: 20px;
+            font-size: 17px;
+        }
+
+        .intro-content p:last-of-type {
+            margin-bottom: 32px;
+        }
+
+        .intro-image {
+            position: relative;
+        }
+
+        .intro-image img {
+            border-radius: 4px;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .intro-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 100%;
+            height: 100%;
+            border: 3px solid var(--gold-500);
+            border-radius: 4px;
+            z-index: -1;
+        }
+
+        /* ==================== PROBLEM / SOLUTION ==================== */
+        .problem-solution {
+            background: var(--white);
+        }
+
+        .problem-solution .container {
+            text-align: center;
+        }
+
+        .problem-solution .section-subtitle {
+            margin: 0 auto 60px;
+        }
+
+        .ps-grid {
+            display: grid;
+            grid-template-columns: 1fr 80px 1fr;
+            gap: 40px;
+            align-items: stretch;
+        }
+
+        .ps-card {
+            padding: 48px;
+            border-radius: 4px;
+            text-align: left;
+        }
+
+        .ps-card.problem {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-left: 4px solid var(--gray-500);
+        }
+
+        .ps-card.solution {
+            background: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-700) 100%);
+            border-left: 4px solid var(--gold-500);
+        }
+
+        .ps-card.solution h3,
+        .ps-card.solution p,
+        .ps-card.solution li {
+            color: var(--white);
+        }
+
+        .ps-card.solution li::before {
+            color: var(--gold-400);
+        }
+
+        .ps-card h3 {
+            margin-bottom: 20px;
+        }
+
+        .ps-card p {
+            margin-bottom: 24px;
+        }
+
+        .ps-card ul {
+            list-style: none;
+        }
+
+        .ps-card li {
+            padding: 12px 0;
+            padding-left: 28px;
+            position: relative;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .ps-card.solution li {
+            border-bottom-color: rgba(255,255,255,0.1);
+        }
+
+        .ps-card li:last-child {
+            border-bottom: none;
+        }
+
+        .ps-card li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--gold-500);
+            font-weight: 600;
+        }
+
+        .ps-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ps-arrow svg {
+            width: 48px;
+            height: 48px;
+            color: var(--gold-500);
+        }
+
+        /* ==================== SERVICES ==================== */
+        .services {
+            background: var(--gray-100);
+        }
+
+        .services .container {
+            text-align: center;
+        }
+
+        .services .section-subtitle {
+            margin: 0 auto 60px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 48px 36px;
+            border-radius: 4px;
+            box-shadow: var(--shadow-md);
+            text-align: left;
+            transition: all var(--transition-base);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gold-500);
+            transform: scaleX(0);
+            transition: transform var(--transition-base);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--navy-900), var(--navy-700));
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+
+        .service-icon svg {
+            width: 32px;
+            height: 32px;
+            color: var(--gold-400);
+        }
+
+        .service-card h4 {
+            margin-bottom: 16px;
+        }
+
+        .service-card p {
+            font-size: 15px;
+            margin-bottom: 24px;
+        }
+
+        .service-list {
+            list-style: none;
+        }
+
+        .service-list li {
+            padding: 8px 0;
+            padding-left: 20px;
+            position: relative;
+            font-size: 15px;
+            color: var(--gray-700);
+        }
+
+        .service-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--gold-500);
+            font-weight: 600;
+        }
+
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--gold-500);
+            transition: all var(--transition-fast);
+        }
+
+        .service-link:hover {
+            color: var(--navy-900);
+            gap: 10px;
+        }
+
+        /* ==================== GUARANTEE ==================== */
+        .guarantee {
+            background: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-700) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .guarantee::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(201, 162, 39, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .guarantee .container {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .guarantee-content h2 {
+            color: var(--white);
+            margin-bottom: 24px;
+        }
+
+        .guarantee-content h2 .highlight {
+            color: var(--gold-400);
+        }
+
+        .guarantee-content p {
+            color: rgba(255,255,255,0.8);
+            font-size: 18px;
+            margin-bottom: 32px;
+        }
+
+        .guarantee-badge {
+            background: rgba(255,255,255,0.05);
+            border: 2px solid var(--gold-500);
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .guarantee-badge .icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gold-500);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+        }
+
+        .guarantee-badge .icon svg {
+            width: 40px;
+            height: 40px;
+            color: var(--navy-900);
+        }
+
+        .guarantee-badge h3 {
+            color: var(--white);
+            font-size: 28px;
+            margin-bottom: 16px;
+        }
+
+        .guarantee-badge p {
+            color: rgba(255,255,255,0.7);
+            font-size: 16px;
+        }
+
+        /* ==================== PROCESS ==================== */
+        .process {
+            background: var(--white);
+        }
+
+        .process .container {
+            text-align: center;
+        }
+
+        .process .section-subtitle {
+            margin: 0 auto 60px;
+        }
+
+        .process-timeline {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            position: relative;
+        }
+
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 12.5%;
+            right: 12.5%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold-500), var(--gold-300));
+        }
+
+        .process-step {
+            position: relative;
+            padding-top: 100px;
+        }
+
+        .process-step .number {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 80px;
+            background: var(--navy-900);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--gold-400);
+            box-shadow: var(--shadow-lg);
+            z-index: 2;
+        }
+
+        .process-step h4 {
+            margin-bottom: 12px;
+        }
+
+        .process-step p {
+            font-size: 15px;
+        }
+
+        /* ==================== CASE STUDIES ==================== */
+        .case-studies {
+            background: var(--cream-100);
+        }
+
+        .case-studies .container {
+            text-align: center;
+        }
+
+        .case-studies .section-subtitle {
+            margin: 0 auto 60px;
+        }
+
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .case-card {
+            background: var(--white);
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-base);
+        }
+
+        .case-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .case-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .case-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60%;
+            background: linear-gradient(to top, rgba(10, 22, 40, 0.8), transparent);
+        }
+
+        .case-tag {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            z-index: 2;
+            background: var(--gold-500);
+            color: var(--navy-900);
+            padding: 6px 12px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 2px;
+        }
+
+        .case-content {
+            padding: 28px;
+            text-align: left;
+        }
+
+        .case-content h4 {
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+        }
+
+        .case-content p {
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+
+        .case-result {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-top: 16px;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .case-result .metric {
+            font-family: var(--font-display);
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--gold-500);
+        }
+
+        .case-result .description {
+            font-size: 14px;
+            color: var(--gray-500);
+        }
+
+        /* ==================== CLIENTS ==================== */
+        .clients {
+            background: var(--white);
+            padding: 60px 0;
+        }
+
+        .clients .container {
+            text-align: center;
+        }
+
+        .clients-label {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gray-500);
+            margin-bottom: 40px;
+        }
+
+        .clients-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .client-logo {
+            height: 48px;
+            opacity: 0.4;
+            filter: grayscale(100%);
+            transition: all var(--transition-base);
+        }
+
+        .client-logo:hover {
+            opacity: 0.8;
+            filter: grayscale(0%);
+        }
+
+        .client-placeholder {
+            width: 140px;
+            height: 48px;
+            background: var(--gray-200);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--gray-500);
+            opacity: 0.6;
+        }
+
+        /* ==================== CTA ==================== */
+        .cta {
+            background: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-800) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+        }
+
+        .cta .container {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+        }
+
+        .cta h2 {
+            color: var(--white);
+            margin-bottom: 24px;
+        }
+
+        .cta p {
+            color: rgba(255,255,255,0.8);
+            font-size: 19px;
+            margin-bottom: 40px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* ==================== FOOTER ==================== */
+        .footer {
+            background: var(--navy-900);
+            color: rgba(255,255,255,0.7);
+            padding: 80px 0 0;
+        }
+
+        .footer-main {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            padding-bottom: 60px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-brand {
+            max-width: 300px;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 20px;
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.6);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .footer-column h5 {
+            color: var(--white);
+            font-family: var(--font-body);
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column a {
+            color: rgba(255,255,255,0.6);
+            font-size: 15px;
+            transition: color var(--transition-fast);
+        }
+
+        .footer-column a:hover {
+            color: var(--gold-400);
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .footer-contact-item svg {
+            width: 18px;
+            height: 18px;
+            color: var(--gold-500);
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+
+        .footer-bottom {
+            padding: 24px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            color: rgba(255,255,255,0.4);
+            font-size: 14px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-fast);
+        }
+
+        .footer-social a:hover {
+            background: var(--gold-500);
+            border-color: var(--gold-500);
+        }
+
+        .footer-social svg {
+            width: 18px;
+            height: 18px;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .footer-social a:hover svg {
+            color: var(--navy-900);
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 1024px) {
+            .services-grid,
+            .cases-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-timeline {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+
+            .process-timeline::before {
+                display: none;
+            }
+
+            .guarantee .container,
+            .intro .container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .intro-content {
+                padding-right: 0;
+            }
+
+            .ps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ps-arrow {
+                transform: rotate(90deg);
+                padding: 20px 0;
+            }
+
+            .footer-main {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 0;
+            }
+
+            .header-top {
+                display: none;
+            }
+
+            .nav-links,
+            .nav-cta {
+                display: none;
+            }
+
+            .mobile-toggle {
+                display: flex;
+            }
+
+            .hero {
+                padding-top: 100px;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .services-grid,
+            .cases-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-timeline {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-main {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+
+            .clients-grid {
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-top">
+            <div class="container">
+                <a href="/cdn-cgi/l/email-protection#fb9199899e8c9e89bb9c8f989a9f8d92889e8988d5989496">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                    <span class="__cf_email__" data-cfemail="452f273720322037052231262421332c362037366b262a28">[email&#160;protected]</span>
+                </a>
+                <a href="tel:7705332544">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                    (770) 533-2544
+                </a>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="container">
+                <a href="#" class="logo">
+                    <div class="logo-icon">G</div>
+                    <div class="logo-text">
+                        <div class="name">The GTC Group</div>
+                        <div class="tagline">Carrier Resources, Brokerage Results</div>
+                    </div>
+                </a>
+                <nav class="nav">
+                    <ul class="nav-links">
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#process">Process</a></li>
+                        <li><a href="#results">Results</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                    <div class="nav-cta">
+                        <a href="#contact" class="btn btn-primary">Book a Call</a>
+                    </div>
+                </nav>
+                <button class="mobile-toggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-label">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                    <span>Logistics Advisory Services</span>
+                </div>
+                <h1>Level the Playing Field Against <span class="highlight">Big Brokerages</span></h1>
+                <p class="hero-description">Founded by industry veterans, The GTC Group combines carrier resources to deliver brokerage-level pricing on insurance, fuel, maintenance, and driver services—plus direct sales support to grow your business.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Book a Call</a>
+                    <a href="#services" class="btn btn-secondary">Explore Services</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="number">1 Week</div>
+                        <div class="label">To see ROI or it's free</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="number">Global</div>
+                        <div class="label">OTR & international coverage</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="number">100%</div>
+                        <div class="label">Money-back guarantee</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Intro -->
+    <section class="intro" id="about">
+        <div class="container">
+            <div class="intro-content">
+                <span class="section-label">Who We Are</span>
+                <h2 class="section-title">Built by Brokerage Pros, For Carriers</h2>
+                <p>The GTC Group was founded by former brokerage professionals who saw an unfair landscape: large nationwide carriers and brokerages commanding better rates and resources while independent carriers struggled to compete.</p>
+                <p>We changed that. By combining the buying power of our carrier clients, we negotiate the same—or better—deals that mega-brokerages enjoy. You get access to bulk pricing on fuel, insurance, maintenance, and driver services without losing your independence.</p>
+                <a href="#services" class="btn btn-outline">See How We Help</a>
+            </div>
+            <div class="intro-image">
+                <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=800&q=80" alt="Trucking fleet">
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem / Solution -->
+    <section class="problem-solution">
+        <div class="container">
+            <span class="section-label">The Challenge</span>
+            <h2 class="section-title">What's Holding Your Business Back?</h2>
+            <p class="section-subtitle">Independent carriers face systemic disadvantages in the logistics industry. We eliminate them.</p>
+            
+            <div class="ps-grid">
+                <div class="ps-card problem">
+                    <h3>The Problem</h3>
+                    <p>As an independent carrier, you're at a disadvantage from day one:</p>
+                    <ul>
+                        <li>Paying premium rates for insurance, fuel, and maintenance</li>
+                        <li>Limited access to high-value lanes and direct shipper relationships</li>
+                        <li>Competing against mega-carriers with deeper resources</li>
+                        <li>No leverage to renegotiate existing contracts</li>
+                        <li>Marketing and sales stretched thin while you focus on operations</li>
+                    </ul>
+                </div>
+                
+                <div class="ps-arrow">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </div>
+                
+                <div class="ps-card solution">
+                    <h3>The GTC Solution</h3>
+                    <p>We pool carrier resources to give you enterprise-level advantages:</p>
+                    <ul>
+                        <li>Bulk-negotiated rates on insurance, fuel, maintenance, and driver services</li>
+                        <li>Dedicated sales team finding and securing profitable lanes on your behalf</li>
+                        <li>Direct connections to shippers—cutting out unnecessary middlemen</li>
+                        <li>Renegotiation of your current contracts for immediate savings</li>
+                        <li>Professional website, marketing, and online presence management</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services">
+        <div class="container">
+            <span class="section-label">What We Do</span>
+            <h2 class="section-title">Comprehensive Carrier Support</h2>
+            <p class="section-subtitle">Three pillars of service designed to reduce your costs, increase your revenue, and strengthen your market position.</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                        </svg>
+                    </div>
+                    <h4>Cost Reduction</h4>
+                    <p>Leverage our collective buying power to access rates typically reserved for large fleets.</p>
+                    <ul class="service-list">
+                        <li>Insurance procurement & optimization</li>
+                        <li>Bulk fuel purchasing programs</li>
+                        <li>Maintenance network access</li>
+                        <li>Driver services & recruitment</li>
+                        <li>Equipment financing</li>
+                    </ul>
+                    <a href="services-cost-reduction.html" class="service-link">Learn More →</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M23 6l-9.5 9.5-5-5L1 18"/>
+                            <path d="M17 6h6v6"/>
+                        </svg>
+                    </div>
+                    <h4>Revenue Growth</h4>
+                    <p>Our sales team works to expand your business and maximize your rates.</p>
+                    <ul class="service-list">
+                        <li>Dedicated sales representation</li>
+                        <li>Lane acquisition & optimization</li>
+                        <li>Direct shipper connections</li>
+                        <li>Rate renegotiation services</li>
+                        <li>Contract management</li>
+                    </ul>
+                    <a href="services-revenue-growth.html" class="service-link">Learn More →</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                            <line x1="8" y1="21" x2="16" y2="21"/>
+                            <line x1="12" y1="17" x2="12" y2="21"/>
+                        </svg>
+                    </div>
+                    <h4>Brand & Marketing</h4>
+                    <p>Professional presence to compete with established carriers.</p>
+                    <ul class="service-list">
+                        <li>Professional website design</li>
+                        <li>Online reputation management</li>
+                        <li>Marketing strategy & execution</li>
+                        <li>Digital presence optimization</li>
+                        <li>Brand identity development</li>
+                    </ul>
+                    <a href="services-brand-marketing.html" class="service-link">Learn More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantee -->
+    <section class="guarantee">
+        <div class="container">
+            <div class="guarantee-content">
+                <span class="section-label">Our Promise</span>
+                <h2>ROI in Week One—<span class="highlight">Or It's Free</span></h2>
+                <p>We're so confident in our ability to deliver results that we put our money where our mouth is. If we don't make you back our fee within the first week of paid service, you pay nothing.</p>
+                <p>No other logistics advisory firm offers this guarantee because no one else has our track record. We succeed when you succeed—it's that simple.</p>
+                <a href="#contact" class="btn btn-primary">Claim Your Free Assessment</a>
+            </div>
+            <div class="guarantee-badge">
+                <div class="icon">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        <path d="M9 12l2 2 4-4"/>
+                    </svg>
+                </div>
+                <h3>1-Week Money-Back Guarantee</h3>
+                <p>If we don't deliver ROI equal to our fee within your first week of paid service, you receive a full refund. Zero risk, maximum upside.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section class="process" id="process">
+        <div class="container">
+            <span class="section-label">How It Works</span>
+            <h2 class="section-title">From Assessment to Results in Days</h2>
+            <p class="section-subtitle">Our streamlined process gets you operational and seeing savings faster than you'd expect.</p>
+            
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="number">1</div>
+                    <h4>Discovery Call</h4>
+                    <p>We learn about your operation, current challenges, and goals. No commitment required.</p>
+                </div>
+                <div class="process-step">
+                    <div class="number">2</div>
+                    <h4>Assessment</h4>
+                    <p>Within 1 day, we complete a comprehensive review of your costs, contracts, and opportunities.</p>
+                </div>
+                <div class="process-step">
+                    <div class="number">3</div>
+                    <h4>Setup</h4>
+                    <p>By day 7, we've completed all integrations and begun implementing cost-saving measures.</p>
+                </div>
+                <div class="process-step">
+                    <div class="number">4</div>
+                    <h4>Growth</h4>
+                    <p>Week 2 begins paid service—our sales team starts securing lanes and renegotiating rates.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section class="case-studies" id="results">
+        <div class="container">
+            <span class="section-label">Results</span>
+            <h2 class="section-title">Real Savings, Real Growth</h2>
+            <p class="section-subtitle">See how carriers like you have transformed their operations with The GTC Group.</p>
+            
+            <div class="cases-grid">
+                <div class="case-card">
+                    <div class="case-image" style="background-image: url('https://images.unsplash.com/photo-1590496793907-51d60f3d9c68?auto=format&fit=crop&w=800&q=80')">
+                        <span class="case-tag">Cost Reduction</span>
+                    </div>
+                    <div class="case-content">
+                        <h4>Regional carrier slashes insurance costs</h4>
+                        <p>A 12-truck operation was overpaying for insurance by working with a local agent. GTC pooled their coverage with other carriers.</p>
+                        <div class="case-result">
+                            <span class="metric">$47K</span>
+                            <span class="description">Annual insurance savings</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="case-card">
+                    <div class="case-image" style="background-image: url('https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&w=800&q=80')">
+                        <span class="case-tag">Revenue Growth</span>
+                    </div>
+                    <div class="case-content">
+                        <h4>OTR operator lands dedicated lanes</h4>
+                        <p>Struggling to find consistent freight, this owner-operator relied on load boards. GTC connected them directly with shippers.</p>
+                        <div class="case-result">
+                            <span class="metric">+23%</span>
+                            <span class="description">Revenue increase in 90 days</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="case-card">
+                    <div class="case-image" style="background-image: url('https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=800&q=80')">
+                        <span class="case-tag">Full Service</span>
+                    </div>
+                    <div class="case-content">
+                        <h4>Growing fleet gets enterprise treatment</h4>
+                        <p>A 30-truck fleet needed fuel savings, better lanes, and a professional web presence to compete for contracts.</p>
+                        <div class="case-result">
+                            <span class="metric">$180K</span>
+                            <span class="description">First-year total value delivered</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients -->
+    <section class="clients">
+        <div class="container">
+            <p class="clients-label">Trusted by carriers nationwide</p>
+            <div class="clients-grid">
+                <div class="client-placeholder">Client Logo</div>
+                <div class="client-placeholder">Client Logo</div>
+                <div class="client-placeholder">Client Logo</div>
+                <div class="client-placeholder">Client Logo</div>
+                <div class="client-placeholder">Client Logo</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="contact">
+        <div class="container">
+            <span class="section-label">Get Started</span>
+            <h2>Ready to Stop Leaving Money on the Table?</h2>
+            <p>Schedule a free discovery call with our team. We'll assess your operation, identify immediate savings opportunities, and show you exactly how we can help—no obligation.</p>
+            <div class="cta-buttons">
+                <a href="https://calendly.com" target="_blank" class="btn btn-primary">Book a Call</a>
+                <a href="/cdn-cgi/l/email-protection#016b6373647664734166756260657768726473722f626e6c" class="btn btn-secondary">Email Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <div class="logo-icon">G</div>
+                        <div class="logo-text">
+                            <div class="name">The GTC Group</div>
+                            <div class="tagline">Carrier Resources, Brokerage Results</div>
+                        </div>
+                    </a>
+                    <p>Founded by brokerage professionals to help independent carriers compete with large nationwide carriers. We combine resources to deliver enterprise-level pricing and support.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h5>Services</h5>
+                    <ul>
+                        <li><a href="services-cost-reduction.html">Cost Reduction</a></li>
+                        <li><a href="services-revenue-growth.html">Revenue Growth</a></li>
+                        <li><a href="services-brand-marketing.html">Brand & Marketing</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h5>Company</h5>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="team.html">Our Team</a></li>
+                        <li><a href="#results">Case Studies</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h5>Contact</h5>
+                    <div class="footer-contact-item">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                        <a href="/cdn-cgi/l/email-protection#aac0c8d8cfddcfd8eacddec9cbcedcc3d9cfd8d984c9c5c7"><span class="__cf_email__" data-cfemail="80eae2f2e5f7e5f2c0e7f4e3e1e4f6e9f3e5f2f3aee3efed">[email&#160;protected]</span></a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
+                        <a href="tel:7705332544">(770) 533-2544</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="2" y1="12" x2="22" y2="12"/>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                        </svg>
+                        <span>Global Coverage</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 The GTC Group. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="LinkedIn">
+                        <svg fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Twitter">
+                        <svg fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Facebook">
+                        <svg fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe sections for animations
+        document.querySelectorAll('section').forEach(section => {
+            
