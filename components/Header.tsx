@@ -24,9 +24,13 @@ export default function Header() {
         <div className="flex items-center justify-between h-[80px]">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-gold-500 rounded flex items-center justify-center">
-              <span className="font-display text-xl font-bold text-navy-900">G</span>
-            </div>
+            <Image 
+              src="/logo.png" 
+              alt="GTC Group" 
+              width={40} 
+              height={40} 
+              className="rounded"
+            />
             <div className="hidden sm:block">
               <div className="font-display text-lg font-bold text-white leading-tight">The GTC Group</div>
               <div className="text-[10px] text-white/60 tracking-[0.08em] uppercase">Carrier Resources, Brokerage Results</div>
