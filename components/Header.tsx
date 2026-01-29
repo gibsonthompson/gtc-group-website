@@ -24,13 +24,9 @@ export default function Header() {
         <div className="flex items-center justify-between h-[80px]">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3">
-            <Image 
-              src="/logo.png" 
-              alt="The GTC Group" 
-              width={40} 
-              height={40}
-              className="w-10 h-10 object-contain"
-            />
+            <div className="w-10 h-10 bg-gold-500 rounded flex items-center justify-center">
+              <span className="font-display text-xl font-bold text-navy-900">G</span>
+            </div>
             <div className="hidden sm:block">
               <div className="font-display text-lg font-bold text-white leading-tight">The GTC Group</div>
               <div className="text-[10px] text-white/60 tracking-[0.08em] uppercase">Carrier Resources, Brokerage Results</div>
@@ -58,6 +54,11 @@ export default function Header() {
               <li>
                 <Link href="/case-studies" className="text-[14px] text-white/80 hover:text-gold-400 transition-colors">
                   Case Studies
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog" className="text-[14px] text-white/80 hover:text-gold-400 transition-colors">
+                  Blog
                 </Link>
               </li>
               <li>
@@ -107,6 +108,11 @@ export default function Header() {
               <li>
                 <Link href="/case-studies" className="block text-white/90 py-2" onClick={() => setMobileOpen(false)}>
                   Case Studies
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog" className="block text-white/90 py-2" onClick={() => setMobileOpen(false)}>
+                  Blog
                 </Link>
               </li>
               <li>
