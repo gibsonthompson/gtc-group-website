@@ -69,7 +69,7 @@ export default function TeamPage() {
                 <h3 className="font-display text-2xl text-navy-900">Gibson Thompson</h3>
                 <div className="text-gold-500 font-semibold text-sm uppercase tracking-wide mb-3">Chief Technology Officer</div>
                 <p className="text-gray-600 text-sm">
-                  Experienced technology leader with a background spanning logistics, SaaS, and service industries. Oversees the data systems, operational tools, and digital infrastructure that power GTC&apos;s advisory practice — ensuring independent carriers have access to the same analytics and optimization capabilities as the large brokerages.
+                  Experienced technology leader with a background spanning logistics, SaaS, and service industries. Oversees the digital infrastructure that power GTC&apos;s advisory practice — ensuring independent carriers have access to the same analytics and optimization capabilities as the large brokerages.
                 </p>
               </div>
             </div>
