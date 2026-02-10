@@ -10,7 +10,7 @@ const blogPosts = [
     category: 'Cost Reduction',
     readTime: '10 min read',
     date: 'February 2026',
-    image: 'https://images.unsplash.com/photo-1590496793907-51d60f3d9c68?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80',
   },
   {
     slug: 'beyond-load-boards-direct-shipper-contracts',
@@ -19,7 +19,7 @@ const blogPosts = [
     category: 'Revenue Growth',
     readTime: '11 min read',
     date: 'February 2026',
-    image: 'https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=800&q=80',
   },
   {
     slug: 'why-shippers-pass-on-your-carrier',
@@ -28,7 +28,7 @@ const blogPosts = [
     category: 'Brand & Marketing',
     readTime: '9 min read',
     date: 'February 2026',
-    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
   },
   {
     slug: 'trucking-insurance-cost-per-truck',
@@ -37,7 +37,7 @@ const blogPosts = [
     category: 'Cost Reduction',
     readTime: '8 min read',
     date: 'January 2026',
-    image: 'https://images.unsplash.com/photo-1590496793907-51d60f3d9c68?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=800&q=80',
   },
   {
     slug: 'load-board-fees-profit-math',
@@ -46,7 +46,7 @@ const blogPosts = [
     category: 'Revenue Growth',
     readTime: '10 min read',
     date: 'January 2026',
-    image: 'https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=800&q=80',
   },
   {
     slug: 'true-cost-independent-carrier-2026',
@@ -55,7 +55,7 @@ const blogPosts = [
     category: 'Industry Analysis',
     readTime: '12 min read',
     date: 'January 2026',
-    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=800&q=80',
   },
   {
     slug: 'how-large-fleets-get-better-rates',
@@ -64,7 +64,7 @@ const blogPosts = [
     category: 'Strategy',
     readTime: '9 min read',
     date: 'January 2026',
-    image: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1591768793355-74d04bb6608f?auto=format&fit=crop&w=800&q=80',
   },
   {
     slug: 'signs-overpaying-for-fuel',
@@ -73,7 +73,7 @@ const blogPosts = [
     category: 'Cost Reduction',
     readTime: '7 min read',
     date: 'January 2026',
-    image: 'https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1611288875785-d0ce4c5c0e2c?auto=format&fit=crop&w=800&q=80',
   },
 ]
 

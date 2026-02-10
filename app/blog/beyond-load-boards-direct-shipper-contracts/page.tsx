@@ -7,7 +7,7 @@ export default function BeyondLoadBoardsBlog() {
     <>
       {/* Hero */}
       <section className="relative bg-navy-900 pt-32 pb-20">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-[0.1]" />
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-[0.1]" />
         <div className="relative z-[2] max-w-[800px] mx-auto px-6">
           <div className="flex items-center gap-3 text-sm text-white/50 mb-6">
             <Link href="/blog" className="hover:text-gold-400 transition-colors">Blog</Link>
