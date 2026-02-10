@@ -103,7 +103,7 @@ export default function HomePage() {
             </div>
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=800&q=80" 
+                src="/fleet-trucks.jpg" 
                 alt="Professional trucking fleet operations"
                 className="rounded shadow-xl"
               />
