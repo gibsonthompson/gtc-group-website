@@ -40,7 +40,7 @@ export default function TeamPage() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-            {/* James Brewer */}
+            {/* Jacob Brewer */}
             <div className="flex gap-6">
               <div className="w-40 h-48 bg-gradient-to-br from-navy-800 to-navy-700 rounded-lg flex-shrink-0 flex items-center justify-center">
                 <svg className="w-16 h-16 text-white/30" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
@@ -49,15 +49,15 @@ export default function TeamPage() {
                 </svg>
               </div>
               <div>
-                <h3 className="font-display text-2xl text-navy-900">James Brewer</h3>
+                <h3 className="font-display text-2xl text-navy-900">Jacob Brewer</h3>
                 <div className="text-gold-500 font-semibold text-sm uppercase tracking-wide mb-3">Founder & CEO</div>
                 <p className="text-gray-600 text-sm">
-                  15+ years in freight brokerage, including senior roles at two top-20 national brokerages. Founded GTC to give independent carriers the same advantages he saw large brokerages use against them.
+                  Veteran freight brokerage executive with senior-level experience at nationally ranked brokerages. Founded GTC to give independent carriers the same competitive advantages he saw being used against them throughout his career.
                 </p>
               </div>
             </div>
 
-            {/* Placeholder for additional team members */}
+            {/* Gibson Thompson */}
             <div className="flex gap-6">
               <div className="w-40 h-48 bg-gradient-to-br from-navy-800 to-navy-700 rounded-lg flex-shrink-0 flex items-center justify-center">
                 <svg className="w-16 h-16 text-white/30" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
@@ -66,10 +66,10 @@ export default function TeamPage() {
                 </svg>
               </div>
               <div>
-                <h3 className="font-display text-2xl text-navy-900">Team Member</h3>
-                <div className="text-gold-500 font-semibold text-sm uppercase tracking-wide mb-3">Title</div>
+                <h3 className="font-display text-2xl text-navy-900">Gibson Thompson</h3>
+                <div className="text-gold-500 font-semibold text-sm uppercase tracking-wide mb-3">Chief Technology Officer</div>
                 <p className="text-gray-600 text-sm">
-                  Bio placeholder - update with real team member information.
+                  Experienced technology leader with a background spanning logistics, SaaS, and service industries. Oversees the data systems, operational tools, and digital infrastructure that power GTC&apos;s advisory practice — ensuring independent carriers have access to the same analytics and optimization capabilities as the large brokerages.
                 </p>
               </div>
             </div>
