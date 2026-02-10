@@ -3,46 +3,46 @@ import Image from 'next/image'
 
 export default function Footer() {
   return (
-    <footer className="bg-navy-900 pt-16 pb-8">
-      <div className="max-w-[1200px] mx-auto px-6">
+    <footer className="bg-navy-900 pt-12 md:pt-16 pb-8">
+      <div className="max-w-[1200px] mx-auto px-5 md:px-6">
         {/* Main Footer */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
-          {/* Brand */}
-          <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center gap-3 mb-5">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 pb-10 md:pb-12 border-b border-white/10">
+          {/* Brand - full width on mobile */}
+          <div className="col-span-2 lg:col-span-1">
+            <Link href="/" className="flex items-center gap-2.5 md:gap-3 mb-4 md:mb-5">
               <Image 
                 src="/logo.png" 
                 alt="The GTC Group" 
-                width={40} 
-                height={40}
-                className="w-10 h-10 object-contain"
+                width={36} 
+                height={36}
+                className="w-9 h-9 md:w-10 md:h-10 object-contain"
               />
               <div>
-                <div className="font-display text-lg font-bold text-white leading-tight">The GTC Group</div>
-                <div className="text-[10px] text-white/60 tracking-[0.08em] uppercase">Carrier Resources, Brokerage Results</div>
+                <div className="font-display text-[16px] md:text-lg font-bold text-white leading-tight">The GTC Group</div>
+                <div className="text-[9px] md:text-[10px] text-white/60 tracking-[0.08em] uppercase">Carrier Resources, Brokerage Results</div>
               </div>
             </Link>
-            <p className="text-[14px] text-white/55 leading-relaxed">
+            <p className="text-[13px] md:text-[14px] text-white/55 leading-relaxed max-w-[300px]">
               Founded by industry veterans, we combine carrier resources to deliver enterprise-level pricing and support.
             </p>
           </div>
 
           {/* Services */}
           <div>
-            <h5 className="text-white font-body text-[13px] font-bold tracking-[0.08em] uppercase mb-5">Services</h5>
-            <ul className="space-y-2.5">
+            <h5 className="text-white font-body text-[12px] md:text-[13px] font-bold tracking-[0.08em] uppercase mb-4 md:mb-5">Services</h5>
+            <ul className="space-y-2 md:space-y-2.5">
               <li>
-                <Link href="/services/cost-reduction" className="text-white/55 text-[14px] hover:text-gold-400 transition-colors">
+                <Link href="/services/cost-reduction" className="text-white/55 text-[13px] md:text-[14px] hover:text-gold-400 transition-colors">
                   Cost Reduction
                 </Link>
               </li>
               <li>
-                <Link href="/services/revenue-growth" className="text-white/55 text-[14px] hover:text-gold-400 transition-colors">
+                <Link href="/services/revenue-growth" className="text-white/55 text-[13px] md:text-[14px] hover:text-gold-400 transition-colors">
                   Revenue Growth
                 </Link>
               </li>
               <li>
-                <Link href="/services/brand-marketing" className="text-white/55 text-[14px] hover:text-gold-400 transition-colors">
+                <Link href="/services/brand-marketing" className="text-white/55 text-[13px] md:text-[14px] hover:text-gold-400 transition-colors">
                   Brand & Marketing
                 </Link>
               </li>
@@ -51,63 +51,63 @@ export default function Footer() {
 
           {/* Company */}
           <div>
-            <h5 className="text-white font-body text-[13px] font-bold tracking-[0.08em] uppercase mb-5">Company</h5>
-            <ul className="space-y-2.5">
+            <h5 className="text-white font-body text-[12px] md:text-[13px] font-bold tracking-[0.08em] uppercase mb-4 md:mb-5">Company</h5>
+            <ul className="space-y-2 md:space-y-2.5">
               <li>
-                <Link href="/#about" className="text-white/55 text-[14px] hover:text-gold-400 transition-colors">
+                <Link href="/#about" className="text-white/55 text-[13px] md:text-[14px] hover:text-gold-400 transition-colors">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/team" className="text-white/55 text-[14px] hover:text-gold-400 transition-colors">
+                <Link href="/team" className="text-white/55 text-[13px] md:text-[14px] hover:text-gold-400 transition-colors">
                   Our Team
                 </Link>
               </li>
               <li>
-                <Link href="/case-studies" className="text-white/55 text-[14px] hover:text-gold-400 transition-colors">
+                <Link href="/case-studies" className="text-white/55 text-[13px] md:text-[14px] hover:text-gold-400 transition-colors">
                   Case Studies
                 </Link>
               </li>
               <li>
-                <Link href="/#contact" className="text-white/55 text-[14px] hover:text-gold-400 transition-colors">
+                <Link href="/#contact" className="text-white/55 text-[13px] md:text-[14px] hover:text-gold-400 transition-colors">
                   Contact
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Contact */}
-          <div>
-            <h5 className="text-white font-body text-[13px] font-bold tracking-[0.08em] uppercase mb-5">Contact</h5>
-            <div className="space-y-3.5">
+          {/* Contact - full width on small mobile, normal on larger */}
+          <div className="col-span-2 md:col-span-1">
+            <h5 className="text-white font-body text-[12px] md:text-[13px] font-bold tracking-[0.08em] uppercase mb-4 md:mb-5">Contact</h5>
+            <div className="space-y-3">
               <a href="mailto:jbrewer@gtcadvisers.com" className="flex items-start gap-3 text-white/55 hover:text-gold-400 transition-colors">
                 <svg className="w-4 h-4 text-gold-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                   <polyline points="22,6 12,13 2,6"/>
                 </svg>
-                <span className="text-[14px]">jbrewer@gtcadvisers.com</span>
+                <span className="text-[13px] md:text-[14px] break-all">jbrewer@gtcadvisers.com</span>
               </a>
               <a href="tel:7705332544" className="flex items-start gap-3 text-white/55 hover:text-gold-400 transition-colors">
                 <svg className="w-4 h-4 text-gold-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
                 </svg>
-                <span className="text-[14px]">(770) 533-2544</span>
+                <span className="text-[13px] md:text-[14px]">(770) 533-2544</span>
               </a>
             </div>
           </div>
         </div>
 
         {/* Bottom Footer */}
-        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 pt-8">
-          <p className="text-[13px] text-white/40">
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 pt-6 md:pt-8">
+          <p className="text-[12px] md:text-[13px] text-white/40">
             © {new Date().getFullYear()} The GTC Group. All rights reserved.
           </p>
-          <div className="flex items-center gap-5">
-            <Link href="/terms" className="text-[13px] text-white/40 hover:text-gold-400 transition-colors">
+          <div className="flex items-center gap-4 md:gap-5 flex-wrap justify-center">
+            <Link href="/terms" className="text-[12px] md:text-[13px] text-white/40 hover:text-gold-400 transition-colors">
               Terms of Service
             </Link>
             <span className="text-white/20">|</span>
-            <Link href="/privacy" className="text-[13px] text-white/40 hover:text-gold-400 transition-colors">
+            <Link href="/privacy" className="text-[12px] md:text-[13px] text-white/40 hover:text-gold-400 transition-colors">
               Privacy Policy
             </Link>
             <span className="text-white/20">|</span>
