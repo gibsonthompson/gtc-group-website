@@ -4,6 +4,33 @@ import Link from 'next/link'
 
 const blogPosts = [
   {
+    slug: 'cut-trucking-insurance-costs-2026',
+    title: 'How Small Carriers Can Cut Trucking Insurance Costs in 2026 (Without Reducing Coverage)',
+    excerpt: 'Small fleets pay 3x more per mile on insurance than large carriers. Here\'s exactly why—and 7 strategies to close the gap, including one most carriers don\'t know about.',
+    category: 'Cost Reduction',
+    readTime: '10 min read',
+    date: 'February 2026',
+    image: 'https://images.unsplash.com/photo-1590496793907-51d60f3d9c68?auto=format&fit=crop&w=800&q=80',
+  },
+  {
+    slug: 'beyond-load-boards-direct-shipper-contracts',
+    title: 'Beyond Load Boards: How Independent Carriers Are Landing Direct Shipper Contracts',
+    excerpt: 'Between broker cuts and deadhead miles, load board dependency costs the average owner-operator $60K-$90K per year in lost revenue. Here\'s how to transition to direct freight.',
+    category: 'Revenue Growth',
+    readTime: '11 min read',
+    date: 'February 2026',
+    image: 'https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&w=800&q=80',
+  },
+  {
+    slug: 'why-shippers-pass-on-your-carrier',
+    title: 'Why Shippers Pass on Your Carrier Company (And What Your Online Presence Has to Do With It)',
+    excerpt: '80% of shippers research carriers online before contracting. Only 30% of small carriers have a website. Here\'s what that gap is costing you in lost contracts.',
+    category: 'Brand & Marketing',
+    readTime: '9 min read',
+    date: 'February 2026',
+    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80',
+  },
+  {
     slug: 'trucking-insurance-cost-per-truck',
     title: 'How Much Should Trucking Insurance Cost Per Truck in 2026?',
     excerpt: 'The average owner-operator pays $12,000-$18,000 per truck annually. But many are overpaying by 30% or more. Here\'s how to know if you\'re one of them.',
@@ -113,7 +140,7 @@ export default function BlogIndexPage() {
             Want Personalized Cost Analysis?
           </h2>
           <p className="text-white/70 mb-8">
-            We'll review your specific operation and show you exactly where you're leaving money on the table.
+            We&apos;ll review your specific operation and show you exactly where you&apos;re leaving money on the table.
           </p>
           <Link 
             href="/book-call" 
