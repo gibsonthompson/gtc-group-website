@@ -34,7 +34,7 @@ export default function HomePage() {
     <>
       {/* Hero */}
       <section className="relative min-h-screen flex items-center justify-start bg-gradient-to-br from-navy-900 to-navy-700 overflow-hidden pt-[100px]">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-[0.12]" />
+        <div className="absolute inset-0 bg-[url('/hero-bg.jpg')] bg-cover bg-center opacity-[0.12]" />
         <div className="absolute bottom-0 left-0 right-0 h-[200px] bg-gradient-to-t from-navy-900 to-transparent" />
         <div className="relative z-[2] w-full max-w-[1200px] mx-auto px-6">
           <div className="max-w-[720px] !text-left [&>*]:text-left">
