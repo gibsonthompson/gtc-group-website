@@ -66,8 +66,8 @@ export default function HomePage() {
                 <div className="text-[11px] md:text-[13px] text-white/60 tracking-[0.02em]">To see ROI or it&apos;s free</div>
               </div>
               <div className="text-left">
-                <div className="font-display text-[24px] md:text-[40px] font-bold text-gold-400 leading-none mb-1 md:mb-2">$8,400</div>
-                <div className="text-[11px] md:text-[13px] text-white/60 tracking-[0.02em]">Avg. annual savings per truck</div>
+                <div className="font-display text-[24px] md:text-[40px] font-bold text-gold-400 leading-none mb-1 md:mb-2">$3–8K</div>
+                <div className="text-[11px] md:text-[13px] text-white/60 tracking-[0.02em]">Avg. savings per truck/year</div>
               </div>
               <div className="text-left">
                 <div className="font-display text-[24px] md:text-[40px] font-bold text-gold-400 leading-none mb-1 md:mb-2">35+</div>
@@ -293,46 +293,25 @@ export default function HomePage() {
             {/* Timeline line - hidden on mobile */}
             <div className="hidden lg:block absolute top-9 left-[12.5%] right-[12.5%] h-0.5 bg-gradient-to-r from-gold-500 to-gold-300" />
             
-            {/* Step 1 */}
-            <div className="animate-on-scroll relative pt-16 md:pt-[92px]">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-12 md:w-[72px] md:h-[72px] bg-navy-900 rounded-full flex items-center justify-center shadow-lg z-[2]">
-                <span className="font-display text-xl md:text-[28px] font-bold text-gold-400">1</span>
+            {[
+              { n: '1', t: 'Discovery Call', d: "We learn about your operation, current challenges, and goals. No commitment required." },
+              { n: '2', t: 'Assessment', d: "Within 1 day, we complete a comprehensive review of your costs, contracts, and opportunities." },
+              { n: '3', t: 'Implementation', d: "By day 7, we've completed all integrations and begun implementing cost-saving measures." },
+              { n: '4', t: 'Growth', d: "Week 2 begins paid service—our sales team starts securing lanes and renegotiating rates." },
+            ].map(step => (
+              <div key={step.n} className="animate-on-scroll relative pt-16 md:pt-[92px]">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-12 md:w-[72px] md:h-[72px] bg-navy-900 rounded-full flex items-center justify-center shadow-lg z-[2]">
+                  <span className="font-display text-xl md:text-[28px] font-bold text-gold-400">{step.n}</span>
+                </div>
+                <h4 className="font-display text-[1rem] md:text-[1.25rem] text-navy-900 font-bold leading-[1.3] tracking-[-0.02em] mb-1.5 md:mb-2.5">{step.t}</h4>
+                <p className="text-[12px] md:text-[14px] text-gray-600 leading-[1.6] md:leading-[1.7]">{step.d}</p>
               </div>
-              <h4 className="font-display text-[1rem] md:text-[1.25rem] text-navy-900 font-bold leading-[1.3] tracking-[-0.02em] mb-1.5 md:mb-2.5">Discovery Call</h4>
-              <p className="text-[12px] md:text-[14px] text-gray-600 leading-[1.6] md:leading-[1.7]">We learn about your operation, current challenges, and goals. No commitment required.</p>
-            </div>
-
-            {/* Step 2 */}
-            <div className="animate-on-scroll relative pt-16 md:pt-[92px]">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-12 md:w-[72px] md:h-[72px] bg-navy-900 rounded-full flex items-center justify-center shadow-lg z-[2]">
-                <span className="font-display text-xl md:text-[28px] font-bold text-gold-400">2</span>
-              </div>
-              <h4 className="font-display text-[1rem] md:text-[1.25rem] text-navy-900 font-bold leading-[1.3] tracking-[-0.02em] mb-1.5 md:mb-2.5">Assessment</h4>
-              <p className="text-[12px] md:text-[14px] text-gray-600 leading-[1.6] md:leading-[1.7]">Within 1 day, we complete a comprehensive review of your costs, contracts, and opportunities.</p>
-            </div>
-
-            {/* Step 3 */}
-            <div className="animate-on-scroll relative pt-16 md:pt-[92px]">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-12 md:w-[72px] md:h-[72px] bg-navy-900 rounded-full flex items-center justify-center shadow-lg z-[2]">
-                <span className="font-display text-xl md:text-[28px] font-bold text-gold-400">3</span>
-              </div>
-              <h4 className="font-display text-[1rem] md:text-[1.25rem] text-navy-900 font-bold leading-[1.3] tracking-[-0.02em] mb-1.5 md:mb-2.5">Implementation</h4>
-              <p className="text-[12px] md:text-[14px] text-gray-600 leading-[1.6] md:leading-[1.7]">By day 7, we&apos;ve completed all integrations and begun implementing cost-saving measures.</p>
-            </div>
-
-            {/* Step 4 */}
-            <div className="animate-on-scroll relative pt-16 md:pt-[92px]">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-12 md:w-[72px] md:h-[72px] bg-navy-900 rounded-full flex items-center justify-center shadow-lg z-[2]">
-                <span className="font-display text-xl md:text-[28px] font-bold text-gold-400">4</span>
-              </div>
-              <h4 className="font-display text-[1rem] md:text-[1.25rem] text-navy-900 font-bold leading-[1.3] tracking-[-0.02em] mb-1.5 md:mb-2.5">Growth</h4>
-              <p className="text-[12px] md:text-[14px] text-gray-600 leading-[1.6] md:leading-[1.7]">Week 2 begins paid service—our sales team starts securing lanes and renegotiating rates.</p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Case Studies / Results */}
+      {/* Results */}
       <section id="results" className="py-16 md:py-[100px] bg-cream-100">
         <div className="max-w-[1200px] mx-auto px-5 md:px-6 text-center">
           <span className="section-label">Results</span>
@@ -340,23 +319,23 @@ export default function HomePage() {
             Real Savings, Real Growth
           </h2>
           <p className="text-[15px] md:text-[17px] text-gray-600 max-w-[640px] mx-auto leading-[1.7] mb-10 md:mb-14">
-            See how carriers like you have transformed their operations with The GTC Group.
+            See how carriers across our network are cutting costs, growing revenue, and competing at the enterprise level.
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-7">
-            {/* Case 1 - Insurance Savings */}
+            {/* Result 1 - Insurance Savings */}
             <Link href="/results/insurance-savings" className="animate-on-scroll bg-white rounded overflow-hidden shadow-md hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 group">
               <div className="h-[160px] md:h-[180px] bg-cover bg-center relative" style={{backgroundImage: "url('https://images.unsplash.com/photo-1590496793907-51d60f3d9c68?auto=format&fit=crop&w=800&q=80')"}}>
                 <div className="absolute inset-0 bg-navy-900/40 group-hover:bg-navy-900/30 transition-colors" />
                 <span className="absolute bottom-3 left-3 md:bottom-3.5 md:left-3.5 z-[2] bg-gold-500 text-navy-900 py-1 px-2 md:py-1.5 md:px-2.5 text-[10px] font-bold tracking-[0.08em] uppercase rounded-sm">Cost Reduction</span>
               </div>
               <div className="p-5 md:p-6 text-left">
-                <h4 className="font-display text-[1rem] md:text-[1.1rem] text-navy-900 font-bold leading-[1.3] tracking-[-0.02em] mb-2 md:mb-2.5 group-hover:text-gold-600 transition-colors">Regional carrier slashes insurance costs</h4>
-                <p className="text-[13px] md:text-[14px] text-gray-600 leading-[1.7] mb-4 md:mb-[18px]">A 12-truck operation was overpaying for insurance by working with a local agent. GTC pooled their coverage with other carriers.</p>
+                <h4 className="font-display text-[1rem] md:text-[1.1rem] text-navy-900 font-bold leading-[1.3] tracking-[-0.02em] mb-2 md:mb-2.5 group-hover:text-gold-600 transition-colors">How carriers save $3–8K per truck on insurance</h4>
+                <p className="text-[13px] md:text-[14px] text-gray-600 leading-[1.7] mb-4 md:mb-[18px]">Most small and mid-size fleets overpay through local agents. GTC&apos;s pooled network unlocks enterprise-level rates with identical coverage.</p>
                 <div className="flex items-center justify-between pt-3 md:pt-3.5 border-t border-gray-200">
                   <div className="flex items-center gap-2 md:gap-3">
-                    <span className="font-display text-[22px] md:text-[26px] font-bold text-gold-500">$47K</span>
-                    <span className="text-[12px] md:text-[13px] text-gray-500">Annual savings</span>
+                    <span className="font-display text-[22px] md:text-[26px] font-bold text-gold-500">$3–8K</span>
+                    <span className="text-[12px] md:text-[13px] text-gray-500">Saved per truck/year</span>
                   </div>
                   <span className="text-gold-500 group-hover:translate-x-1 transition-transform">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -367,19 +346,19 @@ export default function HomePage() {
               </div>
             </Link>
 
-            {/* Case 2 - Dedicated Lanes */}
+            {/* Result 2 - Dedicated Lanes */}
             <Link href="/results/dedicated-lanes" className="animate-on-scroll bg-white rounded overflow-hidden shadow-md hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 group">
               <div className="h-[160px] md:h-[180px] bg-cover bg-center relative" style={{backgroundImage: "url('https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&w=800&q=80')"}}>
                 <div className="absolute inset-0 bg-navy-900/40 group-hover:bg-navy-900/30 transition-colors" />
                 <span className="absolute bottom-3 left-3 md:bottom-3.5 md:left-3.5 z-[2] bg-gold-500 text-navy-900 py-1 px-2 md:py-1.5 md:px-2.5 text-[10px] font-bold tracking-[0.08em] uppercase rounded-sm">Revenue Growth</span>
               </div>
               <div className="p-5 md:p-6 text-left">
-                <h4 className="font-display text-[1rem] md:text-[1.1rem] text-navy-900 font-bold leading-[1.3] tracking-[-0.02em] mb-2 md:mb-2.5 group-hover:text-gold-600 transition-colors">OTR operator lands dedicated lanes</h4>
-                <p className="text-[13px] md:text-[14px] text-gray-600 leading-[1.7] mb-4 md:mb-[18px]">Struggling to find consistent freight, this owner-operator relied on load boards. GTC connected them directly with shippers.</p>
+                <h4 className="font-display text-[1rem] md:text-[1.1rem] text-navy-900 font-bold leading-[1.3] tracking-[-0.02em] mb-2 md:mb-2.5 group-hover:text-gold-600 transition-colors">Ditching load boards for dedicated lanes</h4>
+                <p className="text-[13px] md:text-[14px] text-gray-600 leading-[1.7] mb-4 md:mb-[18px]">Broker fees and deadhead miles eat 15–25% of revenue. GTC connects carriers directly with shippers—no middlemen, consistent freight.</p>
                 <div className="flex items-center justify-between pt-3 md:pt-3.5 border-t border-gray-200">
                   <div className="flex items-center gap-2 md:gap-3">
-                    <span className="font-display text-[22px] md:text-[26px] font-bold text-gold-500">+23%</span>
-                    <span className="text-[12px] md:text-[13px] text-gray-500">Revenue in 90 days</span>
+                    <span className="font-display text-[22px] md:text-[26px] font-bold text-gold-500">15–25%</span>
+                    <span className="text-[12px] md:text-[13px] text-gray-500">Revenue increase typical</span>
                   </div>
                   <span className="text-gold-500 group-hover:translate-x-1 transition-transform">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -390,19 +369,19 @@ export default function HomePage() {
               </div>
             </Link>
 
-            {/* Case 3 - Full Service */}
+            {/* Result 3 - Full Service */}
             <Link href="/results/full-service-partnership" className="animate-on-scroll bg-white rounded overflow-hidden shadow-md hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 group">
               <div className="h-[160px] md:h-[180px] bg-cover bg-center relative" style={{backgroundImage: "url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80')"}}>
                 <div className="absolute inset-0 bg-navy-900/40 group-hover:bg-navy-900/30 transition-colors" />
                 <span className="absolute bottom-3 left-3 md:bottom-3.5 md:left-3.5 z-[2] bg-gold-500 text-navy-900 py-1 px-2 md:py-1.5 md:px-2.5 text-[10px] font-bold tracking-[0.08em] uppercase rounded-sm">Full Service</span>
               </div>
               <div className="p-5 md:p-6 text-left">
-                <h4 className="font-display text-[1rem] md:text-[1.1rem] text-navy-900 font-bold leading-[1.3] tracking-[-0.02em] mb-2 md:mb-2.5 group-hover:text-gold-600 transition-colors">Growing fleet gets enterprise treatment</h4>
-                <p className="text-[13px] md:text-[14px] text-gray-600 leading-[1.7] mb-4 md:mb-[18px]">A 30-truck fleet needed fuel savings, better lanes, and a professional web presence to compete for contracts.</p>
+                <h4 className="font-display text-[1rem] md:text-[1.1rem] text-navy-900 font-bold leading-[1.3] tracking-[-0.02em] mb-2 md:mb-2.5 group-hover:text-gold-600 transition-colors">The full-service partnership: cost, revenue & brand</h4>
+                <p className="text-[13px] md:text-[14px] text-gray-600 leading-[1.7] mb-4 md:mb-[18px]">Mid-size fleets that address insurance, freight sourcing, and brand simultaneously see compounding returns across all three pillars.</p>
                 <div className="flex items-center justify-between pt-3 md:pt-3.5 border-t border-gray-200">
                   <div className="flex items-center gap-2 md:gap-3">
-                    <span className="font-display text-[22px] md:text-[26px] font-bold text-gold-500">$180K</span>
-                    <span className="text-[12px] md:text-[13px] text-gray-500">First-year value</span>
+                    <span className="font-display text-[22px] md:text-[26px] font-bold text-gold-500">$100–200K</span>
+                    <span className="text-[12px] md:text-[13px] text-gray-500">Typical first-year value</span>
                   </div>
                   <span className="text-gold-500 group-hover:translate-x-1 transition-transform">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -417,7 +396,7 @@ export default function HomePage() {
           {/* View All Link */}
           <div className="mt-10 md:mt-12">
             <Link href="/results" className="btn btn-outline">
-              View All Case Studies
+              View All Results
             </Link>
           </div>
         </div>
