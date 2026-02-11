@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
     }
 
     const { data, error: dbError } = await supabase
-      .from('bookings')
+      .from('gtc_bookings')
       .insert([submission])
       .select()
       .single()
