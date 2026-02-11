@@ -43,9 +43,9 @@ export default function Header() {
               height={36} 
               className="rounded md:w-10 md:h-10"
             />
-            <div className="hidden sm:block">
-              <div className="font-display text-[16px] md:text-lg font-bold text-white leading-tight">The GTC Group</div>
-              <div className="text-[9px] md:text-[10px] text-white/60 tracking-[0.08em] uppercase">Carrier Resources, Brokerage Results</div>
+            <div>
+              <div className="font-display text-[14px] sm:text-[16px] md:text-lg font-bold text-white leading-tight">The GTC Group</div>
+              <div className="text-[8px] sm:text-[9px] md:text-[10px] text-white/60 tracking-[0.08em] uppercase">Carrier Resources, Brokerage Results</div>
             </div>
           </Link>
 
