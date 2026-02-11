@@ -73,7 +73,7 @@ const blogPosts = [
     category: 'Cost Reduction',
     readTime: '7 min read',
     date: 'January 2026',
-    image: 'https://images.unsplash.com/photo-1611288875785-d0ce4c5c0e2c?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80',
   },
 ]
 
