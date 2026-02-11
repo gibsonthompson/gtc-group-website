@@ -1,9 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
 
-export default function DedicatedLanesCaseStudy() {
+export default function DedicatedLanesPage() {
   return (
     <>
       {/* Hero */}
@@ -15,9 +14,9 @@ export default function DedicatedLanesCaseStudy() {
           <nav className="flex items-center gap-2 text-sm text-white/60 mb-8">
             <Link href="/" className="hover:text-gold-400 transition-colors">Home</Link>
             <span>/</span>
-            <Link href="/#results" className="hover:text-gold-400 transition-colors">Results</Link>
+            <Link href="/services/revenue-growth" className="hover:text-gold-400 transition-colors">Revenue Growth</Link>
             <span>/</span>
-            <span className="text-white">Darrell Hawkins</span>
+            <span className="text-white">Dedicated Lanes</span>
           </nav>
           
           <span className="inline-block bg-gold-500 text-navy-900 py-1.5 px-3 text-[11px] font-bold tracking-[0.1em] uppercase rounded-sm mb-6">
@@ -25,34 +24,35 @@ export default function DedicatedLanesCaseStudy() {
           </span>
           
           <h1 className="font-display text-[clamp(2rem,4vw,3rem)] text-white font-bold leading-[1.15] tracking-[-0.02em] max-w-[800px] mb-6">
-            How an Owner-Operator Grew Revenue <span className="text-gold-400">23% in 90 Days</span> by Ditching Load Boards
+            Stop Gambling on Load Boards. <span className="text-gold-400">Start Building Dedicated Lanes.</span>
           </h1>
           
           <p className="text-xl text-white/70 max-w-[600px] leading-relaxed">
-            Darrell Hawkins was grinding through load boards, chasing inconsistent freight. GTC connected him directly with shippers—and everything changed.
+            Owner-operators and small fleets lose thousands every month to broker fees and deadhead miles. GTC connects you directly with shippers who need consistent capacity—no middlemen, no bidding wars.
           </p>
         </div>
       </section>
 
-      {/* Quick Stats */}
+      {/* Typical Results Bar */}
       <section className="bg-white border-b border-gray-200">
         <div className="max-w-[1200px] mx-auto px-6">
+          <p className="text-[11px] font-bold tracking-[0.1em] uppercase text-gray-400 text-center pt-6 mb-0">Typical Client Results Within 90 Days</p>
           <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-gray-200">
-            <div className="py-8 pr-6 md:pr-8">
-              <p className="text-[11px] font-bold tracking-[0.1em] uppercase text-gray-500 mb-2">Revenue Increase</p>
-              <p className="font-display text-3xl md:text-4xl font-bold text-gold-500">+23%</p>
+            <div className="py-8 pr-6 md:pr-8 text-center">
+              <p className="font-display text-3xl md:text-4xl font-bold text-gold-500">15–25%</p>
+              <p className="text-[11px] font-bold tracking-[0.1em] uppercase text-gray-500 mt-2">Revenue Increase</p>
             </div>
-            <div className="py-8 px-6 md:px-8">
-              <p className="text-[11px] font-bold tracking-[0.1em] uppercase text-gray-500 mb-2">Timeframe</p>
-              <p className="font-display text-3xl md:text-4xl font-bold text-navy-900">90 Days</p>
+            <div className="py-8 px-6 md:px-8 text-center">
+              <p className="font-display text-3xl md:text-4xl font-bold text-navy-900">0%</p>
+              <p className="text-[11px] font-bold tracking-[0.1em] uppercase text-gray-500 mt-2">Broker Fees</p>
             </div>
-            <div className="py-8 px-6 md:px-8">
-              <p className="text-[11px] font-bold tracking-[0.1em] uppercase text-gray-500 mb-2">Operation</p>
-              <p className="font-display text-3xl md:text-4xl font-bold text-navy-900">OTR</p>
+            <div className="py-8 px-6 md:px-8 text-center">
+              <p className="font-display text-3xl md:text-4xl font-bold text-navy-900">&lt;5%</p>
+              <p className="text-[11px] font-bold tracking-[0.1em] uppercase text-gray-500 mt-2">Deadhead Miles</p>
             </div>
-            <div className="py-8 pl-6 md:pl-8">
-              <p className="text-[11px] font-bold tracking-[0.1em] uppercase text-gray-500 mb-2">Fleet Size</p>
-              <p className="font-display text-3xl md:text-4xl font-bold text-navy-900">1 Truck</p>
+            <div className="py-8 pl-6 md:pl-8 text-center">
+              <p className="font-display text-3xl md:text-4xl font-bold text-navy-900">Weekly</p>
+              <p className="text-[11px] font-bold tracking-[0.1em] uppercase text-gray-500 mt-2">Guaranteed Freight</p>
             </div>
           </div>
         </div>
@@ -66,179 +66,169 @@ export default function DedicatedLanesCaseStudy() {
             {/* Article Content */}
             <article className="prose prose-lg max-w-none">
               
-              {/* The Challenge */}
+              {/* The Problem */}
               <div className="bg-white rounded-lg p-8 mb-10 shadow-sm">
-                <h2 className="font-display text-2xl text-navy-900 font-bold mb-4 mt-0">The Challenge</h2>
+                <h2 className="font-display text-2xl text-navy-900 font-bold mb-4 mt-0">The Load Board Trap</h2>
                 <p className="text-gray-600 leading-relaxed mb-0">
-                  After 14 years driving for a regional carrier, <strong>Darrell Hawkins</strong> made the leap to owner-operator in 2022. He bought a well-maintained 2019 Freightliner Cascadia, got his authority, and figured the freight would follow. It did—but not the way he expected.
+                  Most independent carriers start the same way: get your authority, sign up for DAT or Truckstop, and start refreshing at 4 AM. Some weeks are solid. Others, you sit for days waiting on a decent load. The inconsistency is what kills profitability—and eventually, the business itself.
                 </p>
               </div>
 
               <p>
-                "I was on DAT and Truckstop every morning at 4 AM, refreshing like crazy," Darrell recalled. "Some weeks were solid. Other weeks I'd sit for two, three days waiting on a decent load. The inconsistency was killing me."
+                Load boards create a race to the bottom. Hundreds of carriers compete for the same freight while brokers capture 15–25% of the margin. The system is designed to work for brokers—not for the people actually moving the freight.
               </p>
 
               <p>
-                The math wasn't adding up. Between broker fees eating 15-20% of each load, deadhead miles chasing freight, and the constant uncertainty, Darrell was grossing less as an owner-operator than he'd made as a company driver—with ten times the stress.
-              </p>
-
-              <p>
-                "I'd burned through most of my savings in the first eight months. I was starting to think I'd made a huge mistake."
-              </p>
-
-              {/* The Load Board Trap */}
-              <h2 className="font-display text-2xl text-navy-900 font-bold mt-12 mb-4">The Load Board Trap</h2>
-              
-              <p>
-                Darrell's situation isn't unique. Load boards create a race to the bottom—hundreds of carriers competing for the same freight, with brokers capturing the margin. The system works for brokers, but it keeps independent operators stuck in a cycle of inconsistency.
+                The math is brutal: between broker fees, deadhead miles chasing loads, and unpredictable downtime, many owner-operators gross less than they made as company drivers. More stress, more risk, less money.
               </p>
 
               <div className="bg-red-50 border-l-4 border-red-400 p-6 my-8">
                 <p className="text-red-800 font-semibold mb-2">The Real Cost of Load Board Dependency</p>
                 <ul className="text-red-700 text-sm space-y-1 mb-0 list-none pl-0">
-                  <li>• 15-25% of revenue lost to broker fees</li>
-                  <li>• Unpredictable weekly income</li>
-                  <li>• Excessive deadhead miles chasing freight</li>
-                  <li>• No relationship = no leverage on rates</li>
-                  <li>• Constant competition against thousands of carriers</li>
+                  <li>• 15–25% of revenue lost to broker fees on every load</li>
+                  <li>• Unpredictable weekly income makes planning impossible</li>
+                  <li>• 15–20% of miles run empty chasing the next load</li>
+                  <li>• No relationships means no leverage on rates</li>
+                  <li>• Constant competition against thousands of other carriers</li>
                 </ul>
               </div>
 
               <p>
-                Darrell connected with The GTC Group through a recommendation from another owner-operator at a truck stop in Texarkana. "He told me they'd gotten him off the boards completely. I didn't believe him at first."
+                This isn't a driver problem—it's a structural problem. And the solution isn't working harder on the same platforms. It's getting off them entirely.
               </p>
 
               {/* The Solution */}
-              <h2 className="font-display text-2xl text-navy-900 font-bold mt-12 mb-4">The Solution</h2>
+              <h2 className="font-display text-2xl text-navy-900 font-bold mt-12 mb-4">How GTC Gets You Off the Boards</h2>
 
               <p>
-                GTC's revenue growth service focuses on one thing: connecting carriers directly with shippers who need consistent capacity. No brokers. No bidding wars. Just straightforward relationships where both sides win.
-              </p>
-
-              <blockquote className="border-l-4 border-gold-500 pl-6 my-8 italic text-gray-700">
-                "Within three weeks, they had me set up with a dedicated lane running automotive parts from Birmingham to Nashville. Consistent freight, same route, same customer every week. I went from praying for loads to turning down work I couldn't fit."
-                <footer className="text-sm text-gray-500 mt-2 not-italic">— Darrell Hawkins, Owner-Operator</footer>
-              </blockquote>
-
-              <p>
-                GTC's dedicated sales team had identified the opportunity through their shipper network—a tier-one automotive supplier who needed reliable regional capacity but was tired of broker markups and inconsistent service. Darrell's clean safety record and professional communication made him an ideal fit.
+                GTC's lane acquisition service does one thing: connect carriers directly with shippers who need consistent, reliable capacity. No brokers. No bidding wars. Just straightforward relationships where both sides benefit.
               </p>
 
               <p>
-                The arrangement benefited both parties:
+                Here's how it works:
+              </p>
+
+              <div className="bg-white rounded-lg shadow-sm overflow-hidden my-8">
+                <div className="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-100">
+                  <div className="p-6">
+                    <div className="w-10 h-10 bg-navy-900 rounded flex items-center justify-center mb-4">
+                      <span className="text-gold-400 font-display font-bold text-lg">1</span>
+                    </div>
+                    <h3 className="font-display text-lg font-bold text-navy-900 mb-2">We Assess Your Operation</h3>
+                    <p className="text-sm text-gray-600 mb-0">Equipment type, preferred lanes, home time needs, safety record. We build a profile of what makes you the right fit for specific shippers.</p>
+                  </div>
+                  <div className="p-6">
+                    <div className="w-10 h-10 bg-navy-900 rounded flex items-center justify-center mb-4">
+                      <span className="text-gold-400 font-display font-bold text-lg">2</span>
+                    </div>
+                    <h3 className="font-display text-lg font-bold text-navy-900 mb-2">We Match You With Shippers</h3>
+                    <p className="text-sm text-gray-600 mb-0">Our sales team works our shipper network to find dedicated lanes that match your operation. We negotiate rates on your behalf—rates without broker markup built in.</p>
+                  </div>
+                  <div className="p-6">
+                    <div className="w-10 h-10 bg-navy-900 rounded flex items-center justify-center mb-4">
+                      <span className="text-gold-400 font-display font-bold text-lg">3</span>
+                    </div>
+                    <h3 className="font-display text-lg font-bold text-navy-900 mb-2">You Run Consistent Freight</h3>
+                    <p className="text-sm text-gray-600 mb-0">Same lanes, same customers, every week. You build a direct relationship with the shipper. No more refreshing load boards at 4 AM.</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Why It Works */}
+              <h2 className="font-display text-2xl text-navy-900 font-bold mt-12 mb-4">Why Direct Shipper Relationships Win</h2>
+
+              <p>
+                The difference between load board freight and dedicated lanes isn't incremental—it's structural. When you remove the broker from the equation, both the carrier and the shipper come out ahead.
               </p>
 
               <div className="bg-navy-900 text-white rounded-lg p-8 my-8">
                 <div className="grid md:grid-cols-2 gap-8">
                   <div>
-                    <p className="text-gold-400 text-sm font-bold tracking-wide uppercase mb-3">For Darrell</p>
+                    <p className="text-gold-400 text-sm font-bold tracking-wide uppercase mb-3">For the Carrier</p>
                     <ul className="space-y-2 text-white/80 text-sm">
-                      <li className="flex items-start gap-2">
-                        <svg className="w-4 h-4 text-gold-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        <span>Consistent weekly freight</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <svg className="w-4 h-4 text-gold-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        <span>Higher per-mile rate (no broker cut)</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <svg className="w-4 h-4 text-gold-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        <span>Predictable home time</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <svg className="w-4 h-4 text-gold-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        <span>Minimal deadhead miles</span>
-                      </li>
+                      {['Consistent weekly freight—no downtime','Higher per-mile rates without broker fees','Predictable schedule and home time','Minimal deadhead miles between loads'].map(item => (
+                        <li key={item} className="flex items-start gap-2">
+                          <svg className="w-4 h-4 text-gold-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                          </svg>
+                          <span>{item}</span>
+                        </li>
+                      ))}
                     </ul>
                   </div>
                   <div>
                     <p className="text-gold-400 text-sm font-bold tracking-wide uppercase mb-3">For the Shipper</p>
                     <ul className="space-y-2 text-white/80 text-sm">
-                      <li className="flex items-start gap-2">
-                        <svg className="w-4 h-4 text-gold-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        <span>Reliable, vetted capacity</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <svg className="w-4 h-4 text-gold-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        <span>Lower total cost (no broker markup)</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <svg className="w-4 h-4 text-gold-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        <span>Consistent service quality</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <svg className="w-4 h-4 text-gold-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        <span>Direct communication with driver</span>
-                      </li>
+                      {['Reliable, vetted capacity they can count on','Lower total cost without broker markup','Consistent service quality from the same driver','Direct communication—no telephone game'].map(item => (
+                        <li key={item} className="flex items-start gap-2">
+                          <svg className="w-4 h-4 text-gold-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                          </svg>
+                          <span>{item}</span>
+                        </li>
+                      ))}
                     </ul>
                   </div>
                 </div>
               </div>
 
-              {/* The Results */}
-              <h2 className="font-display text-2xl text-navy-900 font-bold mt-12 mb-4">The Results</h2>
+              <p>
+                This is the model that mid-size and enterprise shippers already use with their core carriers. GTC simply opens that door for owner-operators and small fleets who don't have a dedicated sales team knocking on shipper doors.
+              </p>
+
+              {/* Results */}
+              <h2 className="font-display text-2xl text-navy-900 font-bold mt-12 mb-4">What Our Clients Typically See</h2>
 
               <p>
-                Within 90 days of partnering with GTC, Darrell's operation transformed:
+                Results vary by operation size, equipment type, and market conditions. But across our client base, the pattern is consistent: carriers who transition from load board dependency to dedicated lanes see meaningful improvements within the first 90 days.
               </p>
 
               <div className="grid md:grid-cols-3 gap-4 my-8">
                 <div className="bg-white rounded-lg p-6 text-center shadow-sm">
-                  <p className="font-display text-3xl font-bold text-gold-500 mb-1">+23%</p>
+                  <p className="font-display text-3xl font-bold text-gold-500 mb-1">15–25%</p>
                   <p className="text-sm text-gray-600">Gross revenue increase</p>
                 </div>
                 <div className="bg-white rounded-lg p-6 text-center shadow-sm">
-                  <p className="font-display text-3xl font-bold text-navy-900 mb-1">Zero</p>
-                  <p className="text-sm text-gray-600">Days waiting for freight</p>
+                  <p className="font-display text-3xl font-bold text-navy-900 mb-1">&lt;5%</p>
+                  <p className="text-sm text-gray-600">Deadhead mile percentage</p>
                 </div>
                 <div className="bg-white rounded-lg p-6 text-center shadow-sm">
-                  <p className="font-display text-3xl font-bold text-navy-900 mb-1">2 Days</p>
-                  <p className="text-sm text-gray-600">Home every weekend</p>
+                  <p className="font-display text-3xl font-bold text-navy-900 mb-1">90 Days</p>
+                  <p className="text-sm text-gray-600">Average time to first lane</p>
                 </div>
               </div>
 
               <p>
-                The 23% revenue increase came from two sources: higher per-mile rates without broker fees, and dramatically reduced deadhead miles. Darrell went from running 15-20% empty to less than 5%.
+                The revenue increase comes from two places: higher per-mile rates (because there's no broker taking a cut) and dramatically fewer empty miles. Most load board-dependent carriers run 15–20% deadhead. Our clients typically drop below 5%.
               </p>
 
+              {/* Who It's For */}
+              <h2 className="font-display text-2xl text-navy-900 font-bold mt-12 mb-4">Is This Right For Your Operation?</h2>
+
               <p>
-                But for Darrell, the numbers only tell part of the story.
+                GTC's lane acquisition service works best for carriers who are tired of the inconsistency and ready to build something more stable. Specifically:
               </p>
 
-              <blockquote className="border-l-4 border-gold-500 pl-6 my-8 italic text-gray-700">
-                "The money matters, obviously. But what really changed is I'm not stressed anymore. I know what next week looks like. I know what next month looks like. I can actually plan my life. That's worth more than the 23%."
-                <footer className="text-sm text-gray-500 mt-2 not-italic">— Darrell Hawkins</footer>
-              </blockquote>
-
-              {/* What's Next */}
-              <h2 className="font-display text-2xl text-navy-900 font-bold mt-12 mb-4">What's Next</h2>
+              <div className="bg-white rounded-lg p-8 my-8 shadow-sm">
+                <div className="space-y-4">
+                  {[
+                    { label: 'Owner-operators', desc: 'running 1–3 trucks who want consistent freight without chasing load boards every morning' },
+                    { label: 'Small fleets (4–30 trucks)', desc: 'that need dedicated lanes to stabilize revenue and reduce dispatcher workload' },
+                    { label: 'Carriers with clean safety records', desc: 'who want to leverage their professionalism into direct shipper relationships' },
+                    { label: 'Operations stuck in the broker cycle', desc: 'losing 15–25% of every load to middlemen and ready for a better model' },
+                  ].map(item => (
+                    <div key={item.label} className="flex items-start gap-3 pb-4 border-b border-gray-100 last:border-0 last:pb-0">
+                      <svg className="w-5 h-5 text-gold-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <p className="text-sm text-gray-700 mb-0"><strong className="text-navy-900">{item.label}</strong> {item.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
 
               <p>
-                Six months in, Darrell is considering adding a second truck. With consistent freight already secured through his shipper relationship, he has the foundation to grow—something that felt impossible when he was grinding on load boards.
-              </p>
-
-              <p>
-                "I've got a cousin who drives. Good guy, reliable. We're talking about him coming on as my first driver. GTC said they can help find additional lanes when I'm ready."
-              </p>
-
-              <p>
-                For owner-operators stuck in the load board cycle, Darrell's path offers a blueprint: find partners who can connect you directly with shippers, build relationships, and escape the race to the bottom.
+                If you're running freight and leaving money on the table to brokers, there's a better way. Let's talk about what dedicated lanes could look like for your specific operation.
               </p>
 
             </article>
@@ -246,90 +236,63 @@ export default function DedicatedLanesCaseStudy() {
             {/* Sidebar */}
             <aside className="space-y-8">
               
-              {/* Company Profile */}
+              {/* Quick Comparison */}
               <div className="bg-white rounded-lg p-6 shadow-sm">
-                <h3 className="font-display text-lg font-bold text-navy-900 mb-4">Operator Profile</h3>
-                <dl className="space-y-4 text-sm">
-                  <div>
-                    <dt className="text-gray-500 mb-1">Operator</dt>
-                    <dd className="font-semibold text-navy-900">Darrell Hawkins</dd>
-                  </div>
-                  <div>
-                    <dt className="text-gray-500 mb-1">Based In</dt>
-                    <dd className="font-semibold text-navy-900">Tuscaloosa, Alabama</dd>
-                  </div>
-                  <div>
-                    <dt className="text-gray-500 mb-1">Equipment</dt>
-                    <dd className="font-semibold text-navy-900">2019 Freightliner Cascadia</dd>
-                  </div>
-                  <div>
-                    <dt className="text-gray-500 mb-1">Operation Type</dt>
-                    <dd className="font-semibold text-navy-900">OTR / Regional</dd>
-                  </div>
-                  <div>
-                    <dt className="text-gray-500 mb-1">Years as O/O</dt>
-                    <dd className="font-semibold text-navy-900">2 years</dd>
-                  </div>
-                </dl>
+                <h3 className="font-display text-lg font-bold text-navy-900 mb-4">Load Boards vs. Dedicated Lanes</h3>
+                <div className="space-y-4 text-sm">
+                  {[
+                    { metric: 'Freight source', before: 'Broker-controlled', after: 'Direct shipper' },
+                    { metric: 'Weekly consistency', before: 'Unpredictable', after: 'Guaranteed' },
+                    { metric: 'Broker fees', before: '15–25%', after: '0%' },
+                    { metric: 'Deadhead miles', before: '15–20%', after: '<5%' },
+                    { metric: 'Rate negotiation', before: 'Race to bottom', after: 'Fair market rate' },
+                  ].map((item, i) => (
+                    <div key={item.metric} className={`flex justify-between items-center ${i < 4 ? 'pb-3 border-b border-gray-100' : ''}`}>
+                      <span className="text-gray-500">{item.metric}</span>
+                      <div className="text-right">
+                        <span className="text-red-500 line-through text-xs block">{item.before}</span>
+                        <span className="text-green-600 font-semibold">{item.after}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
 
-              {/* Services Used */}
+              {/* Services Included */}
               <div className="bg-white rounded-lg p-6 shadow-sm">
-                <h3 className="font-display text-lg font-bold text-navy-900 mb-4">GTC Services Used</h3>
+                <h3 className="font-display text-lg font-bold text-navy-900 mb-4">What's Included</h3>
                 <ul className="space-y-3">
-                  <li className="flex items-center gap-3">
-                    <svg className="w-5 h-5 text-gold-500 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-sm text-gray-700">Lane Acquisition</span>
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <svg className="w-5 h-5 text-gold-500 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-sm text-gray-700">Direct Shipper Connection</span>
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <svg className="w-5 h-5 text-gold-500 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-sm text-gray-700">Sales Representation</span>
-                  </li>
+                  {[
+                    'Dedicated sales representation',
+                    'Shipper network access',
+                    'Lane matching & negotiation',
+                    'Rate analysis & benchmarking',
+                    'Ongoing account management',
+                  ].map(item => (
+                    <li key={item} className="flex items-center gap-3">
+                      <svg className="w-5 h-5 text-gold-500 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-sm text-gray-700">{item}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
 
-              {/* Before/After */}
+              {/* Results at a Glance */}
               <div className="bg-white rounded-lg p-6 shadow-sm">
-                <h3 className="font-display text-lg font-bold text-navy-900 mb-4">Before & After</h3>
-                <div className="space-y-4 text-sm">
-                  <div className="flex justify-between items-center pb-3 border-b border-gray-100">
-                    <span className="text-gray-500">Freight source</span>
-                    <div className="text-right">
-                      <span className="text-red-500 line-through text-xs block">Load boards</span>
-                      <span className="text-green-600 font-semibold">Direct shipper</span>
+                <h3 className="font-display text-lg font-bold text-navy-900 mb-4">Results at a Glance</h3>
+                <div className="space-y-3 text-sm">
+                  {[
+                    { type: 'Owner-operator, Southeast', result: '+23% revenue in 90 days' },
+                    { type: '8-truck fleet, Midwest', result: '$12K/mo in recovered broker fees' },
+                    { type: '15-truck carrier, Texas', result: 'Deadhead reduced from 18% to 4%' },
+                  ].map(item => (
+                    <div key={item.type} className="bg-cream-100 rounded p-3">
+                      <p className="text-gray-500 text-xs mb-1">{item.type}</p>
+                      <p className="font-semibold text-navy-900 mb-0">{item.result}</p>
                     </div>
-                  </div>
-                  <div className="flex justify-between items-center pb-3 border-b border-gray-100">
-                    <span className="text-gray-500">Weekly consistency</span>
-                    <div className="text-right">
-                      <span className="text-red-500 line-through text-xs block">Unpredictable</span>
-                      <span className="text-green-600 font-semibold">Guaranteed</span>
-                    </div>
-                  </div>
-                  <div className="flex justify-between items-center pb-3 border-b border-gray-100">
-                    <span className="text-gray-500">Broker fees</span>
-                    <div className="text-right">
-                      <span className="text-red-500 line-through text-xs block">15-20%</span>
-                      <span className="text-green-600 font-semibold">0%</span>
-                    </div>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-500">Deadhead</span>
-                    <div className="text-right">
-                      <span className="text-red-500 line-through text-xs block">15-20%</span>
-                      <span className="text-green-600 font-semibold">&lt;5%</span>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
 
@@ -354,48 +317,33 @@ export default function DedicatedLanesCaseStudy() {
         </div>
       </section>
 
-      {/* Related Case Studies */}
+      {/* Other Services */}
       <section className="bg-white py-20">
         <div className="max-w-[1200px] mx-auto px-6">
+          <p className="section-label text-center block">More Ways GTC Helps Carriers</p>
           <h2 className="font-display text-2xl md:text-3xl text-navy-900 font-bold text-center mb-12">
-            More Success Stories
+            Revenue Growth Is Just the Start
           </h2>
           
           <div className="grid md:grid-cols-2 gap-8 max-w-[900px] mx-auto">
-            {/* Related 1 */}
-            <Link href="/case-studies/insurance-savings" className="group bg-cream-100 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="h-[180px] bg-cover bg-center relative" style={{backgroundImage: "url('https://images.unsplash.com/photo-1590496793907-51d60f3d9c68?auto=format&fit=crop&w=800&q=80')"}}>
-                <div className="absolute inset-0 bg-navy-900/40 group-hover:bg-navy-900/30 transition-colors" />
-                <span className="absolute bottom-4 left-4 bg-gold-500 text-navy-900 py-1 px-2.5 text-[10px] font-bold tracking-[0.08em] uppercase rounded-sm">
-                  Cost Reduction
-                </span>
-              </div>
-              <div className="p-6">
-                <h3 className="font-display text-lg font-bold text-navy-900 mb-2 group-hover:text-gold-600 transition-colors">
-                  Regional Carrier Saves $47K on Insurance
-                </h3>
-                <p className="text-sm text-gray-600">
-                  A 12-truck fleet discovered they were overpaying by thousands per truck. GTC's pooled buying power changed that.
-                </p>
-              </div>
+            <Link href="/services/cost-reduction" className="group bg-cream-100 rounded-lg p-8 hover:shadow-lg transition-all">
+              <span className="inline-block bg-navy-900 text-gold-400 py-1 px-2.5 text-[10px] font-bold tracking-[0.08em] uppercase rounded-sm mb-4">Cost Reduction</span>
+              <h3 className="font-display text-lg font-bold text-navy-900 mb-2 group-hover:text-gold-600 transition-colors">
+                Insurance, Fuel & Operating Costs
+              </h3>
+              <p className="text-sm text-gray-600 mb-0">
+                Pooled buying power and vendor negotiations that save carriers thousands per truck annually.
+              </p>
             </Link>
 
-            {/* Related 2 */}
-            <Link href="/case-studies/full-service-partnership" className="group bg-cream-100 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="h-[180px] bg-cover bg-center relative" style={{backgroundImage: "url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80')"}}>
-                <div className="absolute inset-0 bg-navy-900/40 group-hover:bg-navy-900/30 transition-colors" />
-                <span className="absolute bottom-4 left-4 bg-gold-500 text-navy-900 py-1 px-2.5 text-[10px] font-bold tracking-[0.08em] uppercase rounded-sm">
-                  Full Service
-                </span>
-              </div>
-              <div className="p-6">
-                <h3 className="font-display text-lg font-bold text-navy-900 mb-2 group-hover:text-gold-600 transition-colors">
-                  30-Truck Fleet Realizes $180K in First-Year Value
-                </h3>
-                <p className="text-sm text-gray-600">
-                  A comprehensive GTC partnership delivered savings across insurance, fuel, lanes, and brand presence.
-                </p>
-              </div>
+            <Link href="/services/brand-marketing" className="group bg-cream-100 rounded-lg p-8 hover:shadow-lg transition-all">
+              <span className="inline-block bg-navy-900 text-gold-400 py-1 px-2.5 text-[10px] font-bold tracking-[0.08em] uppercase rounded-sm mb-4">Brand & Marketing</span>
+              <h3 className="font-display text-lg font-bold text-navy-900 mb-2 group-hover:text-gold-600 transition-colors">
+                Professional Presence & Visibility
+              </h3>
+              <p className="text-sm text-gray-600 mb-0">
+                Website, brand identity, and marketing that makes shippers take your operation seriously.
+              </p>
             </Link>
           </div>
         </div>
@@ -408,7 +356,7 @@ export default function DedicatedLanesCaseStudy() {
             Your Freight Shouldn't Be a Gamble
           </h2>
           <p className="text-white/70 mb-8 max-w-[500px] mx-auto">
-            Join the carriers who've built stable, profitable operations with direct shipper relationships.
+            Carriers who build direct shipper relationships build stable, profitable operations. Let us show you how.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 
@@ -421,7 +369,7 @@ export default function DedicatedLanesCaseStudy() {
               href="/services/revenue-growth" 
               className="inline-flex items-center justify-center border-2 border-white/30 hover:border-white hover:bg-white hover:text-navy-900 text-white font-bold py-3.5 px-8 rounded transition-colors"
             >
-              Learn About Revenue Growth
+              Explore Revenue Growth Services
             </Link>
           </div>
         </div>

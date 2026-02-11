@@ -1,9 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
 
-export default function InsuranceSavingsCaseStudy() {
+export default function InsuranceSavingsPage() {
   return (
     <>
       {/* Hero */}
@@ -15,9 +14,9 @@ export default function InsuranceSavingsCaseStudy() {
           <nav className="flex items-center gap-2 text-sm text-white/60 mb-8">
             <Link href="/" className="hover:text-gold-400 transition-colors">Home</Link>
             <span>/</span>
-            <Link href="/#results" className="hover:text-gold-400 transition-colors">Results</Link>
+            <Link href="/services/cost-reduction" className="hover:text-gold-400 transition-colors">Cost Reduction</Link>
             <span>/</span>
-            <span className="text-white">Ridgeway Transport</span>
+            <span className="text-white">Insurance Savings</span>
           </nav>
           
           <span className="inline-block bg-gold-500 text-navy-900 py-1.5 px-3 text-[11px] font-bold tracking-[0.1em] uppercase rounded-sm mb-6">
@@ -25,34 +24,35 @@ export default function InsuranceSavingsCaseStudy() {
           </span>
           
           <h1 className="font-display text-[clamp(2rem,4vw,3rem)] text-white font-bold leading-[1.15] tracking-[-0.02em] max-w-[800px] mb-6">
-            How a 12-Truck Regional Carrier Cut Insurance Costs by <span className="text-gold-400">$47,000 Per Year</span>
+            Your Fleet Is Probably Overpaying for Insurance. <span className="text-gold-400">Here's Why.</span>
           </h1>
           
           <p className="text-xl text-white/70 max-w-[600px] leading-relaxed">
-            Ridgeway Transport was overpaying for coverage through a local agent. By pooling their policies with GTC's carrier network, they unlocked enterprise-level rates.
+            Most small and mid-size carriers pay thousands more per truck than they should—simply because they don't have the buying power to negotiate enterprise-level rates. GTC changes that.
           </p>
         </div>
       </section>
 
-      {/* Quick Stats */}
+      {/* Typical Results Bar */}
       <section className="bg-white border-b border-gray-200">
         <div className="max-w-[1200px] mx-auto px-6">
+          <p className="text-[11px] font-bold tracking-[0.1em] uppercase text-gray-400 text-center pt-6 mb-0">Typical Client Results</p>
           <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-gray-200">
-            <div className="py-8 pr-6 md:pr-8">
-              <p className="text-[11px] font-bold tracking-[0.1em] uppercase text-gray-500 mb-2">Annual Savings</p>
-              <p className="font-display text-3xl md:text-4xl font-bold text-gold-500">$47K</p>
+            <div className="py-8 pr-6 md:pr-8 text-center">
+              <p className="font-display text-3xl md:text-4xl font-bold text-gold-500">$3–8K</p>
+              <p className="text-[11px] font-bold tracking-[0.1em] uppercase text-gray-500 mt-2">Saved Per Truck/Year</p>
             </div>
-            <div className="py-8 px-6 md:px-8">
-              <p className="text-[11px] font-bold tracking-[0.1em] uppercase text-gray-500 mb-2">Fleet Size</p>
-              <p className="font-display text-3xl md:text-4xl font-bold text-navy-900">12 Trucks</p>
+            <div className="py-8 px-6 md:px-8 text-center">
+              <p className="font-display text-3xl md:text-4xl font-bold text-navy-900">Same</p>
+              <p className="text-[11px] font-bold tracking-[0.1em] uppercase text-gray-500 mt-2">Coverage Limits</p>
             </div>
-            <div className="py-8 px-6 md:px-8">
-              <p className="text-[11px] font-bold tracking-[0.1em] uppercase text-gray-500 mb-2">Time to ROI</p>
-              <p className="font-display text-3xl md:text-4xl font-bold text-navy-900">6 Days</p>
+            <div className="py-8 px-6 md:px-8 text-center">
+              <p className="font-display text-3xl md:text-4xl font-bold text-navy-900">&lt;2 Weeks</p>
+              <p className="text-[11px] font-bold tracking-[0.1em] uppercase text-gray-500 mt-2">Assessment to Binding</p>
             </div>
-            <div className="py-8 pl-6 md:pl-8">
-              <p className="text-[11px] font-bold tracking-[0.1em] uppercase text-gray-500 mb-2">Region</p>
-              <p className="font-display text-3xl md:text-4xl font-bold text-navy-900">Southeast</p>
+            <div className="py-8 pl-6 md:pl-8 text-center">
+              <p className="font-display text-3xl md:text-4xl font-bold text-navy-900">A-Rated</p>
+              <p className="text-[11px] font-bold tracking-[0.1em] uppercase text-gray-500 mt-2">Carrier Partners</p>
             </div>
           </div>
         </div>
@@ -66,173 +66,219 @@ export default function InsuranceSavingsCaseStudy() {
             {/* Article Content */}
             <article className="prose prose-lg max-w-none">
               
-              {/* The Challenge */}
+              {/* The Problem */}
               <div className="bg-white rounded-lg p-8 mb-10 shadow-sm">
-                <h2 className="font-display text-2xl text-navy-900 font-bold mb-4 mt-0">The Challenge</h2>
+                <h2 className="font-display text-2xl text-navy-900 font-bold mb-4 mt-0">The Loyalty Tax</h2>
                 <p className="text-gray-600 leading-relaxed mb-0">
-                  Ridgeway Transport, a family-owned regional carrier based out of Macon, Georgia, had been working with the same local insurance agent for over eight years. Owner <strong>Marcus Ridgeway</strong> trusted the relationship—his father had used the same agency when he started the company in 1994.
+                  Most carriers stick with the same insurance agent for years—sometimes decades. The relationship feels comfortable. The agent says the rates are competitive. But without access to the broader market, there's no way to verify that. And more often than not, loyalty is costing you real money.
                 </p>
               </div>
 
               <p>
-                But trust doesn't always translate to competitive rates. When Marcus expanded from 8 to 12 trucks in early 2024, his annual premium jumped to <strong>$289,000</strong>. The agent assured him this was standard for a fleet of his size and risk profile.
+                Here's the reality: insurance providers price based on volume and risk pool. A local agent representing a handful of trucking clients simply can't negotiate the same rates as a network representing 35+ carriers. It's not about the agent being bad at their job—it's about leverage they don't have.
               </p>
 
               <p>
-                "I didn't have anything to compare it to," Marcus admitted. "I figured insurance is insurance. You pay what you pay."
+                The gap is significant. Across GTC's client base, carriers switching from local agents to our pooled network save an average of <strong>$3,000–$8,000 per truck annually</strong>—with identical or better coverage.
               </p>
 
+              <div className="bg-red-50 border-l-4 border-red-400 p-6 my-8">
+                <p className="text-red-800 font-semibold mb-2">Signs You're Overpaying</p>
+                <ul className="text-red-700 text-sm space-y-1 mb-0 list-none pl-0">
+                  <li>• You've been with the same agent for 3+ years without a competitive review</li>
+                  <li>• Your premiums increased when you added trucks but didn't decrease when you hit safety milestones</li>
+                  <li>• Your agent doesn't specialize in commercial trucking insurance</li>
+                  <li>• You've never been shown quotes from more than two carriers</li>
+                  <li>• You're paying more than $20K per truck for primary liability, physical damage, and cargo combined</li>
+                </ul>
+              </div>
+
               <p>
-                That assumption was costing him nearly $4,000 per truck more than necessary.
+                If any of those apply, there's a strong chance you're leaving money on the table—money that could go toward driver pay, equipment, or cash reserves.
               </p>
 
-              {/* The Turning Point */}
-              <h2 className="font-display text-2xl text-navy-900 font-bold mt-12 mb-4">The Turning Point</h2>
-              
+              {/* How It Works */}
+              <h2 className="font-display text-2xl text-navy-900 font-bold mt-12 mb-4">How GTC Reduces Your Insurance Costs</h2>
+
               <p>
-                Marcus connected with The GTC Group after meeting J. Brewer at a regional trucking association event. During their initial assessment, GTC's team reviewed Ridgeway's current policies, claims history, and coverage requirements.
+                The model is straightforward: GTC pools the purchasing power of dozens of carriers to negotiate rates that individual operators can't access on their own. Insurance providers offer volume discounts to groups that represent diversified risk and lower administrative costs—the same economics that benefit mega-carriers.
               </p>
 
-              <blockquote className="border-l-4 border-gold-500 pl-6 my-8 italic text-gray-700">
-                "Within 48 hours, they came back with three quotes from A-rated carriers—all significantly lower than what I was paying. I couldn't believe my agent had never shown me these options."
-                <footer className="text-sm text-gray-500 mt-2 not-italic">— Marcus Ridgeway, Owner</footer>
-              </blockquote>
+              <div className="bg-white rounded-lg shadow-sm overflow-hidden my-8">
+                <div className="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-100">
+                  <div className="p-6">
+                    <div className="w-10 h-10 bg-navy-900 rounded flex items-center justify-center mb-4">
+                      <span className="text-gold-400 font-display font-bold text-lg">1</span>
+                    </div>
+                    <h3 className="font-display text-lg font-bold text-navy-900 mb-2">Free Policy Assessment</h3>
+                    <p className="text-sm text-gray-600 mb-0">We review your current policies, claims history, fleet size, and coverage requirements. No cost, no obligation. Takes about 48 hours.</p>
+                  </div>
+                  <div className="p-6">
+                    <div className="w-10 h-10 bg-navy-900 rounded flex items-center justify-center mb-4">
+                      <span className="text-gold-400 font-display font-bold text-lg">2</span>
+                    </div>
+                    <h3 className="font-display text-lg font-bold text-navy-900 mb-2">Market Comparison</h3>
+                    <p className="text-sm text-gray-600 mb-0">We source quotes from A-rated carriers through our network—rates your current agent likely doesn't have access to. You see exactly what you'd save.</p>
+                  </div>
+                  <div className="p-6">
+                    <div className="w-10 h-10 bg-navy-900 rounded flex items-center justify-center mb-4">
+                      <span className="text-gold-400 font-display font-bold text-lg">3</span>
+                    </div>
+                    <h3 className="font-display text-lg font-bold text-navy-900 mb-2">Seamless Transition</h3>
+                    <p className="text-sm text-gray-600 mb-0">If the numbers work, we handle the transition. Same or better coverage, lower premiums, no gap in protection. Typically complete in under two weeks.</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Where the Savings Come From */}
+              <h2 className="font-display text-2xl text-navy-900 font-bold mt-12 mb-4">Where the Savings Come From</h2>
 
               <p>
-                The difference wasn't luck. GTC leverages the combined purchasing power of <strong>35+ carriers</strong> in their network to negotiate rates that individual operators simply can't access. Insurance providers offer volume discounts to groups that represent lower administrative costs and diversified risk—the same economics that benefit mega-carriers.
-              </p>
-
-              {/* The Solution */}
-              <h2 className="font-display text-2xl text-navy-900 font-bold mt-12 mb-4">The Solution</h2>
-
-              <p>
-                GTC restructured Ridgeway's coverage across three areas:
+                Insurance for commercial trucking typically breaks into three major categories. GTC's network negotiates across all of them:
               </p>
 
               <div className="bg-navy-900 text-white rounded-lg p-8 my-8">
                 <div className="grid md:grid-cols-3 gap-6">
                   <div>
                     <p className="text-gold-400 text-sm font-bold tracking-wide uppercase mb-2">Primary Liability</p>
-                    <p className="text-2xl font-display font-bold mb-1">$22,400</p>
-                    <p className="text-white/60 text-sm">Annual savings</p>
+                    <p className="text-white/80 text-sm mb-3">The biggest line item for most fleets. Pooled volume typically reduces this by 15–25% over individual agent rates.</p>
+                    <p className="font-display text-xl font-bold">Largest Savings</p>
                   </div>
                   <div>
                     <p className="text-gold-400 text-sm font-bold tracking-wide uppercase mb-2">Physical Damage</p>
-                    <p className="text-2xl font-display font-bold mb-1">$14,800</p>
-                    <p className="text-white/60 text-sm">Annual savings</p>
+                    <p className="text-white/80 text-sm mb-3">Fleet-wide policies with proper deductible structures consistently outperform per-truck coverage from local agents.</p>
+                    <p className="font-display text-xl font-bold">Significant Savings</p>
                   </div>
                   <div>
                     <p className="text-gold-400 text-sm font-bold tracking-wide uppercase mb-2">Cargo Coverage</p>
-                    <p className="text-2xl font-display font-bold mb-1">$9,800</p>
-                    <p className="text-white/60 text-sm">Annual savings</p>
+                    <p className="text-white/80 text-sm mb-3">Often the most overpriced category for small carriers. Network rates can cut cargo premiums substantially.</p>
+                    <p className="font-display text-xl font-bold">Often Overlooked</p>
                   </div>
                 </div>
               </div>
 
               <p>
-                The total: <strong>$47,000 in annual savings</strong>—with identical coverage limits and deductibles. In some cases, the new policies actually improved coverage, adding roadside assistance and downtime protection that Ridgeway didn't have before.
+                In many cases, the new policies actually improve coverage—adding roadside assistance, downtime protection, or higher cargo limits at lower total cost. Better coverage for less money isn't a sales pitch; it's what happens when you have market leverage.
               </p>
+
+              {/* What Carriers Do With the Savings */}
+              <h2 className="font-display text-2xl text-navy-900 font-bold mt-12 mb-4">What Carriers Do With the Savings</h2>
 
               <p>
-                The entire process took less than two weeks from initial assessment to policy binding.
+                For a 12-truck fleet saving $47,000 a year, or a 30-truck operation saving $90,000+, that money creates real operational flexibility:
               </p>
 
-              {/* The Impact */}
-              <h2 className="font-display text-2xl text-navy-900 font-bold mt-12 mb-4">The Impact</h2>
+              <div className="bg-white rounded-lg p-8 my-8 shadow-sm">
+                <div className="space-y-4">
+                  {[
+                    { label: 'Driver retention', desc: 'Competitive pay and sign-on bonuses funded by cost savings, not margin compression' },
+                    { label: 'Equipment upgrades', desc: 'Safety technology, ELD systems, and preventive maintenance that reduce future claims' },
+                    { label: 'Cash reserves', desc: 'Buffer for slow seasons, unexpected repairs, and growth opportunities' },
+                    { label: 'Fleet expansion', desc: 'Adding trucks is easier when your per-unit operating cost is $3–8K lower' },
+                  ].map(item => (
+                    <div key={item.label} className="flex items-start gap-3 pb-4 border-b border-gray-100 last:border-0 last:pb-0">
+                      <svg className="w-5 h-5 text-gold-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <p className="text-sm text-gray-700 mb-0"><strong className="text-navy-900">{item.label}:</strong> {item.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Is This Right For You */}
+              <h2 className="font-display text-2xl text-navy-900 font-bold mt-12 mb-4">Is This Right For Your Fleet?</h2>
 
               <p>
-                $47,000 per year translates to real operational flexibility. For Ridgeway Transport, that money went directly toward:
+                GTC's insurance procurement works for carriers of all sizes, but the savings scale with fleet size. Here's what we typically see:
               </p>
 
-              <ul className="space-y-3 my-6">
-                <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-gold-500 mt-2.5 flex-shrink-0" />
-                  <span><strong>Driver retention bonuses</strong> — Competitive pay helps keep experienced drivers on payroll</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-gold-500 mt-2.5 flex-shrink-0" />
-                  <span><strong>Equipment upgrades</strong> — New ELD systems and safety technology across the fleet</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-gold-500 mt-2.5 flex-shrink-0" />
-                  <span><strong>Cash reserves</strong> — Buffer for slow seasons and unexpected repairs</span>
-                </li>
-              </ul>
+              <div className="grid md:grid-cols-3 gap-4 my-8">
+                <div className="bg-white rounded-lg p-6 text-center shadow-sm">
+                  <p className="font-display text-sm font-bold text-gray-500 mb-2">1–5 Trucks</p>
+                  <p className="font-display text-2xl font-bold text-gold-500 mb-1">$3–15K</p>
+                  <p className="text-xs text-gray-500">Annual savings range</p>
+                </div>
+                <div className="bg-white rounded-lg p-6 text-center shadow-sm">
+                  <p className="font-display text-sm font-bold text-gray-500 mb-2">6–20 Trucks</p>
+                  <p className="font-display text-2xl font-bold text-gold-500 mb-1">$20–80K</p>
+                  <p className="text-xs text-gray-500">Annual savings range</p>
+                </div>
+                <div className="bg-white rounded-lg p-6 text-center shadow-sm">
+                  <p className="font-display text-sm font-bold text-gray-500 mb-2">20+ Trucks</p>
+                  <p className="font-display text-2xl font-bold text-gold-500 mb-1">$80K+</p>
+                  <p className="text-xs text-gray-500">Annual savings range</p>
+                </div>
+              </div>
 
               <p>
-                "That $47K was profit I was leaving on the table every single year," Marcus said. "I'm not a big operation. That kind of money changes what's possible for us."
+                The assessment is free. If we can't beat your current rates with equal or better coverage, you've lost nothing but a 15-minute phone call. If we can, you'll see the numbers before making any decision.
               </p>
-
-              {/* Looking Ahead */}
-              <h2 className="font-display text-2xl text-navy-900 font-bold mt-12 mb-4">Looking Ahead</h2>
-
-              <p>
-                Since partnering with GTC, Ridgeway Transport has also enrolled in their fuel purchasing program and is exploring lane acquisition services to reduce dependence on load boards.
-              </p>
-
-              <p>
-                For carriers in similar situations—loyal to a local agent but unsure if they're getting competitive rates—Marcus has simple advice:
-              </p>
-
-              <blockquote className="border-l-4 border-gold-500 pl-6 my-8 italic text-gray-700">
-                "Get a second opinion. It costs nothing to find out what you're actually worth on the open market. I wish I'd done it five years ago."
-              </blockquote>
 
             </article>
 
             {/* Sidebar */}
             <aside className="space-y-8">
               
-              {/* Company Profile */}
+              {/* Quick Comparison */}
               <div className="bg-white rounded-lg p-6 shadow-sm">
-                <h3 className="font-display text-lg font-bold text-navy-900 mb-4">Company Profile</h3>
-                <dl className="space-y-4 text-sm">
-                  <div>
-                    <dt className="text-gray-500 mb-1">Company</dt>
-                    <dd className="font-semibold text-navy-900">Ridgeway Transport LLC</dd>
-                  </div>
-                  <div>
-                    <dt className="text-gray-500 mb-1">Location</dt>
-                    <dd className="font-semibold text-navy-900">Macon, Georgia</dd>
-                  </div>
-                  <div>
-                    <dt className="text-gray-500 mb-1">Fleet Size</dt>
-                    <dd className="font-semibold text-navy-900">12 Class 8 tractors</dd>
-                  </div>
-                  <div>
-                    <dt className="text-gray-500 mb-1">Primary Freight</dt>
-                    <dd className="font-semibold text-navy-900">Dry van, regional</dd>
-                  </div>
-                  <div>
-                    <dt className="text-gray-500 mb-1">Years in Business</dt>
-                    <dd className="font-semibold text-navy-900">30+ (est. 1994)</dd>
-                  </div>
-                </dl>
+                <h3 className="font-display text-lg font-bold text-navy-900 mb-4">Local Agent vs. GTC Network</h3>
+                <div className="space-y-4 text-sm">
+                  {[
+                    { metric: 'Carrier access', before: '2–3 options', after: '15+ A-rated' },
+                    { metric: 'Buying power', before: 'Individual fleet', after: '35+ carrier pool' },
+                    { metric: 'Rate review', before: 'At renewal only', after: 'Ongoing monitoring' },
+                    { metric: 'Trucking expertise', before: 'Varies', after: 'Industry-specific' },
+                    { metric: 'Cost per truck', before: '$20K+ average', after: '$3–8K less' },
+                  ].map((item, i) => (
+                    <div key={item.metric} className={`flex justify-between items-center ${i < 4 ? 'pb-3 border-b border-gray-100' : ''}`}>
+                      <span className="text-gray-500">{item.metric}</span>
+                      <div className="text-right">
+                        <span className="text-red-500 line-through text-xs block">{item.before}</span>
+                        <span className="text-green-600 font-semibold">{item.after}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
 
-              {/* Services Used */}
+              {/* Coverage Areas */}
               <div className="bg-white rounded-lg p-6 shadow-sm">
-                <h3 className="font-display text-lg font-bold text-navy-900 mb-4">GTC Services Used</h3>
+                <h3 className="font-display text-lg font-bold text-navy-900 mb-4">Coverage We Optimize</h3>
                 <ul className="space-y-3">
-                  <li className="flex items-center gap-3">
-                    <svg className="w-5 h-5 text-gold-500 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-sm text-gray-700">Insurance Procurement</span>
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <svg className="w-5 h-5 text-gold-500 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-sm text-gray-700">Policy Optimization</span>
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <svg className="w-5 h-5 text-white/30 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-sm text-gray-400">Fuel Program (enrolled)</span>
-                  </li>
+                  {[
+                    'Primary auto liability',
+                    'Physical damage',
+                    'Motor truck cargo',
+                    'General liability',
+                    'Workers\' compensation',
+                    'Umbrella / excess liability',
+                  ].map(item => (
+                    <li key={item} className="flex items-center gap-3">
+                      <svg className="w-5 h-5 text-gold-500 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-sm text-gray-700">{item}</span>
+                    </li>
+                  ))}
                 </ul>
+              </div>
+
+              {/* Results at a Glance */}
+              <div className="bg-white rounded-lg p-6 shadow-sm">
+                <h3 className="font-display text-lg font-bold text-navy-900 mb-4">Client Results</h3>
+                <div className="space-y-3 text-sm">
+                  {[
+                    { type: '12-truck regional, Southeast', result: '$47K saved in Year 1' },
+                    { type: 'Owner-operator, OTR', result: '$4,200 saved on renewal' },
+                    { type: '30-truck fleet, Mid-Atlantic', result: '$68K insurance + $31K fuel' },
+                  ].map(item => (
+                    <div key={item.type} className="bg-cream-100 rounded p-3">
+                      <p className="text-gray-500 text-xs mb-1">{item.type}</p>
+                      <p className="font-semibold text-navy-900 mb-0">{item.result}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
 
               {/* CTA Card */}
@@ -241,7 +287,7 @@ export default function InsuranceSavingsCaseStudy() {
                   See What You Could Save
                 </h3>
                 <p className="text-white/70 text-sm mb-6">
-                  Get a free, no-obligation assessment of your current insurance costs.
+                  Free, no-obligation assessment of your current insurance costs.
                 </p>
                 <Link 
                   href="/book-call" 
@@ -249,9 +295,6 @@ export default function InsuranceSavingsCaseStudy() {
                 >
                   Book Your Free Assessment
                 </Link>
-                <p className="text-white/50 text-xs mt-4">
-                  Average savings: $8,400/truck/year
-                </p>
               </div>
 
             </aside>
@@ -259,48 +302,33 @@ export default function InsuranceSavingsCaseStudy() {
         </div>
       </section>
 
-      {/* Related Case Studies */}
+      {/* Other Services */}
       <section className="bg-white py-20">
         <div className="max-w-[1200px] mx-auto px-6">
+          <p className="section-label text-center block">Beyond Insurance</p>
           <h2 className="font-display text-2xl md:text-3xl text-navy-900 font-bold text-center mb-12">
-            More Success Stories
+            Cost Reduction Is Just the Start
           </h2>
           
           <div className="grid md:grid-cols-2 gap-8 max-w-[900px] mx-auto">
-            {/* Related 1 */}
-            <Link href="/case-studies/dedicated-lanes" className="group bg-cream-100 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="h-[180px] bg-cover bg-center relative" style={{backgroundImage: "url('https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&w=800&q=80')"}}>
-                <div className="absolute inset-0 bg-navy-900/40 group-hover:bg-navy-900/30 transition-colors" />
-                <span className="absolute bottom-4 left-4 bg-gold-500 text-navy-900 py-1 px-2.5 text-[10px] font-bold tracking-[0.08em] uppercase rounded-sm">
-                  Revenue Growth
-                </span>
-              </div>
-              <div className="p-6">
-                <h3 className="font-display text-lg font-bold text-navy-900 mb-2 group-hover:text-gold-600 transition-colors">
-                  OTR Operator Increases Revenue 23% with Dedicated Lanes
-                </h3>
-                <p className="text-sm text-gray-600">
-                  Struggling with load board inconsistency, this owner-operator found stability through direct shipper connections.
-                </p>
-              </div>
+            <Link href="/services/revenue-growth" className="group bg-cream-100 rounded-lg p-8 hover:shadow-lg transition-all">
+              <span className="inline-block bg-navy-900 text-gold-400 py-1 px-2.5 text-[10px] font-bold tracking-[0.08em] uppercase rounded-sm mb-4">Revenue Growth</span>
+              <h3 className="font-display text-lg font-bold text-navy-900 mb-2 group-hover:text-gold-600 transition-colors">
+                Dedicated Lanes & Direct Shipper Access
+              </h3>
+              <p className="text-sm text-gray-600 mb-0">
+                Stop competing on load boards. Let GTC's sales team connect you with shippers who need consistent capacity.
+              </p>
             </Link>
 
-            {/* Related 2 */}
-            <Link href="/case-studies/full-service-partnership" className="group bg-cream-100 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="h-[180px] bg-cover bg-center relative" style={{backgroundImage: "url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80')"}}>
-                <div className="absolute inset-0 bg-navy-900/40 group-hover:bg-navy-900/30 transition-colors" />
-                <span className="absolute bottom-4 left-4 bg-gold-500 text-navy-900 py-1 px-2.5 text-[10px] font-bold tracking-[0.08em] uppercase rounded-sm">
-                  Full Service
-                </span>
-              </div>
-              <div className="p-6">
-                <h3 className="font-display text-lg font-bold text-navy-900 mb-2 group-hover:text-gold-600 transition-colors">
-                  30-Truck Fleet Realizes $180K in First-Year Value
-                </h3>
-                <p className="text-sm text-gray-600">
-                  A comprehensive GTC partnership delivered savings across insurance, fuel, lanes, and brand presence.
-                </p>
-              </div>
+            <Link href="/services/brand-marketing" className="group bg-cream-100 rounded-lg p-8 hover:shadow-lg transition-all">
+              <span className="inline-block bg-navy-900 text-gold-400 py-1 px-2.5 text-[10px] font-bold tracking-[0.08em] uppercase rounded-sm mb-4">Brand & Marketing</span>
+              <h3 className="font-display text-lg font-bold text-navy-900 mb-2 group-hover:text-gold-600 transition-colors">
+                Professional Presence & Visibility
+              </h3>
+              <p className="text-sm text-gray-600 mb-0">
+                Website, brand identity, and marketing that makes shippers take your operation seriously.
+              </p>
             </Link>
           </div>
         </div>
@@ -313,7 +341,7 @@ export default function InsuranceSavingsCaseStudy() {
             Ready to Stop Overpaying?
           </h2>
           <p className="text-white/70 mb-8 max-w-[500px] mx-auto">
-            Join 35+ carriers who've discovered what pooled buying power can do for their bottom line.
+            Join the carriers who've discovered what pooled buying power can do for their bottom line.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 
@@ -326,7 +354,7 @@ export default function InsuranceSavingsCaseStudy() {
               href="/services/cost-reduction" 
               className="inline-flex items-center justify-center border-2 border-white/30 hover:border-white hover:bg-white hover:text-navy-900 text-white font-bold py-3.5 px-8 rounded transition-colors"
             >
-              Learn About Cost Reduction
+              Explore All Cost Reduction
             </Link>
           </div>
         </div>

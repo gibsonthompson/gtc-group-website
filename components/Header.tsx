@@ -68,7 +68,7 @@ export default function Header() {
                 </Link>
               </li>
               <li>
-                <Link href="/case-studies" className="text-[14px] text-white/80 hover:text-gold-400 transition-colors">
+                <Link href="/results" className="text-[14px] text-white/80 hover:text-gold-400 transition-colors">
                   Case Studies
                 </Link>
               </li>
@@ -124,7 +124,7 @@ export default function Header() {
               </Link>
             </li>
             <li>
-              <Link href="/case-studies" className="block text-white/90 text-lg py-3 border-b border-white/10" onClick={() => setMobileOpen(false)}>
+              <Link href="/results" className="block text-white/90 text-lg py-3 border-b border-white/10" onClick={() => setMobileOpen(false)}>
                 Case Studies
               </Link>
             </li>

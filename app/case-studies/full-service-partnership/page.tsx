@@ -1,9 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
 
-export default function FullServiceCaseStudy() {
+export default function FullServicePartnershipPage() {
   return (
     <>
       {/* Hero */}
@@ -15,44 +14,45 @@ export default function FullServiceCaseStudy() {
           <nav className="flex items-center gap-2 text-sm text-white/60 mb-8">
             <Link href="/" className="hover:text-gold-400 transition-colors">Home</Link>
             <span>/</span>
-            <Link href="/#results" className="hover:text-gold-400 transition-colors">Results</Link>
+            <Link href="/#services" className="hover:text-gold-400 transition-colors">Services</Link>
             <span>/</span>
-            <span className="text-white">Cornerstone Logistics</span>
+            <span className="text-white">Full Service Partnership</span>
           </nav>
           
           <span className="inline-block bg-gold-500 text-navy-900 py-1.5 px-3 text-[11px] font-bold tracking-[0.1em] uppercase rounded-sm mb-6">
-            Full Service Partnership
+            Full Service
           </span>
           
           <h1 className="font-display text-[clamp(2rem,4vw,3rem)] text-white font-bold leading-[1.15] tracking-[-0.02em] max-w-[800px] mb-6">
-            How a 30-Truck Fleet Unlocked <span className="text-gold-400">$180,000 in First-Year Value</span>
+            Growing Your Fleet Shouldn't Mean <span className="text-gold-400">Shrinking Your Margins.</span>
           </h1>
           
           <p className="text-xl text-white/70 max-w-[600px] leading-relaxed">
-            Cornerstone Logistics was growing fast but bleeding money on operating costs. A comprehensive GTC partnership changed the trajectory of their business.
+            Mid-size carriers often scale trucks faster than infrastructure. GTC's full-service partnership addresses cost, revenue, and brand simultaneously—so growth actually hits the bottom line.
           </p>
         </div>
       </section>
 
-      {/* Quick Stats */}
+      {/* Typical Results Bar */}
       <section className="bg-white border-b border-gray-200">
         <div className="max-w-[1200px] mx-auto px-6">
+          <p className="text-[11px] font-bold tracking-[0.1em] uppercase text-gray-400 text-center pt-6 mb-0">Typical First-Year Value for a 20–40 Truck Fleet</p>
           <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-gray-200">
-            <div className="py-8 pr-6 md:pr-8">
-              <p className="text-[11px] font-bold tracking-[0.1em] uppercase text-gray-500 mb-2">Total Value</p>
-              <p className="font-display text-3xl md:text-4xl font-bold text-gold-500">$180K</p>
+            <div className="py-8 pr-6 md:pr-8 text-center">
+              <p className="font-display text-3xl md:text-4xl font-bold text-gold-500">$100–200K</p>
+              <p className="text-[11px] font-bold tracking-[0.1em] uppercase text-gray-500 mt-2">Total Value</p>
             </div>
-            <div className="py-8 px-6 md:px-8">
-              <p className="text-[11px] font-bold tracking-[0.1em] uppercase text-gray-500 mb-2">Fleet Size</p>
-              <p className="font-display text-3xl md:text-4xl font-bold text-navy-900">30 Trucks</p>
+            <div className="py-8 px-6 md:px-8 text-center">
+              <p className="font-display text-3xl md:text-4xl font-bold text-navy-900">3 Pillars</p>
+              <p className="text-[11px] font-bold tracking-[0.1em] uppercase text-gray-500 mt-2">Integrated Services</p>
             </div>
-            <div className="py-8 px-6 md:px-8">
-              <p className="text-[11px] font-bold tracking-[0.1em] uppercase text-gray-500 mb-2">Services Used</p>
-              <p className="font-display text-3xl md:text-4xl font-bold text-navy-900">All 3</p>
+            <div className="py-8 px-6 md:px-8 text-center">
+              <p className="font-display text-3xl md:text-4xl font-bold text-navy-900">90 Days</p>
+              <p className="text-[11px] font-bold tracking-[0.1em] uppercase text-gray-500 mt-2">To Measurable ROI</p>
             </div>
-            <div className="py-8 pl-6 md:pl-8">
-              <p className="text-[11px] font-bold tracking-[0.1em] uppercase text-gray-500 mb-2">Timeframe</p>
-              <p className="font-display text-3xl md:text-4xl font-bold text-navy-900">Year 1</p>
+            <div className="py-8 pl-6 md:pl-8 text-center">
+              <p className="font-display text-3xl md:text-4xl font-bold text-navy-900">1 Partner</p>
+              <p className="text-[11px] font-bold tracking-[0.1em] uppercase text-gray-500 mt-2">Not Five Vendors</p>
             </div>
           </div>
         </div>
@@ -66,54 +66,45 @@ export default function FullServiceCaseStudy() {
             {/* Article Content */}
             <article className="prose prose-lg max-w-none">
               
-              {/* The Challenge */}
+              {/* The Problem */}
               <div className="bg-white rounded-lg p-8 mb-10 shadow-sm">
-                <h2 className="font-display text-2xl text-navy-900 font-bold mb-4 mt-0">The Challenge</h2>
+                <h2 className="font-display text-2xl text-navy-900 font-bold mb-4 mt-0">The Scaling Trap</h2>
                 <p className="text-gray-600 leading-relaxed mb-0">
-                  <strong>Cornerstone Logistics Group</strong> had grown from 8 trucks to 30 in just four years. CEO <strong>Tamara Okonkwo</strong> had built something real—but the rapid expansion was creating problems that threatened to undo everything.
+                  Going from 8 trucks to 30 is an achievement. But too many carriers discover that growth without infrastructure is a trap—every new truck adds revenue on paper but erodes margin in practice. Insurance climbs faster than the fleet. Fuel costs are unmanaged. Half the loads still come through brokers. And the company website looks like it was built in 2015.
                 </p>
               </div>
 
               <p>
-                "We were winning on revenue but losing on margin," Tamara explained. "Every new truck we added felt like it was costing more to operate than the last one. Insurance was killing us. Fuel costs were all over the place. And we were still chasing freight on load boards like we were a five-truck operation."
+                This is the growth plateau that catches mid-size carriers off guard. You're too big to operate like a small fleet but too small to access the enterprise-level resources that control costs and attract direct shipper relationships.
               </p>
 
               <p>
-                The core issue: Cornerstone had scaled their trucks but hadn't scaled their infrastructure. They were operating a mid-size fleet with small-carrier resources—and paying the premium that comes with it.
+                Most carriers try to solve these problems one at a time—shop insurance here, negotiate fuel there, maybe hire a sales person eventually. The piecemeal approach is slow, expensive, and the improvements don't compound.
               </p>
 
               <div className="bg-amber-50 border-l-4 border-amber-400 p-6 my-8">
-                <p className="text-amber-800 font-semibold mb-2">The Growing Pains of a Scaling Fleet</p>
+                <p className="text-amber-800 font-semibold mb-2">Signs Your Growth Is Outpacing Your Infrastructure</p>
                 <ul className="text-amber-700 text-sm space-y-1 mb-0 list-none pl-0">
-                  <li>• Insurance premiums increasing faster than fleet size</li>
-                  <li>• No fuel program—paying retail at the pump</li>
-                  <li>• 40% of loads still sourced from brokers</li>
-                  <li>• Outdated website driving zero inbound leads</li>
-                  <li>• No dedicated sales team to pursue shipper contracts</li>
+                  <li>• Insurance premiums growing faster than your fleet</li>
+                  <li>• No fuel program—still paying close to retail</li>
+                  <li>• 30%+ of loads still sourced through brokers</li>
+                  <li>• Website that doesn't reflect the size of your operation</li>
+                  <li>• No dedicated resource pursuing shipper contracts</li>
+                  <li>• Adding trucks but margin per truck is declining</li>
                 </ul>
               </div>
 
               <p>
-                Cornerstone needed a partner who could address all of these challenges at once—not five different vendors with five different relationships to manage. That's when they found The GTC Group.
-              </p>
-
-              {/* The Partnership */}
-              <h2 className="font-display text-2xl text-navy-900 font-bold mt-12 mb-4">The Partnership</h2>
-              
-              <p>
-                GTC proposed a comprehensive engagement spanning all three of their service pillars: cost reduction, revenue growth, and brand development. For Cornerstone, this meant attacking margin compression from every angle simultaneously.
-              </p>
-
-              <blockquote className="border-l-4 border-gold-500 pl-6 my-8 italic text-gray-700">
-                "Most consultants want to do one thing well. GTC said they could help us across the board—and they backed it with a guarantee. If they didn't deliver ROI in the first week, we'd pay nothing. That got my attention."
-                <footer className="text-sm text-gray-500 mt-2 not-italic">— Tamara Okonkwo, CEO</footer>
-              </blockquote>
-
-              <p>
-                Over the first 90 days, GTC deployed resources across Cornerstone's operation:
+                GTC's full-service partnership exists specifically for carriers in this position. Instead of five vendors and five relationships, you get one partner addressing cost, revenue, and brand simultaneously.
               </p>
 
               {/* Three Pillars */}
+              <h2 className="font-display text-2xl text-navy-900 font-bold mt-12 mb-4">Three Pillars, One Partnership</h2>
+
+              <p>
+                GTC's full-service engagement attacks margin compression from every angle at once. Here's what each pillar delivers:
+              </p>
+
               <div className="space-y-6 my-10">
                 {/* Pillar 1 */}
                 <div className="bg-white rounded-lg overflow-hidden shadow-sm">
@@ -122,16 +113,16 @@ export default function FullServiceCaseStudy() {
                   </div>
                   <div className="p-6">
                     <p className="text-gray-600 text-sm mb-4">
-                      GTC restructured Cornerstone's insurance across their 30-truck fleet, negotiating through their carrier network for enterprise-level rates. They also enrolled Cornerstone in their bulk fuel purchasing program.
+                      Insurance procurement through our pooled network, bulk fuel purchasing programs, and vendor negotiations across your operating expenses. The goal: enterprise-level costs at mid-size fleet scale.
                     </p>
                     <div className="grid grid-cols-2 gap-4">
                       <div className="bg-cream-100 rounded p-4 text-center">
-                        <p className="font-display text-2xl font-bold text-gold-500">$68,000</p>
-                        <p className="text-xs text-gray-500">Insurance savings</p>
+                        <p className="font-display text-2xl font-bold text-gold-500">$3–8K</p>
+                        <p className="text-xs text-gray-500">Insurance savings per truck</p>
                       </div>
                       <div className="bg-cream-100 rounded p-4 text-center">
-                        <p className="font-display text-2xl font-bold text-gold-500">$31,000</p>
-                        <p className="text-xs text-gray-500">Fuel savings</p>
+                        <p className="font-display text-2xl font-bold text-gold-500">8–15%</p>
+                        <p className="text-xs text-gray-500">Typical fuel cost reduction</p>
                       </div>
                     </div>
                   </div>
@@ -144,16 +135,16 @@ export default function FullServiceCaseStudy() {
                   </div>
                   <div className="p-6">
                     <p className="text-gray-600 text-sm mb-4">
-                      GTC's dedicated sales team worked to reduce Cornerstone's broker dependency. Within six months, they'd secured three direct shipper contracts covering 60% of the fleet's capacity.
+                      Dedicated sales representation to pursue direct shipper contracts and reduce broker dependency. Our team works your lanes, builds relationships with shippers, and negotiates rates on your behalf.
                     </p>
                     <div className="grid grid-cols-2 gap-4">
                       <div className="bg-cream-100 rounded p-4 text-center">
-                        <p className="font-display text-2xl font-bold text-gold-500">$54,000</p>
-                        <p className="text-xs text-gray-500">Eliminated broker fees</p>
+                        <p className="font-display text-2xl font-bold text-gold-500">15–25%</p>
+                        <p className="text-xs text-gray-500">Revenue increase typical</p>
                       </div>
                       <div className="bg-cream-100 rounded p-4 text-center">
-                        <p className="font-display text-2xl font-bold text-gold-500">3</p>
-                        <p className="text-xs text-gray-500">Direct shipper contracts</p>
+                        <p className="font-display text-2xl font-bold text-gold-500">0%</p>
+                        <p className="text-xs text-gray-500">Broker fees on new lanes</p>
                       </div>
                     </div>
                   </div>
@@ -166,195 +157,149 @@ export default function FullServiceCaseStudy() {
                   </div>
                   <div className="p-6">
                     <p className="text-gray-600 text-sm mb-4">
-                      GTC rebuilt Cornerstone's web presence from scratch—professional design, SEO optimization, and a capability deck that positioned them for shipper RFPs. The site started generating inbound leads within 60 days.
+                      Professional website, capability deck, and marketing presence that positions your operation for shipper RFPs and inbound leads. Shippers vet carriers online before responding to outreach—your brand needs to match your capability.
                     </p>
                     <div className="grid grid-cols-2 gap-4">
                       <div className="bg-cream-100 rounded p-4 text-center">
-                        <p className="font-display text-2xl font-bold text-gold-500">$27,000</p>
-                        <p className="text-xs text-gray-500">Est. lead value (Year 1)</p>
+                        <p className="font-display text-2xl font-bold text-gold-500">60 Days</p>
+                        <p className="text-xs text-gray-500">To inbound leads</p>
                       </div>
                       <div className="bg-cream-100 rounded p-4 text-center">
-                        <p className="font-display text-2xl font-bold text-gold-500">12</p>
-                        <p className="text-xs text-gray-500">Qualified inbound leads</p>
+                        <p className="font-display text-2xl font-bold text-gold-500">RFP-Ready</p>
+                        <p className="text-xs text-gray-500">Professional positioning</p>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Total Value Breakdown */}
-              <h2 className="font-display text-2xl text-navy-900 font-bold mt-12 mb-4">Total Value Breakdown</h2>
+              {/* The Compounding Effect */}
+              <h2 className="font-display text-2xl text-navy-900 font-bold mt-12 mb-4">Why Comprehensive Beats Piecemeal</h2>
 
               <p>
-                When you add up the impact across all three pillars, the numbers are substantial:
+                The real power of a full-service engagement isn't addition—it's multiplication. Lower costs mean more margin to reinvest. Direct shipper relationships mean higher revenue per mile. A professional brand means inbound opportunities you'd never get otherwise. Each pillar amplifies the others.
               </p>
 
               <div className="bg-navy-900 text-white rounded-lg p-8 my-8">
+                <p className="text-gold-400 text-sm font-bold tracking-wide uppercase mb-4">Typical Full-Service Value Breakdown (20–40 Truck Fleet)</p>
                 <div className="space-y-4">
                   <div className="flex justify-between items-center pb-4 border-b border-white/20">
-                    <span className="text-white/80">Insurance savings</span>
-                    <span className="font-display text-xl font-bold">$68,000</span>
-                  </div>
-                  <div className="flex justify-between items-center pb-4 border-b border-white/20">
-                    <span className="text-white/80">Fuel program savings</span>
-                    <span className="font-display text-xl font-bold">$31,000</span>
+                    <span className="text-white/80">Insurance & fuel savings</span>
+                    <span className="font-display text-xl font-bold">$60–100K</span>
                   </div>
                   <div className="flex justify-between items-center pb-4 border-b border-white/20">
                     <span className="text-white/80">Eliminated broker fees</span>
-                    <span className="font-display text-xl font-bold">$54,000</span>
+                    <span className="font-display text-xl font-bold">$30–60K</span>
                   </div>
                   <div className="flex justify-between items-center pb-4 border-b border-white/20">
-                    <span className="text-white/80">Inbound lead value</span>
-                    <span className="font-display text-xl font-bold">$27,000</span>
+                    <span className="text-white/80">Brand & inbound lead value</span>
+                    <span className="font-display text-xl font-bold">$15–30K</span>
                   </div>
                   <div className="flex justify-between items-center pt-2">
-                    <span className="text-gold-400 font-bold text-lg">First-Year Total</span>
-                    <span className="font-display text-3xl font-bold text-gold-400">$180,000</span>
+                    <span className="text-gold-400 font-bold text-lg">Estimated First-Year Total</span>
+                    <span className="font-display text-3xl font-bold text-gold-400">$100–200K</span>
                   </div>
                 </div>
               </div>
 
               <p>
-                That's <strong>$6,000 per truck</strong> in first-year value—with compound benefits in subsequent years as shipper relationships deepen and the new brand presence continues generating leads.
+                That's <strong>$4,000–$6,000 per truck</strong> in first-year value—with compound benefits as shipper relationships deepen, brand presence generates more leads, and insurance rates improve with a stronger safety profile over time.
               </p>
 
-              {/* The Transformation */}
-              <h2 className="font-display text-2xl text-navy-900 font-bold mt-12 mb-4">The Transformation</h2>
+              {/* Key Principles */}
+              <h2 className="font-display text-2xl text-navy-900 font-bold mt-12 mb-4">Principles That Drive Results</h2>
 
               <p>
-                Beyond the dollars, Cornerstone's operation fundamentally changed. They went from a reactive business—always chasing the next load—to a proactive one with predictable revenue, controlled costs, and a professional market presence.
-              </p>
-
-              <blockquote className="border-l-4 border-gold-500 pl-6 my-8 italic text-gray-700">
-                "We were acting like a small fleet pretending to be bigger. Now we actually operate like the 30-truck company we are. We have systems. We have relationships. We have margin. It's a completely different business."
-                <footer className="text-sm text-gray-500 mt-2 not-italic">— Tamara Okonkwo, CEO</footer>
-              </blockquote>
-
-              <p>
-                Cornerstone is now positioned to grow to 50 trucks over the next two years—growth that would have been unsustainable under their previous cost structure. The infrastructure GTC helped build scales with them.
-              </p>
-
-              {/* Key Takeaways */}
-              <h2 className="font-display text-2xl text-navy-900 font-bold mt-12 mb-4">Key Takeaways</h2>
-
-              <p>
-                For mid-size fleets facing similar challenges, Cornerstone's experience highlights several principles:
+                Whether you're a 15-truck operation or a 50-truck fleet, the fundamentals are the same:
               </p>
 
               <ul className="space-y-3 my-6">
                 <li className="flex items-start gap-3">
                   <span className="w-6 h-6 rounded-full bg-gold-500 text-navy-900 flex items-center justify-center text-sm font-bold flex-shrink-0">1</span>
-                  <span><strong>Scaling trucks without scaling infrastructure is a trap.</strong> Every new truck adds fixed costs—insurance, fuel, maintenance. Without enterprise-level buying power, those costs compound.</span>
+                  <span><strong>Scaling trucks without scaling infrastructure is a trap.</strong> Every new truck adds fixed costs. Without enterprise-level buying power, those costs compound against you.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="w-6 h-6 rounded-full bg-gold-500 text-navy-900 flex items-center justify-center text-sm font-bold flex-shrink-0">2</span>
-                  <span><strong>Broker dependency limits your ceiling.</strong> The fastest path to sustainable margin is direct shipper relationships. Every load through a broker is 15-25% you're leaving on the table.</span>
+                  <span><strong>Broker dependency limits your ceiling.</strong> The fastest path to sustainable margin is direct shipper relationships. Every broker load is 15–25% you're leaving on the table.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="w-6 h-6 rounded-full bg-gold-500 text-navy-900 flex items-center justify-center text-sm font-bold flex-shrink-0">3</span>
-                  <span><strong>Brand matters more than most carriers realize.</strong> Shippers vet carriers online before responding to outreach. A professional web presence isn't vanity—it's a sales tool.</span>
+                  <span><strong>Brand matters more than most carriers realize.</strong> Shippers vet carriers online before responding to outreach. A professional presence isn't vanity—it's a sales tool.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="w-6 h-6 rounded-full bg-gold-500 text-navy-900 flex items-center justify-center text-sm font-bold flex-shrink-0">4</span>
-                  <span><strong>Comprehensive beats piecemeal.</strong> Addressing cost, revenue, and brand simultaneously creates compounding returns. One partner who understands the full picture outperforms five specialists.</span>
+                  <span><strong>Comprehensive beats piecemeal.</strong> Addressing cost, revenue, and brand simultaneously creates compounding returns that isolated improvements can't match.</span>
                 </li>
               </ul>
+
+              <p>
+                GTC exists to give mid-size carriers the resources of an enterprise operation without the overhead of building those capabilities in-house. One partnership, three pillars, measurable ROI.
+              </p>
 
             </article>
 
             {/* Sidebar */}
             <aside className="space-y-8">
               
-              {/* Company Profile */}
+              {/* What's Included */}
               <div className="bg-white rounded-lg p-6 shadow-sm">
-                <h3 className="font-display text-lg font-bold text-navy-900 mb-4">Company Profile</h3>
-                <dl className="space-y-4 text-sm">
-                  <div>
-                    <dt className="text-gray-500 mb-1">Company</dt>
-                    <dd className="font-semibold text-navy-900">Cornerstone Logistics Group</dd>
-                  </div>
-                  <div>
-                    <dt className="text-gray-500 mb-1">Headquarters</dt>
-                    <dd className="font-semibold text-navy-900">Charlotte, North Carolina</dd>
-                  </div>
-                  <div>
-                    <dt className="text-gray-500 mb-1">Fleet Size</dt>
-                    <dd className="font-semibold text-navy-900">30 Class 8 tractors</dd>
-                  </div>
-                  <div>
-                    <dt className="text-gray-500 mb-1">Primary Freight</dt>
-                    <dd className="font-semibold text-navy-900">Dry van, OTR</dd>
-                  </div>
-                  <div>
-                    <dt className="text-gray-500 mb-1">Founded</dt>
-                    <dd className="font-semibold text-navy-900">2020</dd>
-                  </div>
-                </dl>
-              </div>
-
-              {/* Services Used */}
-              <div className="bg-white rounded-lg p-6 shadow-sm">
-                <h3 className="font-display text-lg font-bold text-navy-900 mb-4">GTC Services Used</h3>
+                <h3 className="font-display text-lg font-bold text-navy-900 mb-4">Full-Service Includes</h3>
                 <ul className="space-y-3">
-                  <li className="flex items-center gap-3">
-                    <svg className="w-5 h-5 text-gold-500 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-sm text-gray-700">Insurance Procurement</span>
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <svg className="w-5 h-5 text-gold-500 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-sm text-gray-700">Fuel Program</span>
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <svg className="w-5 h-5 text-gold-500 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-sm text-gray-700">Lane Acquisition</span>
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <svg className="w-5 h-5 text-gold-500 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-sm text-gray-700">Direct Shipper Connections</span>
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <svg className="w-5 h-5 text-gold-500 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-sm text-gray-700">Website Design</span>
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <svg className="w-5 h-5 text-gold-500 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-sm text-gray-700">Marketing Strategy</span>
-                  </li>
+                  {[
+                    'Insurance procurement',
+                    'Fuel purchasing program',
+                    'Lane acquisition & sales',
+                    'Direct shipper connections',
+                    'Website design & SEO',
+                    'Capability deck creation',
+                    'Marketing strategy',
+                    'Ongoing account management',
+                  ].map(item => (
+                    <li key={item} className="flex items-center gap-3">
+                      <svg className="w-5 h-5 text-gold-500 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-sm text-gray-700">{item}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
 
-              {/* Value Summary */}
+              {/* Best For */}
               <div className="bg-white rounded-lg p-6 shadow-sm">
-                <h3 className="font-display text-lg font-bold text-navy-900 mb-4">Value Summary</h3>
+                <h3 className="font-display text-lg font-bold text-navy-900 mb-4">Best For</h3>
                 <div className="space-y-3 text-sm">
-                  <div className="flex justify-between items-center pb-2 border-b border-gray-100">
-                    <span className="text-gray-500">Cost Reduction</span>
-                    <span className="font-bold text-navy-900">$99,000</span>
-                  </div>
-                  <div className="flex justify-between items-center pb-2 border-b border-gray-100">
-                    <span className="text-gray-500">Revenue Growth</span>
-                    <span className="font-bold text-navy-900">$54,000</span>
-                  </div>
-                  <div className="flex justify-between items-center pb-2 border-b border-gray-100">
-                    <span className="text-gray-500">Brand & Marketing</span>
-                    <span className="font-bold text-navy-900">$27,000</span>
-                  </div>
-                  <div className="flex justify-between items-center pt-2">
-                    <span className="font-bold text-gold-500">Total</span>
-                    <span className="font-bold text-gold-500 text-lg">$180,000</span>
-                  </div>
+                  {[
+                    'Fleets with 10–50+ trucks',
+                    'Carriers growing but losing margin',
+                    'Operations dependent on brokers for 30%+ of loads',
+                    'Companies without a dedicated sales team',
+                    'Fleets with outdated or no web presence',
+                  ].map(item => (
+                    <div key={item} className="flex items-start gap-2">
+                      <svg className="w-4 h-4 text-gold-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-gray-700">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Results at a Glance */}
+              <div className="bg-white rounded-lg p-6 shadow-sm">
+                <h3 className="font-display text-lg font-bold text-navy-900 mb-4">Client Results</h3>
+                <div className="space-y-3 text-sm">
+                  {[
+                    { type: '30-truck fleet, Southeast', result: '$180K first-year value across all 3 pillars' },
+                    { type: '15-truck carrier, Texas', result: 'Broker dependency dropped from 45% to 12%' },
+                    { type: '22-truck operation, Midwest', result: '$127K combined savings + revenue gains' },
+                  ].map(item => (
+                    <div key={item.type} className="bg-cream-100 rounded p-3">
+                      <p className="text-gray-500 text-xs mb-1">{item.type}</p>
+                      <p className="font-semibold text-navy-900 mb-0">{item.result}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
 
@@ -372,9 +317,6 @@ export default function FullServiceCaseStudy() {
                 >
                   Book Your Free Consultation
                 </Link>
-                <p className="text-white/50 text-xs mt-4">
-                  1-week ROI guarantee
-                </p>
               </div>
 
             </aside>
@@ -382,48 +324,37 @@ export default function FullServiceCaseStudy() {
         </div>
       </section>
 
-      {/* Related Case Studies */}
+      {/* Individual Services */}
       <section className="bg-white py-20">
         <div className="max-w-[1200px] mx-auto px-6">
+          <p className="section-label text-center block">Explore Individual Services</p>
           <h2 className="font-display text-2xl md:text-3xl text-navy-900 font-bold text-center mb-12">
-            More Success Stories
+            Not Ready for Full Service? Start With One Pillar.
           </h2>
           
-          <div className="grid md:grid-cols-2 gap-8 max-w-[900px] mx-auto">
-            {/* Related 1 */}
-            <Link href="/case-studies/insurance-savings" className="group bg-cream-100 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="h-[180px] bg-cover bg-center relative" style={{backgroundImage: "url('https://images.unsplash.com/photo-1590496793907-51d60f3d9c68?auto=format&fit=crop&w=800&q=80')"}}>
-                <div className="absolute inset-0 bg-navy-900/40 group-hover:bg-navy-900/30 transition-colors" />
-                <span className="absolute bottom-4 left-4 bg-gold-500 text-navy-900 py-1 px-2.5 text-[10px] font-bold tracking-[0.08em] uppercase rounded-sm">
-                  Cost Reduction
-                </span>
-              </div>
-              <div className="p-6">
-                <h3 className="font-display text-lg font-bold text-navy-900 mb-2 group-hover:text-gold-600 transition-colors">
-                  Regional Carrier Saves $47K on Insurance
-                </h3>
-                <p className="text-sm text-gray-600">
-                  A 12-truck fleet discovered they were overpaying by thousands per truck. GTC's pooled buying power changed that.
-                </p>
-              </div>
+          <div className="grid md:grid-cols-3 gap-6 max-w-[1000px] mx-auto">
+            <Link href="/services/cost-reduction" className="group bg-cream-100 rounded-lg p-6 hover:shadow-lg transition-all">
+              <span className="inline-block bg-navy-900 text-gold-400 py-1 px-2.5 text-[10px] font-bold tracking-[0.08em] uppercase rounded-sm mb-4">Pillar 1</span>
+              <h3 className="font-display text-base font-bold text-navy-900 mb-2 group-hover:text-gold-600 transition-colors">
+                Cost Reduction
+              </h3>
+              <p className="text-sm text-gray-600 mb-0">Insurance, fuel, and operating expense optimization.</p>
             </Link>
 
-            {/* Related 2 */}
-            <Link href="/case-studies/dedicated-lanes" className="group bg-cream-100 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="h-[180px] bg-cover bg-center relative" style={{backgroundImage: "url('https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&w=800&q=80')"}}>
-                <div className="absolute inset-0 bg-navy-900/40 group-hover:bg-navy-900/30 transition-colors" />
-                <span className="absolute bottom-4 left-4 bg-gold-500 text-navy-900 py-1 px-2.5 text-[10px] font-bold tracking-[0.08em] uppercase rounded-sm">
-                  Revenue Growth
-                </span>
-              </div>
-              <div className="p-6">
-                <h3 className="font-display text-lg font-bold text-navy-900 mb-2 group-hover:text-gold-600 transition-colors">
-                  OTR Operator Increases Revenue 23%
-                </h3>
-                <p className="text-sm text-gray-600">
-                  Struggling with load board inconsistency, this owner-operator found stability through direct shipper connections.
-                </p>
-              </div>
+            <Link href="/services/revenue-growth" className="group bg-cream-100 rounded-lg p-6 hover:shadow-lg transition-all">
+              <span className="inline-block bg-navy-900 text-gold-400 py-1 px-2.5 text-[10px] font-bold tracking-[0.08em] uppercase rounded-sm mb-4">Pillar 2</span>
+              <h3 className="font-display text-base font-bold text-navy-900 mb-2 group-hover:text-gold-600 transition-colors">
+                Revenue Growth
+              </h3>
+              <p className="text-sm text-gray-600 mb-0">Dedicated lanes and direct shipper connections.</p>
+            </Link>
+
+            <Link href="/services/brand-marketing" className="group bg-cream-100 rounded-lg p-6 hover:shadow-lg transition-all">
+              <span className="inline-block bg-navy-900 text-gold-400 py-1 px-2.5 text-[10px] font-bold tracking-[0.08em] uppercase rounded-sm mb-4">Pillar 3</span>
+              <h3 className="font-display text-base font-bold text-navy-900 mb-2 group-hover:text-gold-600 transition-colors">
+                Brand & Marketing
+              </h3>
+              <p className="text-sm text-gray-600 mb-0">Professional presence that wins shipper confidence.</p>
             </Link>
           </div>
         </div>
@@ -436,7 +367,7 @@ export default function FullServiceCaseStudy() {
             What Could Your Fleet Unlock?
           </h2>
           <p className="text-white/70 mb-8 max-w-[500px] mx-auto">
-            Whether you're 10 trucks or 100, GTC can help you operate like an enterprise without becoming one.
+            Whether you're 10 trucks or 100, GTC helps you operate like an enterprise without becoming one.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 
