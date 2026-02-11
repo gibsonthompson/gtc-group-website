@@ -10,7 +10,7 @@ const results = [
     description: 'Most small and mid-size fleets overpay for coverage through local agents. GTC\'s pooled network unlocks enterprise-level rates with identical or better coverage.',
     metric: '$3–8K',
     metricLabel: 'Saved per truck/year',
-    image: 'https://images.unsplash.com/photo-1590496793907-51d60f3d9c68?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=800&q=80',
   },
   {
     slug: 'dedicated-lanes',

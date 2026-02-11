@@ -325,7 +325,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-7">
             {/* Result 1 - Insurance Savings */}
             <Link href="/results/insurance-savings" className="animate-on-scroll bg-white rounded overflow-hidden shadow-md hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 group">
-              <div className="h-[160px] md:h-[180px] bg-cover bg-center relative" style={{backgroundImage: "url('https://images.unsplash.com/photo-1590496793907-51d60f3d9c68?auto=format&fit=crop&w=800&q=80')"}}>
+              <div className="h-[160px] md:h-[180px] bg-cover bg-center relative" style={{backgroundImage: "url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=800&q=80')"}}>
                 <div className="absolute inset-0 bg-navy-900/40 group-hover:bg-navy-900/30 transition-colors" />
                 <span className="absolute bottom-3 left-3 md:bottom-3.5 md:left-3.5 z-[2] bg-gold-500 text-navy-900 py-1 px-2 md:py-1.5 md:px-2.5 text-[10px] font-bold tracking-[0.08em] uppercase rounded-sm">Cost Reduction</span>
               </div>

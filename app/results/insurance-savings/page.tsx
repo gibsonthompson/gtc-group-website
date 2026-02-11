@@ -7,7 +7,7 @@ export default function InsuranceSavingsPage() {
     <>
       {/* Hero */}
       <section className="relative bg-navy-900 pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1590496793907-51d60f3d9c68?auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center opacity-20" />
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center opacity-20" />
         <div className="absolute inset-0 bg-gradient-to-b from-navy-900/50 to-navy-900" />
         
         <div className="relative max-w-[1200px] mx-auto px-6">
