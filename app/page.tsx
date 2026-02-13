@@ -38,19 +38,13 @@ export default function HomePage() {
         <div className="absolute bottom-0 left-0 right-0 h-[200px] bg-gradient-to-t from-navy-900 to-transparent" />
         <div className="relative z-[2] w-full max-w-[1200px] mx-auto px-5 md:px-6">
           <div className="max-w-[720px] !text-left [&>*]:text-left">
-            <div className="inline-flex items-center gap-[10px] bg-gold-500/[0.12] border border-gold-500/25 py-2 px-3 md:py-[10px] md:px-[18px] rounded mb-5 md:mb-7 animate-fadeInUp">
-              <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" className="text-gold-400 md:w-[18px] md:h-[18px]">
-                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-              </svg>
-              <span className="text-[10px] md:text-[11px] font-semibold tracking-[0.1em] uppercase text-gold-400">Logistics Advisory Services</span>
-            </div>
-            <h1 className="font-display text-[clamp(1.75rem,5vw,3.25rem)] text-white font-bold leading-[1.2] md:leading-[1.3] tracking-[-0.02em] mb-4 md:mb-6 animate-fadeInUp animation-delay-100">
+            <h1 className="font-display text-[clamp(1.75rem,5vw,3.25rem)] text-white font-bold leading-[1.2] md:leading-[1.3] tracking-[-0.02em] mb-4 md:mb-6 animate-fadeInUp">
               Level the Playing Field Against <span className="text-gold-400">Big Brokerages</span>
             </h1>
-            <p className="text-[16px] md:text-[18px] text-white/75 mb-7 md:mb-9 max-w-[560px] leading-[1.7] md:leading-[1.8] animate-fadeInUp animation-delay-200">
+            <p className="text-[16px] md:text-[18px] text-white/75 mb-7 md:mb-9 max-w-[560px] leading-[1.7] md:leading-[1.8] animate-fadeInUp animation-delay-100">
               Founded by industry veterans, The GTC Group combines carrier resources to deliver brokerage-level pricing on insurance, fuel, maintenance, and driver services—plus direct sales support to grow your business.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 animate-fadeInUp animation-delay-300">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 animate-fadeInUp animation-delay-200">
               <Link href="/book-call" className="btn btn-primary">
                 Book a Call
               </Link>
@@ -60,7 +54,7 @@ export default function HomePage() {
             </div>
             
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-4 md:gap-10 mt-12 md:mt-[72px] pt-7 md:pt-9 border-t border-white/10 animate-fadeInUp animation-delay-400">
+            <div className="grid grid-cols-3 gap-4 md:gap-10 mt-12 md:mt-[72px] pt-7 md:pt-9 border-t border-white/10 animate-fadeInUp animation-delay-300">
               <div className="text-left">
                 <div className="font-display text-[24px] md:text-[40px] font-bold text-gold-400 leading-none mb-1 md:mb-2">1 Week</div>
                 <div className="text-[11px] md:text-[13px] text-white/60 tracking-[0.02em]">To see ROI or it&apos;s free</div>
