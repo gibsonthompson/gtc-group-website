@@ -45,7 +45,7 @@ export default function TeamPage() {
             <div className="flex gap-6">
               <div className="w-40 h-48 rounded-lg flex-shrink-0 overflow-hidden relative">
                 <Image
-                  src="/images/team/team-1.jpg"
+                  src="/team/team-1.jpg"
                   alt="Jacob Brewer - Founder & CEO"
                   fill
                   className="object-cover"
@@ -65,7 +65,7 @@ export default function TeamPage() {
             <div className="flex gap-6">
               <div className="w-40 h-48 rounded-lg flex-shrink-0 overflow-hidden relative">
                 <Image
-                  src="/images/team/team-2.jpg"
+                  src="/team/team-2.jpg"
                   alt="Gibson Thompson - Chief Technology Officer"
                   fill
                   className="object-cover"
