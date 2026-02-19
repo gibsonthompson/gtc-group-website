@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export const metadata = {
   title: 'Our Team | The GTC Group',
@@ -42,11 +43,14 @@ export default function TeamPage() {
           <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
             {/* Jacob Brewer */}
             <div className="flex gap-6">
-              <div className="w-40 h-48 bg-gradient-to-br from-navy-800 to-navy-700 rounded-lg flex-shrink-0 flex items-center justify-center">
-                <svg className="w-16 h-16 text-white/30" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                  <circle cx="12" cy="7" r="4"/>
-                </svg>
+              <div className="w-40 h-48 rounded-lg flex-shrink-0 overflow-hidden relative">
+                <Image
+                  src="/images/team/team-1.jpg"
+                  alt="Jacob Brewer - Founder & CEO"
+                  fill
+                  className="object-cover"
+                  sizes="160px"
+                />
               </div>
               <div>
                 <h3 className="font-display text-2xl text-navy-900">Jacob Brewer</h3>
@@ -59,11 +63,14 @@ export default function TeamPage() {
 
             {/* Gibson Thompson */}
             <div className="flex gap-6">
-              <div className="w-40 h-48 bg-gradient-to-br from-navy-800 to-navy-700 rounded-lg flex-shrink-0 flex items-center justify-center">
-                <svg className="w-16 h-16 text-white/30" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                  <circle cx="12" cy="7" r="4"/>
-                </svg>
+              <div className="w-40 h-48 rounded-lg flex-shrink-0 overflow-hidden relative">
+                <Image
+                  src="/images/team/team-2.jpg"
+                  alt="Gibson Thompson - Chief Technology Officer"
+                  fill
+                  className="object-cover"
+                  sizes="160px"
+                />
               </div>
               <div>
                 <h3 className="font-display text-2xl text-navy-900">Gibson Thompson</h3>
