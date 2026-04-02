@@ -11,9 +11,15 @@ export async function GET(request) {
     return NextResponse.json({ lead: data })
   }
 
-  const { data, error } = await supabase.from('gtc_leads').select('*').order('created_at', { ascending: false })
+  // Supabase defaults to 1000 rows — explicitly set higher limit
+  const { data, error } = await supabase
+    .from('gtc_leads')
+    .select('*')
+    .order('created_at', { ascending: false })
+    .limit(10000)
+
   if (error) return NextResponse.json({ error: error.message }, { status: 500 })
-  return NextResponse.json({ leads: data })
+  return NextResponse.json({ leads: data, count: data.length })
 }
 
 export async function POST(request) {
