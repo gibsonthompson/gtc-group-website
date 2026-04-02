@@ -10,10 +10,10 @@ export const metadata: Metadata = {
     apple: '/icons/apple-touch-icon.png',
   },
   manifest: '/manifest.json',
-  appleWebApp: {
-    capable: true,
-    statusBarStyle: 'black-translucent',
-    title: 'GTC Admin',
+  other: {
+    'mobile-web-app-capable': 'yes',
+    'apple-mobile-web-app-status-bar-style': 'black-translucent',
+    'apple-mobile-web-app-title': 'GTC Admin',
   },
 }
 
