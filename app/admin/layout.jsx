@@ -109,7 +109,7 @@ export default function AdminLayout({ children }) {
   }
 
   return (
-    <div className="min-h-screen bg-[#f5f3f0] flex flex-col" style={{ paddingTop: 'env(safe-area-inset-top)' }}>
+    <div className="min-h-screen bg-[#f5f3f0] flex flex-col">
       {/* Desktop Top Bar */}
       <header className="hidden sm:block bg-[#0a1628] sticky top-0 z-40">
         <div className="max-w-6xl mx-auto px-6">
@@ -133,12 +133,14 @@ export default function AdminLayout({ children }) {
         </div>
       </header>
 
-      {/* Mobile Top Bar */}
-      <header className="sm:hidden bg-[#0a1628] sticky top-0 z-40" style={{ paddingTop: 'env(safe-area-inset-top)' }}>
-        <div className="flex items-center justify-center h-11">
-          <img src="/icons/gtc-icon-192.png" alt="GTC" className="w-7 h-7 rounded" />
+      {/* Mobile Top Bar - navy extends behind status bar */}
+      <header className="sm:hidden bg-[#0a1628] fixed top-0 left-0 right-0 z-40" style={{ paddingTop: 'env(safe-area-inset-top)' }}>
+        <div className="flex items-center justify-center py-3">
+          <img src="/icons/gtc-icon-192.png" alt="GTC" className="w-10 h-10 rounded-lg" />
         </div>
       </header>
+      {/* Spacer for fixed header */}
+      <div className="sm:hidden" style={{ paddingTop: 'calc(env(safe-area-inset-top) + 64px)' }} />
 
       {/* Content */}
       <main className="flex-1 max-w-6xl mx-auto w-full pb-20 sm:pb-6">
