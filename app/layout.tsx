@@ -7,6 +7,13 @@ export const metadata: Metadata = {
   description: 'Founded by industry veterans, The GTC Group combines carrier resources to deliver brokerage-level pricing on insurance, fuel, maintenance, and driver services.',
   icons: {
     icon: '/logo.png',
+    apple: '/icons/apple-touch-icon.png',
+  },
+  manifest: '/manifest.json',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'black-translucent',
+    title: 'GTC Admin',
   },
 }
 
@@ -15,6 +22,7 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 5,
   viewportFit: 'cover',
+  themeColor: '#0a1628',
 }
 
 export default function RootLayout({
