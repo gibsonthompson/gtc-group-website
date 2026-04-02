@@ -15,11 +15,25 @@ const STATUSES = [
   { value: 'not_interested', label: 'Not Interested', bg: 'bg-gray-100 text-gray-500' },
 ]
 
+const SOURCES = [
+  { value: 'all', label: 'All Sources' },
+  { value: 'fmcsa_finder', label: 'Finder', bg: 'bg-orange-100 text-orange-700' },
+  { value: 'manual', label: 'Manual', bg: 'bg-gray-100 text-gray-600' },
+  { value: 'csv_import', label: 'CSV', bg: 'bg-indigo-100 text-indigo-700' },
+]
+
+const getSourceBadge = (source) => {
+  if (source === 'fmcsa_finder') return { label: 'Finder', bg: 'bg-orange-100 text-orange-700' }
+  if (source === 'csv_import') return { label: 'CSV', bg: 'bg-indigo-100 text-indigo-700' }
+  return null // Don't show badge for manual leads
+}
+
 export default function LeadsPage() {
   const searchParams = useSearchParams()
   const [leads, setLeads] = useState([])
   const [loading, setLoading] = useState(true)
   const [filter, setFilter] = useState(searchParams.get('status') || 'all')
+  const [sourceFilter, setSourceFilter] = useState(searchParams.get('source') || 'all')
   const [search, setSearch] = useState('')
   const [showImport, setShowImport] = useState(false)
   const [showAddForm, setShowAddForm] = useState(false)
@@ -60,6 +74,7 @@ export default function LeadsPage() {
 
   const filtered = leads.filter(l => {
     if (filter !== 'all' && l.status !== filter) return false
+    if (sourceFilter !== 'all' && (l.source || 'manual') !== sourceFilter) return false
     if (search) {
       const q = search.toLowerCase()
       return (
@@ -75,9 +90,18 @@ export default function LeadsPage() {
 
   const getStatusBadge = (status) => STATUSES.find(s => s.value === status)?.bg || 'bg-gray-100 text-gray-600'
   const getStatusLabel = (status) => STATUSES.find(s => s.value === status)?.label || status
-  const getStatusCount = (status) => status === 'all' ? leads.length : leads.filter(l => l.status === status).length
+  const getStatusCount = (status) => {
+    const base = sourceFilter === 'all' ? leads : leads.filter(l => (l.source || 'manual') === sourceFilter)
+    return status === 'all' ? base.length : base.filter(l => l.status === status).length
+  }
+  const getSourceCount = (source) => {
+    const base = filter === 'all' ? leads : leads.filter(l => l.status === filter)
+    return source === 'all' ? base.length : base.filter(l => (l.source || 'manual') === source).length
+  }
   const formatPhone = (phone) => { if (!phone) return ''; const c = phone.replace(/\D/g, ''); if (c.length === 10) return '(' + c.slice(0, 3) + ') ' + c.slice(3, 6) + '-' + c.slice(6); return phone }
   const timeAgo = (d) => { const s = Math.floor((Date.now() - new Date(d)) / 1000); if (s < 3600) return Math.floor(s / 60) + 'm ago'; if (s < 86400) return Math.floor(s / 3600) + 'h ago'; if (s < 604800) return Math.floor(s / 86400) + 'd ago'; return new Date(d).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) }
+
+  const finderCount = leads.filter(l => l.source === 'fmcsa_finder').length
 
   if (loading) return <div className="flex items-center justify-center min-h-[50vh]"><div className="w-8 h-8 border-3 border-[#0a1628] border-t-transparent rounded-full animate-spin" /></div>
 
@@ -86,7 +110,7 @@ export default function LeadsPage() {
       <div className="flex items-center justify-between mb-5">
         <div>
           <h1 className="text-xl sm:text-2xl font-bold text-[#0a1628]" style={{ fontFamily: "'Libre Baskerville', Georgia, serif" }}>Leads</h1>
-          <p className="text-sm text-gray-500">{leads.length} total</p>
+          <p className="text-sm text-gray-500">{leads.length} total{finderCount > 0 ? ` · ${finderCount} from Finder` : ''}</p>
         </div>
         <div className="flex items-center gap-2">
           <button onClick={() => setShowImport(true)} className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-gray-600 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
@@ -120,10 +144,26 @@ export default function LeadsPage() {
       )}
 
       {/* Search */}
-      <div className="mb-4">
+      <div className="mb-3">
         <div className="relative">
           <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
           <input type="text" placeholder="Search name, email, company, DOT..." value={search} onChange={(e) => setSearch(e.target.value)} style={{ fontSize: '16px' }} className="w-full pl-10 pr-4 py-3 bg-white border border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-[#c9a227]/30 focus:border-[#c9a227] outline-none" />
+        </div>
+      </div>
+
+      {/* Source Filters */}
+      <div className="mb-3 -mx-4 px-4 overflow-x-auto scrollbar-hide">
+        <div className="flex gap-1.5 min-w-max sm:min-w-0 sm:flex-wrap">
+          {SOURCES.filter(s => s.value === 'all' || getSourceCount(s.value) > 0).map((s) => (
+            <button
+              key={s.value}
+              onClick={() => setSourceFilter(s.value)}
+              className={'flex-shrink-0 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ' + (sourceFilter === s.value ? 'bg-[#c9a227] text-[#0a1628]' : 'bg-white text-gray-500 border border-gray-200 hover:bg-gray-50')}
+            >
+              {s.label}
+              <span className={'ml-1 ' + (sourceFilter === s.value ? 'text-[#0a1628]/50' : 'text-gray-400')}>{getSourceCount(s.value)}</span>
+            </button>
+          ))}
         </div>
       </div>
 
@@ -173,52 +213,64 @@ export default function LeadsPage() {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-100">
-                  {filtered.map((l) => (
-                    <tr key={l.id} className="hover:bg-gray-50/50 transition-colors">
-                      <td className="px-5 py-3.5">
-                        <p className="font-medium text-gray-900 text-sm">{l.name}</p>
-                        {l.area && <p className="text-xs text-gray-400">{l.area}</p>}
-                      </td>
-                      <td className="px-5 py-3.5">
-                        <p className="text-sm text-gray-700">{l.company || '--'}</p>
-                        {l.dot_number && <p className="text-xs text-gray-400">DOT {l.dot_number}</p>}
-                      </td>
-                      <td className="px-5 py-3.5">
-                        {l.email && <p className="text-sm text-gray-500">{l.email}</p>}
-                        {l.phone && <p className="text-sm text-gray-500">{formatPhone(l.phone)}</p>}
-                      </td>
-                      <td className="px-5 py-3.5">
-                        <span className={'inline-flex px-2.5 py-0.5 rounded-full text-xs font-medium ' + getStatusBadge(l.status)}>{getStatusLabel(l.status)}</span>
-                      </td>
-                      <td className="px-5 py-3.5 text-sm text-gray-500">{l.outreach_count || 0} sent</td>
-                      <td className="px-5 py-3.5">
-                        <Link href={'/admin/leads/' + l.id} className="text-[#c9a227] hover:text-[#0a1628] font-medium text-sm transition-colors">View</Link>
-                      </td>
-                    </tr>
-                  ))}
+                  {filtered.map((l) => {
+                    const srcBadge = getSourceBadge(l.source)
+                    return (
+                      <tr key={l.id} className="hover:bg-gray-50/50 transition-colors">
+                        <td className="px-5 py-3.5">
+                          <div className="flex items-center gap-2">
+                            <p className="font-medium text-gray-900 text-sm">{l.name}</p>
+                            {srcBadge && <span className={'inline-flex px-1.5 py-0.5 rounded text-[10px] font-medium ' + srcBadge.bg}>{srcBadge.label}</span>}
+                          </div>
+                          {l.area && <p className="text-xs text-gray-400">{l.area}</p>}
+                        </td>
+                        <td className="px-5 py-3.5">
+                          <p className="text-sm text-gray-700">{l.company || '--'}</p>
+                          {l.dot_number && <p className="text-xs text-gray-400">DOT {l.dot_number}</p>}
+                        </td>
+                        <td className="px-5 py-3.5">
+                          {l.email && <p className="text-sm text-gray-500">{l.email}</p>}
+                          {l.phone && <p className="text-sm text-gray-500">{formatPhone(l.phone)}</p>}
+                        </td>
+                        <td className="px-5 py-3.5">
+                          <span className={'inline-flex px-2.5 py-0.5 rounded-full text-xs font-medium ' + getStatusBadge(l.status)}>{getStatusLabel(l.status)}</span>
+                        </td>
+                        <td className="px-5 py-3.5 text-sm text-gray-500">{l.outreach_count || 0} sent</td>
+                        <td className="px-5 py-3.5">
+                          <Link href={'/admin/leads/' + l.id} className="text-[#c9a227] hover:text-[#0a1628] font-medium text-sm transition-colors">View</Link>
+                        </td>
+                      </tr>
+                    )
+                  })}
                 </tbody>
               </table>
             </div>
 
             {/* Mobile Cards */}
             <div className="md:hidden divide-y divide-gray-100">
-              {filtered.map((l) => (
-                <Link key={l.id} href={'/admin/leads/' + l.id} className="block p-4 active:bg-gray-50">
-                  <div className="flex items-start justify-between mb-1">
-                    <div className="min-w-0 flex-1">
-                      <p className="font-semibold text-gray-900 text-sm truncate">{l.name}</p>
-                      <p className="text-xs text-gray-500">{l.company || 'No company'}</p>
+              {filtered.map((l) => {
+                const srcBadge = getSourceBadge(l.source)
+                return (
+                  <Link key={l.id} href={'/admin/leads/' + l.id} className="block p-4 active:bg-gray-50">
+                    <div className="flex items-start justify-between mb-1">
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-center gap-2">
+                          <p className="font-semibold text-gray-900 text-sm truncate">{l.name}</p>
+                          {srcBadge && <span className={'flex-shrink-0 inline-flex px-1.5 py-0.5 rounded text-[9px] font-medium ' + srcBadge.bg}>{srcBadge.label}</span>}
+                        </div>
+                        <p className="text-xs text-gray-500">{l.company || 'No company'}</p>
+                      </div>
+                      <div className="flex flex-col items-end ml-3">
+                        <span className={'inline-flex px-2 py-0.5 rounded-full text-[10px] font-medium ' + getStatusBadge(l.status)}>{getStatusLabel(l.status)}</span>
+                        <p className="text-[10px] text-gray-400 mt-1">{timeAgo(l.created_at)}</p>
+                      </div>
                     </div>
-                    <div className="flex flex-col items-end ml-3">
-                      <span className={'inline-flex px-2 py-0.5 rounded-full text-[10px] font-medium ' + getStatusBadge(l.status)}>{getStatusLabel(l.status)}</span>
-                      <p className="text-[10px] text-gray-400 mt-1">{timeAgo(l.created_at)}</p>
-                    </div>
-                  </div>
-                  {l.dot_number && <p className="text-xs text-gray-400">DOT {l.dot_number}</p>}
-                  {l.fleet_size && <p className="text-xs text-gray-400">{l.fleet_size} trucks</p>}
-                  {l.outreach_count > 0 && <p className="text-xs text-gray-400 mt-0.5">{l.outreach_count} emails sent</p>}
-                </Link>
-              ))}
+                    {l.dot_number && <p className="text-xs text-gray-400">DOT {l.dot_number}</p>}
+                    {l.fleet_size && <p className="text-xs text-gray-400">{l.fleet_size} trucks</p>}
+                    {l.outreach_count > 0 && <p className="text-xs text-gray-400 mt-0.5">{l.outreach_count} emails sent</p>}
+                  </Link>
+                )
+              })}
             </div>
           </>
         )}
