@@ -18,6 +18,7 @@ export default function FinderPage() {
   const [checkProgress, setCheckProgress] = useState({ done: 0, total: 0 })
   const [importing, setImporting] = useState(false)
   const [imported, setImported] = useState(false)
+  const [importProgress, setImportProgress] = useState({ done: 0, total: 0 })
   const [selected, setSelected] = useState(new Set())
   const [error, setError] = useState('')
   const [stats, setStats] = useState(null)
@@ -41,6 +42,7 @@ export default function FinderPage() {
     setStats(null)
     setSelected(new Set())
     setImported(false)
+    setImportProgress({ done: 0, total: 0 })
 
     try {
       // Query FMCSA via our API route
@@ -157,20 +159,46 @@ export default function FinderPage() {
         source: 'fmcsa_finder',
       }))
 
-    if (leads.length === 0) return
+    if (leads.length === 0) {
+      setError('No leads selected')
+      return
+    }
+
     setImporting(true)
+    setError('')
+    setImportProgress({ done: 0, total: leads.length })
+
+    const batchSize = 200
+    let totalImported = 0
 
     try {
-      const r = await fetch('/api/admin/leads', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ bulk: leads })
-      })
-      const d = await r.json()
-      setImported(true)
-      setImporting(false)
+      for (let i = 0; i < leads.length; i += batchSize) {
+        const batch = leads.slice(i, i + batchSize)
+        const r = await fetch('/api/admin/leads', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ bulk: batch })
+        })
+
+        if (!r.ok) {
+          const errData = await r.json().catch(() => ({}))
+          console.error('Import batch failed:', r.status, errData)
+          setError('Import failed on batch ' + Math.floor(i / batchSize + 1) + ': ' + (errData.error || r.status))
+          break
+        }
+
+        const d = await r.json()
+        totalImported += d.count || batch.length
+        setImportProgress({ done: totalImported, total: leads.length })
+      }
+
+      if (totalImported > 0) {
+        setImported(true)
+      }
     } catch (e) {
-      setError('Import failed')
+      console.error('Import error:', e)
+      setError('Import failed: ' + e.message)
+    } finally {
       setImporting(false)
     }
   }
@@ -304,7 +332,7 @@ export default function FinderPage() {
                 disabled={importing || imported}
                 className={'px-4 py-2 text-xs font-semibold rounded-lg transition-all ' + (imported ? 'bg-green-600 text-white' : 'bg-[#0a1628] text-white hover:bg-[#162d54] active:scale-[0.98]')}
               >
-                {importing ? 'Importing...' : imported ? `Imported ${selected.size} leads` : `Import ${selected.size} leads`}
+                {importing ? `Importing ${importProgress.done}/${importProgress.total}...` : imported ? `Imported ${importProgress.done} leads` : `Import ${selected.size} leads`}
               </button>
             )}
           </div>
