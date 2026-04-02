@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
 export default function AdminDashboard() {
-  const [stats, setStats] = useState({ emailsToday: 0, totalLeads: 0, newLeads: 0, contactedLeads: 0, meetingsSet: 0, clients: 0 })
+  const [stats, setStats] = useState({ emailsToday: 0, totalLeads: 0, newLeads: 0, contactedLeads: 0, meetingsSet: 0, clients: 0, respondedLeads: 0 })
   const [recentOutreach, setRecentOutreach] = useState([])
   const [loading, setLoading] = useState(true)
 
@@ -27,6 +27,7 @@ export default function AdminDashboard() {
         totalLeads: leads.length,
         newLeads: leads.filter(l => l.status === 'new').length,
         contactedLeads: leads.filter(l => l.status === 'contacted').length,
+        respondedLeads: leads.filter(l => l.status === 'responded').length,
         meetingsSet: leads.filter(l => l.status === 'meeting_set').length,
         clients: leads.filter(l => l.status === 'client').length,
       })
@@ -40,7 +41,7 @@ export default function AdminDashboard() {
 
   const emailPct = Math.min((stats.emailsToday / 100) * 100, 100)
   const meterColor = stats.emailsToday >= 100 ? '#16a34a' : stats.emailsToday >= 50 ? '#c9a227' : '#0a1628'
-  const meterBg = stats.emailsToday >= 100 ? '#dcfce7' : stats.emailsToday >= 50 ? '#fef9c3' : '#f1f5f9'
+  const meterBg = stats.emailsToday >= 100 ? '#dcfce7' : stats.emailsToday >= 50 ? '#fef9c3' : '#e8e6e1'
 
   const timeAgo = (d) => {
     if (!d) return ''
@@ -60,14 +61,9 @@ export default function AdminDashboard() {
   }
 
   return (
-    <div className="px-4 sm:px-6 py-6 sm:py-8">
-      <div className="mb-6">
-        <h1 className="text-xl sm:text-2xl font-bold text-[#0a1628]" style={{ fontFamily: "'Libre Baskerville', Georgia, serif" }}>Dashboard</h1>
-        <p className="text-sm text-gray-500 mt-0.5">The GTC Group Admin</p>
-      </div>
-
+    <div className="px-4 sm:px-6 py-5 sm:py-8">
       {/* Email Meter */}
-      <div className="bg-white rounded-xl border border-gray-200 p-5 sm:p-6 mb-6">
+      <div className="bg-white rounded-xl border border-gray-200 p-5 mb-5">
         <div className="flex items-center justify-between mb-3">
           <div>
             <h2 className="text-sm font-semibold text-[#0a1628]">Emails Sent Today</h2>
@@ -103,33 +99,21 @@ export default function AdminDashboard() {
         )}
       </div>
 
-      {/* Stats Grid */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-6">
-        {[
-          { label: 'Total Leads', value: stats.totalLeads, href: '/admin/leads', color: '#0a1628' },
-          { label: 'New', value: stats.newLeads, href: '/admin/leads?status=new', color: '#3b82f6' },
-          { label: 'Contacted', value: stats.contactedLeads, href: '/admin/leads?status=contacted', color: '#c9a227' },
-          { label: 'Meetings Set', value: stats.meetingsSet, href: '/admin/leads?status=meeting_set', color: '#8b5cf6' },
-        ].map((stat) => (
-          <Link key={stat.label} href={stat.href} className="bg-white rounded-xl border border-gray-200 p-4 hover:border-gray-300 hover:shadow-sm transition-all">
-            <p className="text-xs text-gray-500 mb-1">{stat.label}</p>
-            <p className="text-2xl font-bold" style={{ color: stat.color, fontFamily: "'Libre Baskerville', Georgia, serif" }}>{stat.value}</p>
-          </Link>
-        ))}
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Pipeline Breakdown */}
-        <div className="bg-white rounded-xl border border-gray-200 p-5 sm:p-6">
-          <h2 className="text-sm font-semibold text-[#0a1628] mb-4">Pipeline</h2>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+        {/* Pipeline */}
+        <div className="bg-white rounded-xl border border-gray-200 p-5">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-sm font-semibold text-[#0a1628]">Pipeline</h2>
+            <span className="text-xs text-gray-400">{stats.totalLeads} total</span>
+          </div>
           <div className="space-y-3">
             {[
               { label: 'New', count: stats.newLeads, color: '#3b82f6' },
               { label: 'Contacted', count: stats.contactedLeads, color: '#c9a227' },
-              { label: 'Responded', count: (stats.totalLeads - stats.newLeads - stats.contactedLeads - stats.meetingsSet - stats.clients), color: '#22c55e' },
+              { label: 'Responded', count: stats.respondedLeads, color: '#22c55e' },
               { label: 'Meeting Set', count: stats.meetingsSet, color: '#8b5cf6' },
               { label: 'Client', count: stats.clients, color: '#0a1628' },
-            ].filter(s => s.count > 0 || ['New', 'Contacted', 'Meeting Set'].includes(s.label)).map((stage) => {
+            ].map((stage) => {
               const pct = stats.totalLeads > 0 ? (stage.count / stats.totalLeads) * 100 : 0
               return (
                 <div key={stage.label}>
@@ -148,7 +132,7 @@ export default function AdminDashboard() {
 
         {/* Recent Outreach */}
         <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
-          <div className="px-5 sm:px-6 py-4 border-b border-gray-100 flex items-center justify-between">
+          <div className="px-5 py-4 border-b border-gray-100 flex items-center justify-between">
             <h2 className="text-sm font-semibold text-[#0a1628]">Recent Outreach</h2>
             <Link href="/admin/leads" className="text-xs text-[#c9a227] font-medium hover:underline">View all</Link>
           </div>
@@ -160,7 +144,7 @@ export default function AdminDashboard() {
           ) : (
             <div className="divide-y divide-gray-100">
               {recentOutreach.slice(0, 6).map((entry) => (
-                <div key={entry.id} className="px-5 sm:px-6 py-3 flex items-center gap-3">
+                <div key={entry.id} className="px-5 py-3 flex items-center gap-3">
                   <div className="w-7 h-7 rounded-md flex items-center justify-center flex-shrink-0 bg-[#0a1628]/5">
                     <svg className="w-3.5 h-3.5 text-[#0a1628]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
                   </div>
@@ -177,7 +161,7 @@ export default function AdminDashboard() {
       </div>
 
       {/* Quick Actions */}
-      <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
+      <div className="mt-5 grid grid-cols-2 sm:grid-cols-4 gap-3">
         <Link href="/admin/leads" className="bg-white rounded-xl border border-gray-200 p-4 text-center hover:border-[#c9a227] hover:shadow-sm transition-all group">
           <svg className="w-5 h-5 text-gray-400 group-hover:text-[#c9a227] mx-auto mb-2 transition-colors" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" /></svg>
           <p className="text-xs font-medium text-gray-600">Add Lead</p>

@@ -46,12 +46,11 @@ export default function AdminLayout({ children }) {
 
   if (checking) return null
 
-  // PIN Screen
   if (!authed) {
     return (
       <div className="min-h-screen bg-[#0a1628] flex items-center justify-center px-6" style={{ paddingTop: 'env(safe-area-inset-top)', paddingBottom: 'env(safe-area-inset-bottom)' }}>
         <div className="w-full max-w-[280px] text-center">
-          <p className="text-[#c9a227] text-xs font-semibold tracking-[0.15em] uppercase mb-8">GTC Admin</p>
+          <img src="/icons/gtc-icon-192.png" alt="GTC" className="w-14 h-14 rounded-xl mx-auto mb-6" />
           <div className="flex justify-center gap-3 mb-6">
             {[0, 1, 2, 3].map(i => (
               <div
@@ -116,7 +115,7 @@ export default function AdminLayout({ children }) {
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex items-center justify-between h-12">
             <div className="flex items-center gap-6">
-              <span className="text-[#c9a227] text-sm font-semibold tracking-wide" style={{ fontFamily: "'Libre Baskerville', Georgia, serif" }}>GTC Admin</span>
+              <img src="/icons/gtc-icon-192.png" alt="GTC" className="w-7 h-7 rounded" />
               <nav className="flex items-center gap-1">
                 {NAV_ITEMS.map((item) => (
                   <Link
@@ -137,7 +136,7 @@ export default function AdminLayout({ children }) {
       {/* Mobile Top Bar */}
       <header className="sm:hidden bg-[#0a1628] sticky top-0 z-40" style={{ paddingTop: 'env(safe-area-inset-top)' }}>
         <div className="flex items-center justify-center h-11">
-          <span className="text-[#c9a227] text-xs font-semibold tracking-wide" style={{ fontFamily: "'Libre Baskerville', Georgia, serif" }}>GTC Admin</span>
+          <img src="/icons/gtc-icon-192.png" alt="GTC" className="w-7 h-7 rounded" />
         </div>
       </header>
 
