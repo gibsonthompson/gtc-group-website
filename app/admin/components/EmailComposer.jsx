@@ -18,17 +18,17 @@ function generateEmailHTML(subject, body) {
 <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;">
 
 <!-- Logo Header -->
-<tr><td style="background-color:#0a1628;padding:28px 40px;border-radius:8px 8px 0 0;text-align:center;">
-<img src="${GTC_LOGO_URL}" alt="The GTC Group — Logistics Advisory" height="48" style="height:48px;width:auto;display:inline-block;" />
+<tr><td style="background-color:#0a1628;padding:32px 40px;border-radius:8px 8px 0 0;text-align:center;">
+<img src="${GTC_LOGO_URL}" alt="The GTC Group — Logistics Advisory" height="64" style="height:64px;width:auto;display:inline-block;" />
 </td></tr>
 
 <!-- Body -->
-<tr><td style="background-color:#ffffff;padding:36px 40px;border-left:1px solid #e5e7eb;border-right:1px solid #e5e7eb;">
+<tr><td style="background-color:#ffffff;padding:36px 40px 28px 40px;border-left:1px solid #e5e7eb;border-right:1px solid #e5e7eb;">
 <p style="margin:0 0 16px 0;color:#374151;font-size:15px;line-height:1.7;">${bodyHTML}</p>
 </td></tr>
 
 <!-- Signature -->
-<tr><td style="background-color:#ffffff;padding:0 40px 32px 40px;border-left:1px solid #e5e7eb;border-right:1px solid #e5e7eb;border-top:1px solid #e5e7eb;">
+<tr><td style="background-color:#ffffff;padding:24px 40px 32px 40px;border-left:1px solid #e5e7eb;border-right:1px solid #e5e7eb;">
 <table cellpadding="0" cellspacing="0"><tr>
 <td style="padding-right:16px;border-right:2px solid #c9a227;vertical-align:top;">
 <p style="margin:0 0 2px 0;color:#0a1628;font-size:14px;font-weight:700;">Gibson Thompson</p>
@@ -95,7 +95,18 @@ export default function EmailComposer({ isOpen, onClose, contact, onSent }) {
   }, [isOpen])
 
   const fetchTemplates = async () => {
-    try { const r = await fetch('/api/admin/templates'); const d = await r.json(); if (d.templates) setTemplates(d.templates.filter(t => t.type === 'email')) } catch (e) {}
+    try {
+      const r = await fetch('/api/admin/templates')
+      const d = await r.json()
+      if (d.templates) {
+        const emailTemplates = d.templates.filter(t => t.type === 'email')
+        setTemplates(emailTemplates)
+        // Auto-select first template (Outreach 1)
+        if (emailTemplates.length > 0) {
+          handleTemplateSelect(emailTemplates[0])
+        }
+      }
+    } catch (e) {}
   }
 
   const handleTemplateSelect = (tmpl) => {
