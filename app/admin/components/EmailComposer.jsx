@@ -11,7 +11,7 @@ function generateEmailHTML(subject, body) {
     .replace(/\n/g, '<br/>')
 
   return `<!DOCTYPE html>
-<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"></head>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><meta name="color-scheme" content="light only"><meta name="supported-color-schemes" content="light only"><style>:root{color-scheme:light only;}</style></head>
 <body style="margin:0;padding:0;background-color:#f0efec;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
 <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#f0efec;padding:32px 16px;">
 <tr><td align="center">
@@ -53,12 +53,16 @@ function generateEmailHTML(subject, body) {
 </body></html>`
 }
 
-// "JOHN SMITH" → "John Smith", "ACME TRUCKING LLC" → "Acme Trucking Llc"
+// "JOHN SMITH" → "John Smith", "ACME TRUCKING LLC" → "Acme Trucking LLC"
+const PRESERVE_UPPER = new Set(['LLC','INC','LP','LLP','CO','DBA','PC','PA','PLLC','LTD','II','III','IV','JR','SR'])
 function toTitleCase(str) {
   if (!str) return ''
-  // Only convert if the string is all uppercase (or all uppercase + numbers/spaces)
   if (str === str.toUpperCase() && str !== str.toLowerCase()) {
-    return str.toLowerCase().replace(/\b\w/g, c => c.toUpperCase())
+    return str.toLowerCase().replace(/\b\w+/g, word => {
+      const upper = word.toUpperCase()
+      if (PRESERVE_UPPER.has(upper)) return upper
+      return word.charAt(0).toUpperCase() + word.slice(1)
+    })
   }
   return str
 }
