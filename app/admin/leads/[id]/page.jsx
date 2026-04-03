@@ -18,7 +18,7 @@ const SOURCE_OPTIONS = [
   { value: 'csv_import', label: 'CSV Import' },
   { value: 'linkedin', label: 'LinkedIn' },
   { value: 'google', label: 'Google Search' },
-  { value: 'fmcsa', label: 'FMCSA Lookup' },
+  { value: 'fmcsa_finder', label: 'FMCSA Finder' },
   { value: 'referral', label: 'Referral' },
   { value: 'website', label: 'Website' },
   { value: 'manual', label: 'Manual' },
@@ -285,7 +285,22 @@ export default function LeadDetailPage() {
         </div>
       </div>
 
-      <EmailComposer isOpen={composerOpen} onClose={() => setComposerOpen(false)} contact={composerContact} onSent={() => { fetchOutreach(); fetchLead() }} />
+      <EmailComposer
+        isOpen={composerOpen}
+        onClose={() => setComposerOpen(false)}
+        contact={composerContact}
+        onSent={() => {
+          // Mark lead as contacted
+          fetch('/api/admin/leads', {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id: leadId, status: 'contacted' })
+          }).catch(() => {})
+          // Close composer and go back to leads list
+          setComposerOpen(false)
+          router.push('/admin/leads')
+        }}
+      />
     </div>
   )
 }

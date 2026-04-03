@@ -84,13 +84,13 @@ export default function EmailComposer({ isOpen, onClose, contact, onSent }) {
   const [selectedTemplate, setSelectedTemplate] = useState('')
   const [subject, setSubject] = useState('')
   const [body, setBody] = useState('')
-  const [status, setStatus] = useState('idle') // idle | working | done | error
+  const [status, setStatus] = useState('idle') // idle | copying | copied | opening | error
   const [showPreview, setShowPreview] = useState(false)
 
   useEffect(() => {
-    if (isOpen) {
-      fetchTemplates()
+    if (isOpen && contact) {
       setSubject(''); setBody(''); setSelectedTemplate(''); setStatus('idle'); setShowPreview(false)
+      fetchTemplates()
     }
   }, [isOpen])
 
@@ -99,14 +99,21 @@ export default function EmailComposer({ isOpen, onClose, contact, onSent }) {
       const r = await fetch('/api/admin/templates')
       const d = await r.json()
       if (d.templates) {
-        const emailTemplates = d.templates.filter(t => t.type === 'email')
+        const emailTemplates = d.templates
+          .filter(t => t.type === 'email')
+          .sort((a, b) => (a.name || '').localeCompare(b.name || ''))
         setTemplates(emailTemplates)
-        // Auto-select first template (Outreach 1)
+        // Auto-select first template sorted by name → "Outreach 1" before "Outreach 2"
         if (emailTemplates.length > 0) {
-          handleTemplateSelect(emailTemplates[0])
+          const first = emailTemplates[0]
+          setSelectedTemplate(first.id)
+          setSubject(replaceVariables(first.subject, contact))
+          setBody(replaceVariables(first.body, contact))
         }
       }
-    } catch (e) {}
+    } catch (e) {
+      console.error('Failed to fetch templates:', e)
+    }
   }
 
   const handleTemplateSelect = (tmpl) => {
@@ -116,40 +123,44 @@ export default function EmailComposer({ isOpen, onClose, contact, onSent }) {
     setStatus('idle')
   }
 
-  const handleSendViaGmail = async () => {
+  // Step 1: Copy branded HTML to clipboard
+  const handleCopy = async () => {
     if (!subject.trim() || !body.trim()) return
-    setStatus('working')
-
+    setStatus('copying')
     try {
-      // 1. Copy branded HTML to clipboard
       const html = generateEmailHTML(subject, body)
       await copyToClipboard(html, body)
-
-      // 2. Log outreach
-      await fetch('/api/admin/outreach', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ lead_id: contact.id, type: 'email', subject, body, template_id: selectedTemplate || null })
-      })
-
-      // 3. Log to email tracker for daily meter
-      await fetch('/api/admin/email-stats', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ lead_id: contact.id, lead_name: contact.name, subject })
-      })
-
-      // 4. Open Gmail with recipient and subject only — body is empty so user pastes branded HTML
-      const gmailUrl = `https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(contact.email)}&su=${encodeURIComponent(subject)}`
-      window.open(gmailUrl, '_blank')
-
-      setStatus('done')
-      if (onSent) onSent()
+      setStatus('copied')
     } catch (e) {
-      console.error('Send error:', e)
       setStatus('error')
       setTimeout(() => setStatus('idle'), 2000)
     }
+  }
+
+  // Step 2: Open Gmail, log everything, then let parent handle navigation
+  const handleOpenGmail = async () => {
+    setStatus('opening')
+
+    // Open Gmail FIRST before any async work — prevents popup blockers
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(contact.email)}&su=${encodeURIComponent(subject)}`
+    window.open(gmailUrl, '_blank', 'noopener,noreferrer')
+
+    // Log outreach (fire and forget — don't block)
+    fetch('/api/admin/outreach', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ lead_id: contact.id, type: 'email', subject, body, template_id: selectedTemplate || null })
+    }).catch(() => {})
+
+    // Log to email meter (fire and forget)
+    fetch('/api/admin/email-stats', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ lead_id: contact.id, lead_name: contact.name, subject })
+    }).catch(() => {})
+
+    // Tell parent: outreach sent — parent will update status + navigate
+    if (onSent) onSent()
   }
 
   if (!isOpen || !contact) return null
@@ -199,27 +210,33 @@ export default function EmailComposer({ isOpen, onClose, contact, onSent }) {
           </div>
         </div>
 
-        {/* Footer */}
-        <div className="px-4 sm:px-5 py-3.5 border-t border-gray-100 flex items-center gap-2 flex-shrink-0 bg-white">
-          <button onClick={onClose} className="px-4 py-2.5 text-sm font-medium text-gray-600 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors">Cancel</button>
-          <button
-            onClick={handleSendViaGmail}
-            disabled={!canSend || status === 'working'}
-            className={'flex-1 py-2.5 text-sm font-semibold rounded-lg transition-all disabled:opacity-40 flex items-center justify-center gap-2 ' + (
-              status === 'done' ? 'bg-green-600 text-white' :
-              status === 'error' ? 'bg-red-500 text-white' :
-              'bg-[#0a1628] text-white hover:bg-[#162d54] active:scale-[0.98]'
-            )}
-          >
-            {status === 'working' ? 'Copying & opening Gmail...' :
-             status === 'done' ? 'Copied — paste in Gmail' :
-             status === 'error' ? 'Failed' :
-             <>
-               <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-               Send via Gmail
-             </>
-            }
-          </button>
+        {/* Footer — Two-step flow */}
+        <div className="px-4 sm:px-5 py-3.5 border-t border-gray-100 flex-shrink-0 bg-white">
+          {status === 'copied' ? (
+            <div className="flex items-center gap-2">
+              <button onClick={onClose} className="px-4 py-2.5 text-sm font-medium text-gray-600 bg-gray-100 rounded-lg hover:bg-gray-200">Cancel</button>
+              <button onClick={handleOpenGmail} className="flex-1 py-2.5 text-sm font-semibold rounded-lg bg-[#0a1628] text-white hover:bg-[#162d54] active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                Open Gmail & Paste
+              </button>
+            </div>
+          ) : (
+            <div className="flex items-center gap-2">
+              <button onClick={onClose} className="px-4 py-2.5 text-sm font-medium text-gray-600 bg-gray-100 rounded-lg hover:bg-gray-200">Cancel</button>
+              <button
+                onClick={handleCopy}
+                disabled={!canSend || status === 'copying'}
+                className={'flex-1 py-2.5 text-sm font-semibold rounded-lg transition-all disabled:opacity-40 flex items-center justify-center gap-2 ' + (status === 'error' ? 'bg-red-500 text-white' : 'bg-[#c9a227] text-[#0a1628] hover:bg-[#d4b14a] active:scale-[0.98]')}
+              >
+                {status === 'copying' ? 'Copying...' : status === 'error' ? 'Failed — try again' : (
+                  <>
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" /></svg>
+                    Copy Branded Email
+                  </>
+                )}
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>
