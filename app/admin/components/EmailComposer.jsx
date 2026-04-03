@@ -150,13 +150,22 @@ export default function EmailComposer({ isOpen, onClose, contact, onSent }) {
     }
   }
 
-  // Step 2: Open Gmail, log everything, then let parent handle navigation
+  // Step 2: Open email client, log everything, then let parent handle navigation
   const handleOpenGmail = async () => {
     setStatus('opening')
 
-    // Open Gmail FIRST before any async work — prevents popup blockers
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(contact.email)}&su=${encodeURIComponent(subject)}`
-    window.open(gmailUrl, '_blank', 'noopener,noreferrer')
+    // Detect mobile
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+
+    if (isMobile) {
+      // mailto: opens the native mail app (Gmail app on iOS if set as default)
+      // Subject and recipient pre-filled, body empty for paste
+      window.location.href = `mailto:${encodeURIComponent(contact.email)}?subject=${encodeURIComponent(subject)}`
+    } else {
+      // Desktop: open Gmail web compose in new tab
+      const gmailUrl = `https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(contact.email)}&su=${encodeURIComponent(subject)}`
+      window.open(gmailUrl, '_blank', 'noopener,noreferrer')
+    }
 
     // Log outreach (fire and forget — don't block)
     fetch('/api/admin/outreach', {
@@ -230,7 +239,7 @@ export default function EmailComposer({ isOpen, onClose, contact, onSent }) {
               <button onClick={onClose} className="px-4 py-2.5 text-sm font-medium text-gray-600 bg-gray-100 rounded-lg hover:bg-gray-200">Cancel</button>
               <button onClick={handleOpenGmail} className="flex-1 py-2.5 text-sm font-semibold rounded-lg bg-[#0a1628] text-white hover:bg-[#162d54] active:scale-[0.98] transition-all flex items-center justify-center gap-2">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-                Open Gmail & Paste
+                Open Mail & Paste
               </button>
             </div>
           ) : (
