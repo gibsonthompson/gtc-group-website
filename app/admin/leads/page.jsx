@@ -25,7 +25,7 @@ const SOURCES = [
 const getSourceBadge = (source) => {
   if (source === 'fmcsa_finder') return { label: 'Finder', bg: 'bg-orange-100 text-orange-700' }
   if (source === 'csv_import') return { label: 'CSV', bg: 'bg-indigo-100 text-indigo-700' }
-  return null // Don't show badge for manual leads
+  return null
 }
 
 export default function LeadsPage() {
@@ -65,11 +65,7 @@ export default function LeadsPage() {
         setShowAddForm(false)
         fetchLeads()
       }
-    } catch (e) {
-      console.error('Failed to add lead:', e)
-    } finally {
-      setAdding(false)
-    }
+    } catch (e) {} finally { setAdding(false) }
   }
 
   const filtered = leads.filter(l => {
@@ -77,13 +73,7 @@ export default function LeadsPage() {
     if (sourceFilter !== 'all' && (l.source || 'manual') !== sourceFilter) return false
     if (search) {
       const q = search.toLowerCase()
-      return (
-        l.name?.toLowerCase().includes(q) ||
-        l.email?.toLowerCase().includes(q) ||
-        l.company?.toLowerCase().includes(q) ||
-        l.dot_number?.toLowerCase().includes(q) ||
-        l.area?.toLowerCase().includes(q)
-      )
+      return l.name?.toLowerCase().includes(q) || l.email?.toLowerCase().includes(q) || l.company?.toLowerCase().includes(q) || l.dot_number?.toLowerCase().includes(q) || l.area?.toLowerCase().includes(q)
     }
     return true
   })
@@ -115,11 +105,11 @@ export default function LeadsPage() {
         <div className="flex items-center gap-2">
           <button onClick={() => setShowImport(true)} className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-gray-600 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
             <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" /></svg>
-            <span className="hidden sm:inline">Import CSV</span>
+            <span className="hidden sm:inline">CSV</span>
           </button>
           <button onClick={() => setShowAddForm(!showAddForm)} className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-white bg-[#0a1628] rounded-lg hover:bg-[#162d54] transition-colors">
             <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" /></svg>
-            <span className="hidden sm:inline">Add Lead</span>
+            <span className="hidden sm:inline">Add</span>
           </button>
         </div>
       </div>
@@ -134,7 +124,6 @@ export default function LeadsPage() {
             <input type="text" placeholder="Company" value={newLead.company} onChange={(e) => setNewLead(p => ({ ...p, company: e.target.value }))} style={{ fontSize: '16px' }} className="px-3 py-2.5 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-[#c9a227]/30 focus:border-[#c9a227] outline-none" />
             <input type="text" placeholder="DOT Number" value={newLead.dot_number} onChange={(e) => setNewLead(p => ({ ...p, dot_number: e.target.value }))} style={{ fontSize: '16px' }} className="px-3 py-2.5 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-[#c9a227]/30 focus:border-[#c9a227] outline-none" />
             <input type="text" placeholder="Fleet Size" value={newLead.fleet_size} onChange={(e) => setNewLead(p => ({ ...p, fleet_size: e.target.value }))} style={{ fontSize: '16px' }} className="px-3 py-2.5 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-[#c9a227]/30 focus:border-[#c9a227] outline-none" />
-            <input type="text" placeholder="Area / Market" value={newLead.area} onChange={(e) => setNewLead(p => ({ ...p, area: e.target.value }))} style={{ fontSize: '16px' }} className="px-3 py-2.5 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-[#c9a227]/30 focus:border-[#c9a227] outline-none" />
           </div>
           <div className="flex items-center gap-2 mt-4">
             <button type="button" onClick={() => setShowAddForm(false)} className="px-4 py-2 text-sm text-gray-600 bg-gray-100 rounded-lg hover:bg-gray-200">Cancel</button>
@@ -155,13 +144,8 @@ export default function LeadsPage() {
       <div className="mb-3 -mx-4 px-4 overflow-x-auto scrollbar-hide">
         <div className="flex gap-1.5 min-w-max sm:min-w-0 sm:flex-wrap">
           {SOURCES.filter(s => s.value === 'all' || getSourceCount(s.value) > 0).map((s) => (
-            <button
-              key={s.value}
-              onClick={() => setSourceFilter(s.value)}
-              className={'flex-shrink-0 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ' + (sourceFilter === s.value ? 'bg-[#c9a227] text-[#0a1628]' : 'bg-white text-gray-500 border border-gray-200 hover:bg-gray-50')}
-            >
-              {s.label}
-              <span className={'ml-1 ' + (sourceFilter === s.value ? 'text-[#0a1628]/50' : 'text-gray-400')}>{getSourceCount(s.value)}</span>
+            <button key={s.value} onClick={() => setSourceFilter(s.value)} className={'flex-shrink-0 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ' + (sourceFilter === s.value ? 'bg-[#c9a227] text-[#0a1628]' : 'bg-white text-gray-500 border border-gray-200 hover:bg-gray-50')}>
+              {s.label}<span className={'ml-1 ' + (sourceFilter === s.value ? 'text-[#0a1628]/50' : 'text-gray-400')}>{getSourceCount(s.value)}</span>
             </button>
           ))}
         </div>
@@ -171,13 +155,8 @@ export default function LeadsPage() {
       <div className="mb-4 -mx-4 px-4 overflow-x-auto scrollbar-hide">
         <div className="flex gap-2 min-w-max sm:min-w-0 sm:flex-wrap">
           {STATUSES.map((s) => (
-            <button
-              key={s.value}
-              onClick={() => setFilter(s.value)}
-              className={'flex-shrink-0 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ' + (filter === s.value ? 'bg-[#0a1628] text-white' : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-50')}
-            >
-              {s.label}
-              <span className={'ml-1.5 ' + (filter === s.value ? 'text-white/60' : 'text-gray-400')}>{getStatusCount(s.value)}</span>
+            <button key={s.value} onClick={() => setFilter(s.value)} className={'flex-shrink-0 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ' + (filter === s.value ? 'bg-[#0a1628] text-white' : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-50')}>
+              {s.label}<span className={'ml-1.5 ' + (filter === s.value ? 'text-white/60' : 'text-gray-400')}>{getStatusCount(s.value)}</span>
             </button>
           ))}
         </div>
@@ -185,7 +164,7 @@ export default function LeadsPage() {
 
       <p className="text-xs text-gray-400 mb-3">{filtered.length} result{filtered.length !== 1 ? 's' : ''}</p>
 
-      {/* Table */}
+      {/* Lead Cards — single layout, no horizontal scroll */}
       <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
         {filtered.length === 0 ? (
           <div className="p-10 text-center">
@@ -198,81 +177,34 @@ export default function LeadsPage() {
             </div>
           </div>
         ) : (
-          <>
-            {/* Desktop Table */}
-            <div className="hidden md:block overflow-x-auto">
-              <table className="w-full">
-                <thead className="bg-gray-50/80">
-                  <tr>
-                    <th className="px-5 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wide">Name</th>
-                    <th className="px-5 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wide">Company</th>
-                    <th className="px-5 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wide">Contact</th>
-                    <th className="px-5 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wide">Status</th>
-                    <th className="px-5 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wide">Outreach</th>
-                    <th className="px-5 py-3"></th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-100">
-                  {filtered.map((l) => {
-                    const srcBadge = getSourceBadge(l.source)
-                    return (
-                      <tr key={l.id} className="hover:bg-gray-50/50 transition-colors">
-                        <td className="px-5 py-3.5">
-                          <div className="flex items-center gap-2">
-                            <p className="font-medium text-gray-900 text-sm">{l.name}</p>
-                            {srcBadge && <span className={'inline-flex px-1.5 py-0.5 rounded text-[10px] font-medium ' + srcBadge.bg}>{srcBadge.label}</span>}
-                          </div>
-                          {l.area && <p className="text-xs text-gray-400">{l.area}</p>}
-                        </td>
-                        <td className="px-5 py-3.5">
-                          <p className="text-sm text-gray-700">{l.company || '--'}</p>
-                          {l.dot_number && <p className="text-xs text-gray-400">DOT {l.dot_number}</p>}
-                        </td>
-                        <td className="px-5 py-3.5">
-                          {l.email && <p className="text-sm text-gray-500">{l.email}</p>}
-                          {l.phone && <p className="text-sm text-gray-500">{formatPhone(l.phone)}</p>}
-                        </td>
-                        <td className="px-5 py-3.5">
-                          <span className={'inline-flex px-2.5 py-0.5 rounded-full text-xs font-medium ' + getStatusBadge(l.status)}>{getStatusLabel(l.status)}</span>
-                        </td>
-                        <td className="px-5 py-3.5 text-sm text-gray-500">{l.outreach_count || 0} sent</td>
-                        <td className="px-5 py-3.5">
-                          <Link href={'/admin/leads/' + l.id} className="text-[#c9a227] hover:text-[#0a1628] font-medium text-sm transition-colors">View</Link>
-                        </td>
-                      </tr>
-                    )
-                  })}
-                </tbody>
-              </table>
-            </div>
-
-            {/* Mobile Cards */}
-            <div className="md:hidden divide-y divide-gray-100">
-              {filtered.map((l) => {
-                const srcBadge = getSourceBadge(l.source)
-                return (
-                  <Link key={l.id} href={'/admin/leads/' + l.id} className="block p-4 active:bg-gray-50">
-                    <div className="flex items-start justify-between mb-1">
-                      <div className="min-w-0 flex-1">
-                        <div className="flex items-center gap-2">
-                          <p className="font-semibold text-gray-900 text-sm truncate">{l.name}</p>
-                          {srcBadge && <span className={'flex-shrink-0 inline-flex px-1.5 py-0.5 rounded text-[9px] font-medium ' + srcBadge.bg}>{srcBadge.label}</span>}
-                        </div>
-                        <p className="text-xs text-gray-500">{l.company || 'No company'}</p>
+          <div className="divide-y divide-gray-100">
+            {filtered.map((l) => {
+              const srcBadge = getSourceBadge(l.source)
+              return (
+                <Link key={l.id} href={'/admin/leads/' + l.id} className="block p-4 hover:bg-gray-50/50 active:bg-gray-50 transition-colors">
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-center gap-2 mb-0.5">
+                        <p className="font-semibold text-gray-900 text-sm truncate">{l.name}</p>
+                        {srcBadge && <span className={'flex-shrink-0 inline-flex px-1.5 py-0.5 rounded text-[9px] font-medium ' + srcBadge.bg}>{srcBadge.label}</span>}
                       </div>
-                      <div className="flex flex-col items-end ml-3">
-                        <span className={'inline-flex px-2 py-0.5 rounded-full text-[10px] font-medium ' + getStatusBadge(l.status)}>{getStatusLabel(l.status)}</span>
-                        <p className="text-[10px] text-gray-400 mt-1">{timeAgo(l.created_at)}</p>
+                      <p className="text-xs text-gray-500">{l.company || 'No company'}{l.dot_number ? ' · DOT ' + l.dot_number : ''}</p>
+                      <div className="flex items-center gap-2 mt-1">
+                        {l.email && <p className="text-xs text-gray-400 truncate">{l.email}</p>}
+                        {l.phone && <p className="text-xs text-gray-400">{formatPhone(l.phone)}</p>}
                       </div>
+                      {l.area && <p className="text-[10px] text-gray-400 mt-0.5">{l.area}</p>}
                     </div>
-                    {l.dot_number && <p className="text-xs text-gray-400">DOT {l.dot_number}</p>}
-                    {l.fleet_size && <p className="text-xs text-gray-400">{l.fleet_size} trucks</p>}
-                    {l.outreach_count > 0 && <p className="text-xs text-gray-400 mt-0.5">{l.outreach_count} emails sent</p>}
-                  </Link>
-                )
-              })}
-            </div>
-          </>
+                    <div className="flex flex-col items-end gap-1 flex-shrink-0">
+                      <span className={'inline-flex px-2 py-0.5 rounded-full text-[10px] font-medium ' + getStatusBadge(l.status)}>{getStatusLabel(l.status)}</span>
+                      <p className="text-[10px] text-gray-400">{timeAgo(l.created_at)}</p>
+                      {l.outreach_count > 0 && <p className="text-[10px] text-gray-400">{l.outreach_count} sent</p>}
+                    </div>
+                  </div>
+                </Link>
+              )
+            })}
+          </div>
         )}
       </div>
 
