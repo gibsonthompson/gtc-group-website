@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import LeadCSVImport from '../components/LeadCSVImport'
@@ -39,10 +39,9 @@ export default function LeadsPage() {
   const [showAddForm, setShowAddForm] = useState(false)
   const [newLead, setNewLead] = useState({ name: '', email: '', phone: '', company: '', dot_number: '', fleet_size: '', area: '' })
   const [adding, setAdding] = useState(false)
+  const [deleting, setDeleting] = useState(null)
 
-  useEffect(() => { fetchLeads() }, [])
-
-  const fetchLeads = async () => {
+  const fetchLeads = useCallback(async () => {
     try {
       const r = await fetch('/api/admin/leads')
       const d = await r.json()
@@ -52,7 +51,20 @@ export default function LeadsPage() {
     } finally {
       setLoading(false)
     }
-  }
+  }, [])
+
+  // Fetch on mount + re-fetch when page becomes visible (back from email send)
+  useEffect(() => {
+    fetchLeads()
+    const handleFocus = () => fetchLeads()
+    window.addEventListener('focus', handleFocus)
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible') fetchLeads()
+    })
+    return () => {
+      window.removeEventListener('focus', handleFocus)
+    }
+  }, [fetchLeads])
 
   const handleAddLead = async (e) => {
     e.preventDefault()
@@ -66,6 +78,25 @@ export default function LeadsPage() {
         fetchLeads()
       }
     } catch (e) {} finally { setAdding(false) }
+  }
+
+  const handleDelete = async (e, id) => {
+    e.preventDefault() // Don't navigate to detail page
+    e.stopPropagation()
+    setDeleting(id)
+    try {
+      await fetch('/api/admin/leads', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id })
+      })
+      // Remove from local state immediately — no re-fetch needed
+      setLeads(prev => prev.filter(l => l.id !== id))
+    } catch (e) {
+      console.error('Delete failed:', e)
+    } finally {
+      setDeleting(null)
+    }
   }
 
   const filtered = leads.filter(l => {
@@ -164,7 +195,7 @@ export default function LeadsPage() {
 
       <p className="text-xs text-gray-400 mb-3">{filtered.length} result{filtered.length !== 1 ? 's' : ''}</p>
 
-      {/* Lead Cards — single layout, no horizontal scroll */}
+      {/* Lead Cards */}
       <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
         {filtered.length === 0 ? (
           <div className="p-10 text-center">
@@ -181,27 +212,41 @@ export default function LeadsPage() {
             {filtered.map((l) => {
               const srcBadge = getSourceBadge(l.source)
               return (
-                <Link key={l.id} href={'/admin/leads/' + l.id} className="block p-4 hover:bg-gray-50/50 active:bg-gray-50 transition-colors">
-                  <div className="flex items-start justify-between gap-3">
-                    <div className="min-w-0 flex-1">
-                      <div className="flex items-center gap-2 mb-0.5">
-                        <p className="font-semibold text-gray-900 text-sm truncate">{l.name}</p>
-                        {srcBadge && <span className={'flex-shrink-0 inline-flex px-1.5 py-0.5 rounded text-[9px] font-medium ' + srcBadge.bg}>{srcBadge.label}</span>}
+                <div key={l.id} className="relative group">
+                  <Link href={'/admin/leads/' + l.id} className="block p-4 pr-12 hover:bg-gray-50/50 active:bg-gray-50 transition-colors">
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-center gap-2 mb-0.5">
+                          <p className="font-semibold text-gray-900 text-sm truncate">{l.name}</p>
+                          {srcBadge && <span className={'flex-shrink-0 inline-flex px-1.5 py-0.5 rounded text-[9px] font-medium ' + srcBadge.bg}>{srcBadge.label}</span>}
+                        </div>
+                        <p className="text-xs text-gray-500">{l.company || 'No company'}{l.dot_number ? ' · DOT ' + l.dot_number : ''}</p>
+                        <div className="flex items-center gap-2 mt-1">
+                          {l.email && <p className="text-xs text-gray-400 truncate">{l.email}</p>}
+                          {l.phone && <p className="text-xs text-gray-400">{formatPhone(l.phone)}</p>}
+                        </div>
+                        {l.area && <p className="text-[10px] text-gray-400 mt-0.5">{l.area}</p>}
                       </div>
-                      <p className="text-xs text-gray-500">{l.company || 'No company'}{l.dot_number ? ' · DOT ' + l.dot_number : ''}</p>
-                      <div className="flex items-center gap-2 mt-1">
-                        {l.email && <p className="text-xs text-gray-400 truncate">{l.email}</p>}
-                        {l.phone && <p className="text-xs text-gray-400">{formatPhone(l.phone)}</p>}
+                      <div className="flex flex-col items-end gap-1 flex-shrink-0">
+                        <span className={'inline-flex px-2 py-0.5 rounded-full text-[10px] font-medium ' + getStatusBadge(l.status)}>{getStatusLabel(l.status)}</span>
+                        <p className="text-[10px] text-gray-400">{timeAgo(l.created_at)}</p>
+                        {l.outreach_count > 0 && <p className="text-[10px] text-gray-400">{l.outreach_count} sent</p>}
                       </div>
-                      {l.area && <p className="text-[10px] text-gray-400 mt-0.5">{l.area}</p>}
                     </div>
-                    <div className="flex flex-col items-end gap-1 flex-shrink-0">
-                      <span className={'inline-flex px-2 py-0.5 rounded-full text-[10px] font-medium ' + getStatusBadge(l.status)}>{getStatusLabel(l.status)}</span>
-                      <p className="text-[10px] text-gray-400">{timeAgo(l.created_at)}</p>
-                      {l.outreach_count > 0 && <p className="text-[10px] text-gray-400">{l.outreach_count} sent</p>}
-                    </div>
-                  </div>
-                </Link>
+                  </Link>
+                  {/* Delete button */}
+                  <button
+                    onClick={(e) => handleDelete(e, l.id)}
+                    disabled={deleting === l.id}
+                    className="absolute top-3 right-3 w-7 h-7 flex items-center justify-center rounded-full text-gray-300 hover:text-red-500 hover:bg-red-50 active:bg-red-100 transition-colors sm:opacity-0 sm:group-hover:opacity-100"
+                  >
+                    {deleting === l.id ? (
+                      <div className="w-3 h-3 border-2 border-red-400 border-t-transparent rounded-full animate-spin" />
+                    ) : (
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+                    )}
+                  </button>
+                </div>
               )
             })}
           </div>

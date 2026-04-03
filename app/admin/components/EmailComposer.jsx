@@ -53,12 +53,25 @@ function generateEmailHTML(subject, body) {
 </body></html>`
 }
 
+// "JOHN SMITH" → "John Smith", "ACME TRUCKING LLC" → "Acme Trucking Llc"
+function toTitleCase(str) {
+  if (!str) return ''
+  // Only convert if the string is all uppercase (or all uppercase + numbers/spaces)
+  if (str === str.toUpperCase() && str !== str.toLowerCase()) {
+    return str.toLowerCase().replace(/\b\w/g, c => c.toUpperCase())
+  }
+  return str
+}
+
 function replaceVariables(text, contact) {
   if (!text) return ''
+  const name = toTitleCase(contact.name || '')
+  const firstName = toTitleCase((contact.name || '').split(' ')[0])
+  const company = toTitleCase(contact.service_type || '')
   return text
-    .replace(/\{name\}/g, contact.name || '')
-    .replace(/\{first_name\}/g, (contact.name || '').split(' ')[0])
-    .replace(/\{company\}/g, contact.service_type || '')
+    .replace(/\{name\}/g, name)
+    .replace(/\{first_name\}/g, firstName)
+    .replace(/\{company\}/g, company)
     .replace(/\{email\}/g, contact.email || '')
     .replace(/\{phone\}/g, contact.phone || '')
 }
@@ -160,7 +173,7 @@ export default function EmailComposer({ isOpen, onClose, contact, onSent }) {
     }).catch(() => {})
 
     // Tell parent: outreach sent — parent will update status + navigate
-    if (onSent) onSent()
+    if (onSent) await onSent()
   }
 
   if (!isOpen || !contact) return null

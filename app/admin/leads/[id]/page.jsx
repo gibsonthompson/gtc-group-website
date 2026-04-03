@@ -289,9 +289,9 @@ export default function LeadDetailPage() {
         isOpen={composerOpen}
         onClose={() => setComposerOpen(false)}
         contact={composerContact}
-        onSent={() => {
-          // Mark lead as contacted
-          fetch('/api/admin/leads', {
+        onSent={async () => {
+          // Mark lead as contacted — wait for it to complete before navigating
+          await fetch('/api/admin/leads', {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ id: leadId, status: 'contacted' })
@@ -299,6 +299,7 @@ export default function LeadDetailPage() {
           // Close composer and go back to leads list
           setComposerOpen(false)
           router.push('/admin/leads')
+          router.refresh()
         }}
       />
     </div>
