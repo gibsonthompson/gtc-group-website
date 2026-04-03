@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 
-const GTC_LOGO_URL = 'https://globaltransportconsultinggroup.com/logo.png'
+const GTC_LOGO_URL = 'https://globaltransportconsultinggroup.com/images/gtc-email-logo.png'
 
 function generateEmailHTML(subject, body) {
   const bodyHTML = body
@@ -12,24 +12,39 @@ function generateEmailHTML(subject, body) {
 
   return `<!DOCTYPE html>
 <html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"></head>
-<body style="margin:0;padding:0;background-color:#f5f5f4;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
-<table width="100%" cellpadding="0" cellspacing="0" style="background-color:#f5f5f4;padding:32px 16px;">
+<body style="margin:0;padding:0;background-color:#f0efec;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+<table width="100%" cellpadding="0" cellspacing="0" style="background-color:#f0efec;padding:32px 16px;">
 <tr><td align="center">
 <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;">
 
-<tr><td style="padding:0 0 24px 0;">
-<img src="${GTC_LOGO_URL}" alt="The GTC Group" height="36" style="height:36px;width:auto;display:block;" />
+<!-- Logo Header -->
+<tr><td style="background-color:#0a1628;padding:28px 40px;border-radius:8px 8px 0 0;text-align:center;">
+<img src="${GTC_LOGO_URL}" alt="The GTC Group — Logistics Advisory" height="48" style="height:48px;width:auto;display:inline-block;" />
 </td></tr>
 
-<tr><td style="padding:0 0 24px 0;">
+<!-- Body -->
+<tr><td style="background-color:#ffffff;padding:36px 40px;border-left:1px solid #e5e7eb;border-right:1px solid #e5e7eb;">
 <p style="margin:0 0 16px 0;color:#374151;font-size:15px;line-height:1.7;">${bodyHTML}</p>
 </td></tr>
 
-<tr><td style="padding:24px 0 0 0;border-top:1px solid #e5e7eb;">
-<p style="margin:0 0 2px 0;color:#0a1628;font-size:13px;font-weight:600;">Gibson Thompson</p>
-<p style="margin:0 0 2px 0;color:#6b7280;font-size:12px;">CTO, The GTC Group</p>
+<!-- Signature -->
+<tr><td style="background-color:#ffffff;padding:0 40px 32px 40px;border-left:1px solid #e5e7eb;border-right:1px solid #e5e7eb;border-top:1px solid #e5e7eb;">
+<table cellpadding="0" cellspacing="0"><tr>
+<td style="padding-right:16px;border-right:2px solid #c9a227;vertical-align:top;">
+<p style="margin:0 0 2px 0;color:#0a1628;font-size:14px;font-weight:700;">Gibson Thompson</p>
+<p style="margin:0;color:#6b7280;font-size:12px;">CTO</p>
+</td>
+<td style="padding-left:16px;vertical-align:top;">
 <p style="margin:0 0 2px 0;color:#6b7280;font-size:12px;">(678) 316-1454</p>
-<p style="margin:0;color:#6b7280;font-size:12px;">globaltransportconsultinggroup.com</p>
+<p style="margin:0 0 2px 0;color:#6b7280;font-size:12px;">gthompson@gtcadvisors.com</p>
+<p style="margin:0;color:#c9a227;font-size:12px;font-weight:600;">globaltransportconsultinggroup.com</p>
+</td>
+</tr></table>
+</td></tr>
+
+<!-- Footer -->
+<tr><td style="background-color:#0a1628;padding:16px 40px;border-radius:0 0 8px 8px;text-align:center;">
+<p style="margin:0;color:rgba(255,255,255,0.4);font-size:11px;">The GTC Group &middot; Carrier Resources, Brokerage Results</p>
 </td></tr>
 
 </table>
