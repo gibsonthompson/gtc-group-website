@@ -139,8 +139,8 @@ export default function EmailComposer({ isOpen, onClose, contact, onSent }) {
         body: JSON.stringify({ lead_id: contact.id, lead_name: contact.name, subject })
       })
 
-      // 4. Open Gmail with recipient and subject pre-filled
-      const gmailUrl = `https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(contact.email)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+      // 4. Open Gmail with recipient and subject only — body is empty so user pastes branded HTML
+      const gmailUrl = `https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(contact.email)}&su=${encodeURIComponent(subject)}`
       window.open(gmailUrl, '_blank')
 
       setStatus('done')
@@ -211,8 +211,8 @@ export default function EmailComposer({ isOpen, onClose, contact, onSent }) {
               'bg-[#0a1628] text-white hover:bg-[#162d54] active:scale-[0.98]'
             )}
           >
-            {status === 'working' ? 'Opening Gmail...' :
-             status === 'done' ? 'Sent & Logged' :
+            {status === 'working' ? 'Copying & opening Gmail...' :
+             status === 'done' ? 'Copied — paste in Gmail' :
              status === 'error' ? 'Failed' :
              <>
                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
