@@ -6,8 +6,8 @@ import { useSearchParams } from 'next/navigation'
 import LeadCSVImport from '../components/LeadCSVImport'
 
 const STATUSES = [
-  { value: 'all', label: 'All' },
   { value: 'new', label: 'New', bg: 'bg-blue-100 text-blue-700' },
+  { value: 'all', label: 'All' },
   { value: 'contacted', label: 'Contacted', bg: 'bg-yellow-100 text-yellow-700' },
   { value: 'responded', label: 'Responded', bg: 'bg-green-100 text-green-700' },
   { value: 'meeting_set', label: 'Meeting Set', bg: 'bg-purple-100 text-purple-700' },
@@ -32,7 +32,7 @@ export default function LeadsPage() {
   const searchParams = useSearchParams()
   const [leads, setLeads] = useState([])
   const [loading, setLoading] = useState(true)
-  const [filter, setFilter] = useState(searchParams.get('status') || 'all')
+  const [filter, setFilter] = useState(searchParams.get('status') || 'new')
   const [sourceFilter, setSourceFilter] = useState(searchParams.get('source') || 'all')
   const [search, setSearch] = useState('')
   const [showImport, setShowImport] = useState(false)
