@@ -1,19 +1,28 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 
 export default function AdminDashboard() {
   const [emailsToday, setEmailsToday] = useState(0)
   const [loading, setLoading] = useState(true)
+  const [search, setSearch] = useState('')
+  const [leads, setLeads] = useState([])
+  const [searchFocused, setSearchFocused] = useState(false)
+  const searchRef = useRef(null)
 
   useEffect(() => { fetchData() }, [])
 
   const fetchData = async () => {
     try {
-      const res = await fetch('/api/admin/email-stats')
-      const data = await res.json()
-      setEmailsToday(data.today || 0)
+      const [statsRes, leadsRes] = await Promise.all([
+        fetch('/api/admin/email-stats'),
+        fetch('/api/admin/leads'),
+      ])
+      const statsData = await statsRes.json()
+      const leadsData = await leadsRes.json()
+      setEmailsToday(statsData.today || 0)
+      setLeads(leadsData.leads || [])
     } catch (e) {
       console.error('Dashboard fetch error:', e)
     } finally {
@@ -25,6 +34,47 @@ export default function AdminDashboard() {
   const meterColor = emailsToday >= 100 ? '#16a34a' : emailsToday >= 50 ? '#c9a227' : '#0a1628'
   const meterBg = emailsToday >= 100 ? '#dcfce7' : emailsToday >= 50 ? '#fef9c3' : '#e8e6e1'
 
+  const formatPhone = (phone) => {
+    if (!phone) return ''
+    const c = phone.replace(/\D/g, '')
+    if (c.length === 10) return '(' + c.slice(0, 3) + ') ' + c.slice(3, 6) + '-' + c.slice(6)
+    return phone
+  }
+
+  const searchResults = search.trim().length >= 2 ? leads.filter(l => {
+    const q = search.toLowerCase().replace(/\D/g, '') || search.toLowerCase()
+    const phoneDigits = (l.phone || '').replace(/\D/g, '')
+    // Phone-first matching
+    if (/^\d+$/.test(search.replace(/[\s\-\(\)]/g, ''))) {
+      return phoneDigits.includes(q)
+    }
+    // Fallback: name, email, company, DOT
+    const ql = search.toLowerCase()
+    return l.name?.toLowerCase().includes(ql) ||
+      l.email?.toLowerCase().includes(ql) ||
+      l.company?.toLowerCase().includes(ql) ||
+      l.dot_number?.toLowerCase().includes(ql) ||
+      phoneDigits.includes(ql.replace(/\D/g, ''))
+  }).slice(0, 8) : []
+
+  const showResults = searchFocused && search.trim().length >= 2
+
+  const getStatusBadge = (status) => {
+    const map = {
+      new: 'bg-blue-100 text-blue-700',
+      contacted: 'bg-yellow-100 text-yellow-700',
+      responded: 'bg-green-100 text-green-700',
+      meeting_set: 'bg-purple-100 text-purple-700',
+      client: 'bg-emerald-100 text-emerald-700',
+      not_interested: 'bg-gray-100 text-gray-500',
+    }
+    return map[status] || 'bg-gray-100 text-gray-600'
+  }
+  const getStatusLabel = (status) => {
+    const map = { new: 'New', contacted: 'Contacted', responded: 'Responded', meeting_set: 'Meeting Set', client: 'Client', not_interested: 'Not Interested' }
+    return map[status] || status
+  }
+
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-[60vh]">
@@ -35,6 +85,64 @@ export default function AdminDashboard() {
 
   return (
     <div className="px-4 sm:px-6 py-5 sm:py-8">
+      {/* Search */}
+      <div className="relative mb-5" ref={searchRef}>
+        <div className="relative">
+          <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+          <input
+            type="text"
+            placeholder="Search by phone, name, email, company..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            onFocus={() => setSearchFocused(true)}
+            onBlur={() => setTimeout(() => setSearchFocused(false), 200)}
+            style={{ fontSize: '16px' }}
+            className="w-full pl-10 pr-4 py-3 bg-white border border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-[#c9a227]/30 focus:border-[#c9a227] outline-none"
+          />
+          {search && (
+            <button onClick={() => setSearch('')} className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 flex items-center justify-center rounded-full text-gray-400 hover:text-gray-600">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+          )}
+        </div>
+        {showResults && (
+          <div className="absolute left-0 right-0 top-full mt-1 bg-white border border-gray-200 rounded-xl shadow-lg z-50 overflow-hidden max-h-[60vh] overflow-y-auto">
+            {searchResults.length === 0 ? (
+              <div className="px-4 py-6 text-center">
+                <p className="text-sm text-gray-400">No leads found</p>
+              </div>
+            ) : (
+              <div className="divide-y divide-gray-100">
+                {searchResults.map((l) => (
+                  <Link key={l.id} href={'/admin/leads/' + l.id} className="block px-4 py-3 hover:bg-gray-50 active:bg-gray-100 transition-colors">
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="min-w-0 flex-1">
+                        <p className="font-semibold text-gray-900 text-sm truncate">{l.name}</p>
+                        <p className="text-xs text-gray-500 mt-0.5">{l.company || 'No company'}{l.dot_number ? ' · DOT ' + l.dot_number : ''}</p>
+                        <div className="flex items-center gap-3 mt-1">
+                          {l.phone && (
+                            <span className="text-xs text-gray-600 font-medium">{formatPhone(l.phone)}</span>
+                          )}
+                          {l.email && (
+                            <span className="text-xs text-gray-400 truncate">{l.email}</span>
+                          )}
+                        </div>
+                      </div>
+                      <span className={'flex-shrink-0 inline-flex px-2 py-0.5 rounded-full text-[10px] font-medium ' + getStatusBadge(l.status)}>{getStatusLabel(l.status)}</span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            )}
+            {searchResults.length > 0 && (
+              <Link href={'/admin/leads?search=' + encodeURIComponent(search)} className="block px-4 py-2.5 text-center text-xs font-medium text-[#c9a227] bg-gray-50 hover:bg-gray-100 border-t border-gray-100">
+                View all in Leads →
+              </Link>
+            )}
+          </div>
+        )}
+      </div>
+
       {/* Email Meter */}
       <div className="bg-white rounded-xl border border-gray-200 p-5 mb-5">
         <div className="flex items-center justify-between mb-3">
