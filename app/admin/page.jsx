@@ -42,19 +42,14 @@ export default function AdminDashboard() {
   }
 
   const searchResults = search.trim().length >= 2 ? leads.filter(l => {
-    const q = search.toLowerCase().replace(/\D/g, '') || search.toLowerCase()
-    const phoneDigits = (l.phone || '').replace(/\D/g, '')
-    // Phone-first matching
-    if (/^\d+$/.test(search.replace(/[\s\-\(\)]/g, ''))) {
-      return phoneDigits.includes(q)
-    }
-    // Fallback: name, email, company, DOT
     const ql = search.toLowerCase()
-    return l.name?.toLowerCase().includes(ql) ||
-      l.email?.toLowerCase().includes(ql) ||
-      l.company?.toLowerCase().includes(ql) ||
-      l.dot_number?.toLowerCase().includes(ql) ||
-      phoneDigits.includes(ql.replace(/\D/g, ''))
+    const digits = search.replace(/\D/g, '')
+    const phoneDigits = (l.phone || '').replace(/\D/g, '')
+    return (l.name?.toLowerCase().includes(ql)) ||
+      (l.email?.toLowerCase().includes(ql)) ||
+      (l.company?.toLowerCase().includes(ql)) ||
+      (l.dot_number?.toLowerCase().includes(ql)) ||
+      (digits.length >= 2 && phoneDigits.includes(digits))
   }).slice(0, 8) : []
 
   const showResults = searchFocused && search.trim().length >= 2
