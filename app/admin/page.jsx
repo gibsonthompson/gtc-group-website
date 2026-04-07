@@ -34,6 +34,11 @@ export default function AdminDashboard() {
   const meterColor = emailsToday >= 100 ? '#16a34a' : emailsToday >= 50 ? '#c9a227' : '#0a1628'
   const meterBg = emailsToday >= 100 ? '#dcfce7' : emailsToday >= 50 ? '#fef9c3' : '#e8e6e1'
 
+  const now = new Date()
+  const todayEnd = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59)
+  const followupsDue = leads.filter(l => l.next_followup && new Date(l.next_followup) <= todayEnd && l.status !== 'not_interested' && l.status !== 'client').length
+  const newLeads = leads.filter(l => l.status === 'new').length
+
   const formatPhone = (phone) => {
     if (!phone) return ''
     const c = phone.replace(/\D/g, '')
@@ -115,12 +120,8 @@ export default function AdminDashboard() {
                         <p className="font-semibold text-gray-900 text-sm truncate">{l.name}</p>
                         <p className="text-xs text-gray-500 mt-0.5">{l.company || 'No company'}{l.dot_number ? ' · DOT ' + l.dot_number : ''}</p>
                         <div className="flex items-center gap-3 mt-1">
-                          {l.phone && (
-                            <span className="text-xs text-gray-600 font-medium">{formatPhone(l.phone)}</span>
-                          )}
-                          {l.email && (
-                            <span className="text-xs text-gray-400 truncate">{l.email}</span>
-                          )}
+                          {l.phone && <span className="text-xs text-gray-600 font-medium">{formatPhone(l.phone)}</span>}
+                          {l.email && <span className="text-xs text-gray-400 truncate">{l.email}</span>}
                         </div>
                       </div>
                       <span className={'flex-shrink-0 inline-flex px-2 py-0.5 rounded-full text-[10px] font-medium ' + getStatusBadge(l.status)}>{getStatusLabel(l.status)}</span>
@@ -137,6 +138,20 @@ export default function AdminDashboard() {
           </div>
         )}
       </div>
+
+      {/* Work Summary */}
+      {(followupsDue > 0 || newLeads > 0) && (
+        <div className="grid grid-cols-2 gap-3 mb-5">
+          <Link href="/admin/leads?queue=outreach" className="bg-white rounded-xl border border-gray-200 p-4 hover:border-[#c9a227] hover:shadow-sm transition-all">
+            <p className="text-2xl font-bold text-[#0a1628]" style={{ fontFamily: "'Libre Baskerville', Georgia, serif" }}>{newLeads}</p>
+            <p className="text-xs text-gray-500 mt-0.5">New leads to contact</p>
+          </Link>
+          <Link href="/admin/leads?queue=followup" className={'rounded-xl border p-4 hover:shadow-sm transition-all ' + (followupsDue > 0 ? 'bg-[#c9a227]/5 border-[#c9a227]/30 hover:border-[#c9a227]' : 'bg-white border-gray-200 hover:border-[#c9a227]')}>
+            <p className={'text-2xl font-bold ' + (followupsDue > 0 ? 'text-[#c9a227]' : 'text-[#0a1628]')} style={{ fontFamily: "'Libre Baskerville', Georgia, serif" }}>{followupsDue}</p>
+            <p className="text-xs text-gray-500 mt-0.5">Follow-ups due today</p>
+          </Link>
+        </div>
+      )}
 
       {/* Email Meter */}
       <div className="bg-white rounded-xl border border-gray-200 p-5 mb-5">
