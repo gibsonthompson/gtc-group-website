@@ -17,16 +17,14 @@ export async function POST(request) {
 }
 
 // SMS Input Census (kjg3-diqy)
-// carrier_operation: A=Interstate, B=Intrastate HM, C=Intrastate non-HM
-// authorized_for_hire: true = for-hire carrier (actual trucking companies)
 async function queryPrimary(states, minTrucks, maxTrucks) {
   try {
     const stateFilter = states.map(s => `phy_state='${s}'`).join(' OR ')
     const where = [
       `(${stateFilter})`,
       `nbr_power_unit IS NOT NULL`,
-      `nbr_power_unit::number >= ${minTrucks || 1}`,
-      `nbr_power_unit::number <= ${maxTrucks || 50}`,
+      `nbr_power_unit::number >= ${minTrucks || 10}`,
+      ...(maxTrucks ? [`nbr_power_unit::number <= ${maxTrucks}`] : []),
       `pc_flag='false'`,
       `authorized_for_hire='true'`,
       `email_address IS NOT NULL`,
@@ -64,8 +62,8 @@ async function queryFallback(states, minTrucks, maxTrucks) {
     const where = [
       `(${stateFilter})`,
       `nbr_power_unit IS NOT NULL`,
-      `nbr_power_unit::number >= ${minTrucks || 1}`,
-      `nbr_power_unit::number <= ${maxTrucks || 50}`,
+      `nbr_power_unit::number >= ${minTrucks || 10}`,
+      ...(maxTrucks ? [`nbr_power_unit::number <= ${maxTrucks}`] : []),
       `authorized_for_hire='true'`,
       `email_address IS NOT NULL`,
       `(carrier_operation='A' OR carrier_operation='B' OR carrier_operation='C')`,

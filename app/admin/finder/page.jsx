@@ -17,8 +17,8 @@ const FREE_DOMAINS = new Set([
 
 export default function FinderPage() {
   const [states, setStates] = useState(['GA'])
-  const [minTrucks, setMinTrucks] = useState(1)
-  const [maxTrucks, setMaxTrucks] = useState(50)
+  const [minTrucks, setMinTrucks] = useState(10)
+  const [maxTrucks, setMaxTrucks] = useState('')
   const [results, setResults] = useState([])
   const [searching, setSearching] = useState(false)
   const [importing, setImporting] = useState(false)
@@ -43,10 +43,13 @@ export default function FinderPage() {
     setImportProgress({ done: 0, total: 0 })
 
     try {
+      const payload = { states, minTrucks: minTrucks || 10 }
+      if (maxTrucks) payload.maxTrucks = maxTrucks
+
       const r = await fetch('/api/admin/finder', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ states, minTrucks, maxTrucks })
+        body: JSON.stringify(payload)
       })
       const data = await r.json()
 
@@ -173,11 +176,11 @@ export default function FinderPage() {
         <div className="grid grid-cols-2 gap-3 mb-4">
           <div>
             <label className="block text-xs font-medium text-gray-700 mb-1">Min Trucks</label>
-            <input type="number" value={minTrucks} onChange={e => setMinTrucks(parseInt(e.target.value) || 1)} min={1} className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-[#c9a227]/30 focus:border-[#c9a227] outline-none" />
+            <input type="number" value={minTrucks} onChange={e => setMinTrucks(parseInt(e.target.value) || 10)} min={1} className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-[#c9a227]/30 focus:border-[#c9a227] outline-none" />
           </div>
           <div>
-            <label className="block text-xs font-medium text-gray-700 mb-1">Max Trucks</label>
-            <input type="number" value={maxTrucks} onChange={e => setMaxTrucks(parseInt(e.target.value) || 50)} min={1} className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-[#c9a227]/30 focus:border-[#c9a227] outline-none" />
+            <label className="block text-xs font-medium text-gray-700 mb-1">Max Trucks <span className="text-gray-400 font-normal">(optional)</span></label>
+            <input type="number" value={maxTrucks} onChange={e => setMaxTrucks(e.target.value ? parseInt(e.target.value) : '')} min={1} placeholder="No limit" className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-[#c9a227]/30 focus:border-[#c9a227] outline-none" />
           </div>
         </div>
 
