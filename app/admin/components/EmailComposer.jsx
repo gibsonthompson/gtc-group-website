@@ -167,7 +167,7 @@ export default function EmailComposer({ isOpen, onClose, contact, onSent }) {
       window.location.href = `mailto:${encodeURIComponent(contact.email)}?subject=${encodeURIComponent(subject)}`
     } else {
       // Desktop: open Gmail web compose in new tab
-      const gmailUrl = `https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(contact.email)}&su=${encodeURIComponent(subject)}`
+      const gmailUrl = `https://mail.google.com/mail/?authuser=gthompson@gtcadvisors.com&view=cm&to=${encodeURIComponent(contact.email)}&su=${encodeURIComponent(subject)}`
       window.open(gmailUrl, '_blank', 'noopener,noreferrer')
     }
 
