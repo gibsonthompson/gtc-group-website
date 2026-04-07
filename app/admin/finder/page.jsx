@@ -57,13 +57,25 @@ export default function FinderPage() {
 
       const carriers = data.carriers || []
 
-      // Filter: only carriers with free email domains (gmail, yahoo, etc)
-      // These are guaranteed reachable AND guaranteed no website
+      // Filter out non-trucking businesses by company name
+      const EXCLUDE_KEYWORDS = [
+        'junk','removal','hauling','moving','movers','storage','towing','tow truck',
+        'construction','excavat','paving','concrete','roofing','plumbing','electric',
+        'landscap','lawn','tree service','tree care','demolition','waste','garbage',
+        'recycl','dumpster','septic','grading','fencing','painting','cleaning',
+        'courier','delivery service','hotshot','car carrier','auto transport',
+      ]
+
+      // Filter: free email domains + exclude non-trucking companies
       const leads = carriers
         .filter(c => c.email_address && c.email_address.includes('@'))
         .filter(c => {
           const domain = c.email_address.split('@')[1]?.toLowerCase()
           return domain && FREE_DOMAINS.has(domain)
+        })
+        .filter(c => {
+          const name = ((c.dba_name || '') + ' ' + (c.legal_name || '')).toLowerCase()
+          return !EXCLUDE_KEYWORDS.some(kw => name.includes(kw))
         })
 
       setStats({ total: carriers.length, withEmail: carriers.filter(c => c.email_address?.includes('@')).length, leads: leads.length })
