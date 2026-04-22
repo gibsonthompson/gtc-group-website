@@ -18,8 +18,8 @@ export const metadata = {
 }
 
 async function getGeneratedPosts() {
-  const supabaseUrl = process.env.BLOG_SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL
-  const supabaseKey = process.env.BLOG_SUPABASE_SERVICE_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY
+  const supabaseUrl = process.env.BLOG_SUPABASE_URL! || process.env.NEXT_PUBLIC_SUPABASE_URL!
+  const supabaseKey = process.env.BLOG_SUPABASE_SERVICE_KEY! || process.env.SUPABASE_SERVICE_ROLE_KEY!
 
   if (!supabaseUrl || !supabaseKey) return []
 

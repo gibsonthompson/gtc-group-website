@@ -11,8 +11,8 @@ import Link from 'next/link'
 import './generated-post.css'
 
 const blogSupabase = createClient(
-  process.env.BLOG_SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL,
-  process.env.BLOG_SUPABASE_SERVICE_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY
+  process.env.BLOG_SUPABASE_URL! || process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.BLOG_SUPABASE_SERVICE_KEY! || process.env.SUPABASE_SERVICE_ROLE_KEY!
 )
 
 const BUSINESS_SLUG = 'gtc-group'
