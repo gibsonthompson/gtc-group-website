@@ -38,7 +38,7 @@ export async function generateStaticParams() {
   }
 }
 
-async function getPost(slug: string) {
+async function getPost(slug) {
   try {
     const { data: biz } = await blogSupabase
       .from('blog_businesses').select('id').eq('slug', BUSINESS_SLUG).single()
@@ -58,7 +58,7 @@ async function getPost(slug: string) {
   }
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+export async function generateMetadata({ params }) {
   const { slug } = await params
   const post = await getPost(slug)
   if (!post) return {}
@@ -81,7 +81,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 }
 
-function mapPillar(cat: string | null) {
+function mapPillar(cat) {
   if (!cat) return 'Cost Reduction'
   const map = {
     'cost-reduction': 'Cost Reduction',
@@ -91,10 +91,10 @@ function mapPillar(cat: string | null) {
     'strategy': 'Strategy',
     'guide': 'Guide',
   }
-  return (map as Record<string, string>)[cat] || cat
+  return map[cat] || cat
 }
 
-function getCTA(category: string | null) {
+function getCTA(category) {
   const ctas = {
     'cost-reduction': {
       heading: "Find Out Exactly Where You're Leaving Money on the Table",
@@ -117,10 +117,10 @@ function getCTA(category: string | null) {
       button: 'Book Your Free Assessment',
     },
   }
-  return (ctas as Record<string, typeof ctas["cost-reduction"]>)[category || "cost-reduction"] || ctas["cost-reduction"]
+  return ctas[category] || ctas['cost-reduction']
 }
 
-export default async function GeneratedBlogPost({ params }: { params: Promise<{ slug: string }> }) {
+export default async function GeneratedBlogPost({ params }) {
   const { slug } = await params
   const post = await getPost(slug)
 
