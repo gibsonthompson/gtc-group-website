@@ -1,5 +1,3 @@
-// app/blog/client-page.tsx
-
 'use client'
 
 import Link from 'next/link'
@@ -95,55 +93,53 @@ interface BlogIndexPageProps {
 }
 
 export default function BlogIndexPage({ generatedPosts = [] }: BlogIndexPageProps) {
-  // Merge hardcoded + generated, generated posts appear first (newest)
   const allPosts = [...generatedPosts, ...blogPosts]
 
   return (
     <>
-      {/* Hero */}
-      <section className="bg-navy-900 pt-32 pb-20">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <span className="inline-block text-gold-400 text-[11px] font-bold tracking-[0.15em] uppercase mb-4">
-            Resources
-          </span>
-          <h1 className="font-display text-[clamp(2.25rem,4.5vw,3.25rem)] text-white font-bold leading-[1.1] tracking-[-0.02em] max-w-[800px] mb-6">
-            Insights for Independent Carriers
+      <section className="bg-navy-950 pt-32 pb-20">
+        <div className="max-w-[1320px] mx-auto px-6 md:px-10">
+          <div className="flex items-center gap-4 mb-6">
+            <div className="h-[1px] w-8 bg-gold-500" />
+            <span className="font-display text-[11px] font-semibold tracking-[0.2em] uppercase text-gold-500">Insights</span>
+          </div>
+          <h1 className="font-display text-[clamp(2.25rem,4.5vw,3.25rem)] font-black text-white leading-[1.05] tracking-[-0.03em] max-w-[800px] mb-6">
+            Insights for Carrier Operations
           </h1>
-          <p className="text-xl text-white/70 max-w-[600px] leading-relaxed">
-            Straight talk about costs, rates, and running a profitable trucking operation. No fluff—just numbers and strategies that work.
+          <p className="font-display text-[17px] font-normal text-white/40 max-w-[560px] leading-[1.7]">
+            Cost breakdowns, rate strategies, and operational intelligence. No fluff — just numbers and strategies that move your bottom line.
           </p>
         </div>
       </section>
 
-      {/* Blog Grid */}
       <section className="bg-cream-100 py-20">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="max-w-[1320px] mx-auto px-6 md:px-10">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {allPosts.map((post) => (
-              <Link 
+              <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                className="group bg-white overflow-hidden border border-navy-900/[0.06] hover:border-gold-500/30 transition-all duration-200"
               >
-                <div 
+                <div
                   className="h-[200px] bg-cover bg-center relative"
                   style={{ backgroundImage: `url('${post.image}')` }}
                 >
-                  <div className="absolute inset-0 bg-navy-900/30 group-hover:bg-navy-900/20 transition-colors" />
-                  <span className="absolute top-4 left-4 bg-gold-500 text-navy-900 py-1 px-2.5 text-[10px] font-bold tracking-[0.08em] uppercase rounded-sm">
+                  <div className="absolute inset-0 bg-navy-950/30 group-hover:bg-navy-950/20 transition-colors" />
+                  <span className="absolute top-4 left-4 bg-gold-500 text-navy-950 py-1 px-2.5 font-display text-[10px] font-bold tracking-[0.08em] uppercase">
                     {post.category}
                   </span>
                 </div>
                 <div className="p-6">
-                  <div className="flex items-center gap-3 text-xs text-gray-500 mb-3">
+                  <div className="flex items-center gap-3 font-display text-[12px] text-navy-900/30 mb-3">
                     <span>{post.date}</span>
-                    <span>•</span>
+                    <span>&middot;</span>
                     <span>{post.readTime}</span>
                   </div>
-                  <h2 className="font-display text-lg font-bold text-navy-900 leading-tight mb-3 group-hover:text-gold-600 transition-colors">
+                  <h2 className="font-display text-[16px] font-bold text-navy-900 leading-tight mb-3 group-hover:text-gold-600 transition-colors tracking-[-0.01em]">
                     {post.title}
                   </h2>
-                  <p className="text-sm text-gray-600 leading-relaxed">
+                  <p className="font-display text-[13px] font-normal text-navy-900/45 leading-[1.7]">
                     {post.excerpt}
                   </p>
                 </div>
@@ -153,20 +149,19 @@ export default function BlogIndexPage({ generatedPosts = [] }: BlogIndexPageProp
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="bg-navy-900 py-16">
-        <div className="max-w-[800px] mx-auto px-6 text-center">
-          <h2 className="font-display text-2xl md:text-3xl text-white font-bold mb-4">
-            Want Personalized Cost Analysis?
+      <section className="bg-navy-950 py-16">
+        <div className="max-w-[800px] mx-auto px-6 md:px-10 text-center">
+          <h2 className="font-display text-[22px] md:text-[28px] font-black text-white tracking-[-0.02em] mb-4">
+            Want a Personalized Cost Analysis?
           </h2>
-          <p className="text-white/70 mb-8">
+          <p className="font-display text-[15px] font-normal text-white/40 mb-8">
             We&apos;ll review your specific operation and show you exactly where you&apos;re leaving money on the table.
           </p>
-          <Link 
-            href="/book-call" 
-            className="inline-flex items-center justify-center bg-gold-500 hover:bg-gold-400 text-navy-900 font-bold py-3.5 px-8 rounded transition-colors"
+          <Link
+            href="/book-call"
+            className="inline-flex items-center justify-center bg-gold-500 hover:bg-gold-400 text-navy-950 font-display font-bold text-[14px] tracking-[0.04em] uppercase py-4 px-9 transition-colors"
           >
-            Get Your Free Assessment
+            Book Your Free Assessment
           </Link>
         </div>
       </section>

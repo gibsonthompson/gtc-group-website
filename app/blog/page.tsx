@@ -1,16 +1,11 @@
-// app/blog/page.tsx (server component wrapper)
-//
-// Fetches generated posts from blog-farm Supabase
-// and passes them to the client component which merges them with hardcoded posts.
-
 import { createClient } from '@supabase/supabase-js'
 import BlogIndexPage from './client-page'
 
 export const revalidate = 3600
 
 export const metadata = {
-  title: 'Blog — Insights for Independent Carriers | The GTC Group',
-  description: 'Straight talk about costs, rates, and running a profitable trucking operation. No fluff — just numbers and strategies that work.',
+  title: 'Insights for Carriers | The GTC Group',
+  description: 'Cost breakdowns, rate strategies, and operational insights for carrier operations. No fluff — just numbers and strategies that work.',
   alternates: { canonical: '/blog' },
 }
 
