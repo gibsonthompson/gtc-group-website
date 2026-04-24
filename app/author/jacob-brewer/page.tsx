@@ -30,7 +30,7 @@ const jsonLd = {
   jobTitle: 'Founder & CEO',
   worksFor: { '@type': 'Organization', name: 'The GTC Group', url: 'https://www.globaltransportconsultinggroup.com' },
   url: 'https://www.globaltransportconsultinggroup.com/author/jacob-brewer',
-  image: 'https://www.globaltransportconsultinggroup.com/team/team-1.jpg',
+  image: 'https://www.globaltransportconsultinggroup.com/team/team-1.png',
   description: 'Senior freight brokerage executive and founder of The GTC Group, a carrier advisory firm providing rate negotiation, cost reduction, and shipper acquisition services.',
   knowsAbout: ['Freight Brokerage', 'Trucking Insurance', 'Carrier Operations', 'Lane Optimization', 'Rate Negotiation', 'Fleet Cost Reduction', 'Direct Shipper Contracts', 'Logistics Consulting'],
   sameAs: [],
@@ -56,7 +56,7 @@ export default function JacobBrewerAuthorPage() {
 
           <div className="flex flex-col md:flex-row gap-8 md:gap-10 items-start">
             <div className="relative w-[140px] h-[175px] md:w-[170px] md:h-[210px] flex-shrink-0 overflow-hidden">
-              <Image src="/team/team-1.jpg" alt="Jacob Brewer" fill className="object-cover grayscale-[20%]" sizes="170px" priority />
+              <Image src="/team/team-1.png" alt="Jacob Brewer" fill className="object-cover grayscale-[20%]" sizes="170px" priority />
               <div className="absolute top-0 left-0 w-8 h-8">
                 <div className="absolute top-0 left-0 w-full h-[2px] bg-gold-500" />
                 <div className="absolute top-0 left-0 h-full w-[2px] bg-gold-500" />

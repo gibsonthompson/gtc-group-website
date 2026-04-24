@@ -38,7 +38,7 @@ export default function TeamPage() {
           {/* Jacob */}
           <div className="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-10 lg:gap-14 mb-16 pb-16 border-b border-navy-900/[0.08]">
             <div className="relative aspect-[3/4] overflow-hidden">
-              <Image src="/team/team-1.jpg" alt="Jacob Brewer" fill className="object-cover grayscale-[20%]" sizes="260px" />
+              <Image src="/team/team-1.png" alt="Jacob Brewer" fill className="object-cover grayscale-[20%]" sizes="260px" />
               <div className="absolute top-0 left-0 w-10 h-10">
                 <div className="absolute top-0 left-0 w-full h-[2px] bg-gold-500" />
                 <div className="absolute top-0 left-0 h-full w-[2px] bg-gold-500" />
@@ -71,7 +71,7 @@ export default function TeamPage() {
           {/* Gibson */}
           <div className="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-10 lg:gap-14">
             <div className="relative aspect-[3/4] overflow-hidden">
-              <Image src="/team/team-2.jpg" alt="Gibson Thompson" fill className="object-cover grayscale-[20%]" sizes="260px" />
+              <Image src="/team/team-2.png" alt="Gibson Thompson" fill className="object-cover grayscale-[20%]" sizes="260px" />
               <div className="absolute top-0 left-0 w-10 h-10">
                 <div className="absolute top-0 left-0 w-full h-[2px] bg-gold-500" />
                 <div className="absolute top-0 left-0 h-full w-[2px] bg-gold-500" />
