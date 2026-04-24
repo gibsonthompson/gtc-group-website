@@ -106,7 +106,7 @@ export default async function GeneratedBlogPost({ params }: { params: Promise<{ 
       '@type': 'Article', headline: post.title, description: post.meta_description || post.title,
       datePublished: post.publish_date || new Date().toISOString().split('T')[0],
       dateModified: post.publish_date || new Date().toISOString().split('T')[0],
-      author: { '@type': 'Person', name: 'Jacob Brewer', jobTitle: 'Founder & CEO', url: 'https://www.globaltransportconsultinggroup.com/author/jacob-brewer', worksFor: { '@type': 'Organization', name: 'The GTC Group' }, knowsAbout: ['freight brokerage', 'trucking insurance', 'carrier operations', 'lane optimization', 'rate negotiation', 'fleet cost reduction', 'direct shipper contracts', 'logistics consulting'] },
+      author: { '@type': 'Person', name: 'Jacob Brewer', jobTitle: 'President & CEO', url: 'https://www.globaltransportconsultinggroup.com/author/jacob-brewer', worksFor: { '@type': 'Organization', name: 'The GTC Group' }, knowsAbout: ['freight brokerage', 'trucking insurance', 'carrier operations', 'lane optimization', 'rate negotiation', 'fleet cost reduction', 'direct shipper contracts', 'logistics consulting'] },
       publisher: { '@id': 'https://www.globaltransportconsultinggroup.com/#organization' },
       mainEntityOfPage: `https://www.globaltransportconsultinggroup.com/blog/${post.slug}`,
       wordCount: post.word_count || undefined,

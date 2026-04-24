@@ -45,7 +45,7 @@ export default function TeamPage() {
               </div>
             </div>
             <div>
-              <div className="font-display text-[11px] font-semibold tracking-[0.12em] uppercase text-gold-600 mb-1">Founder & CEO</div>
+              <div className="font-display text-[11px] font-semibold tracking-[0.12em] uppercase text-gold-600 mb-1">President & CEO</div>
               <h2 className="font-display text-[24px] md:text-[28px] font-extrabold text-navy-900 tracking-[-0.02em] mb-5">Jacob Brewer</h2>
               <div className="space-y-4 font-display text-[15px] font-normal text-navy-900/55 leading-[1.75] max-w-[520px]">
                 <p>
