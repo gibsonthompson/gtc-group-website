@@ -38,7 +38,7 @@ export async function generateStaticParams() {
   }
 }
 
-async function getPost(slug) {
+async function getPost(slug: string) {
   try {
     const { data: biz } = await blogSupabase
       .from('blog_businesses').select('id').eq('slug', BUSINESS_SLUG).single()
