@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export const metadata = {
   title: 'Cost Reduction Services | The GTC Group',
-  description: 'Pool your purchasing power with other carriers to get brokerage-level rates on insurance, fuel, and maintenance.',
+  description: 'Pool your purchasing power with our carrier network to access fleet-rate pricing on insurance, fuel, and maintenance. Average savings of $3–8K per truck annually.',
 }
 
 export default function CostReductionPage() {
@@ -17,7 +17,7 @@ export default function CostReductionPage() {
           <nav className="flex items-center gap-3 mb-6 text-sm">
             <Link href="/" className="text-white/60 hover:text-gold-400 transition-colors">Home</Link>
             <span className="text-white/40">/</span>
-            <Link href="/#services" className="text-white/60 hover:text-gold-400 transition-colors">Services</Link>
+            <Link href="/#how-we-help" className="text-white/60 hover:text-gold-400 transition-colors">Services</Link>
             <span className="text-white/40">/</span>
             <span className="text-gold-400">Cost Reduction</span>
           </nav>
@@ -27,7 +27,7 @@ export default function CostReductionPage() {
               Cut Costs Like the <span className="text-gold-400">Big Carriers</span>
             </h1>
             <p className="text-xl text-white/80 mb-8">
-              Insurance, fuel, and maintenance costs eat into your margins. By pooling purchasing power across our carrier network, we negotiate rates you could never get alone.
+              Large fleets pay 15–40% less for insurance, fuel, and maintenance — purely because of volume. We pool our carrier network&apos;s purchasing power so you get the same rates without running 500 trucks.
             </p>
             <Link href="/book-call" className="btn btn-primary">
               Get Your Cost Analysis
@@ -36,12 +36,67 @@ export default function CostReductionPage() {
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section className="py-24 bg-white">
+      {/* How It Works */}
+      <section className="py-20 bg-cream-100">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <span className="section-label">The Mechanism</span>
+              <h2 className="font-display text-3xl md:text-4xl text-navy-900 mb-6">
+                Volume Leverage Without the Volume
+              </h2>
+              <p className="text-gray-600 leading-relaxed mb-4">
+                Insurance companies, fuel networks, and maintenance shops all offer tiered pricing based on volume. A carrier with 3 trucks gets retail rates. A carrier with 300 gets wholesale. The math is straightforward — more volume means more leverage at the negotiating table.
+              </p>
+              <p className="text-gray-600 leading-relaxed mb-4">
+                GTC aggregates the purchasing volume of our entire carrier network and negotiates as a single entity. Your 3 trucks get priced like they&apos;re part of a 300-truck fleet — because from the vendor&apos;s perspective, they are.
+              </p>
+              <p className="text-gray-600 leading-relaxed">
+                You keep your independence. You keep your authority. You just stop overpaying.
+              </p>
+            </div>
+            <div className="bg-white rounded-xl p-8 shadow-lg border border-gray-100">
+              <h3 className="font-display text-xl text-navy-900 mb-6">The Volume Gap</h3>
+              <div className="space-y-5">
+                {[
+                  { label: 'Insurance (annual, per truck)', solo: '$15,000', gtc: '$11,500', save: '$3,500' },
+                  { label: 'Fuel (annual, per truck)', solo: '$72,000', gtc: '$67,500', save: '$4,500' },
+                  { label: 'Maintenance (annual, per truck)', solo: '$12,000', gtc: '$10,600', save: '$1,400' },
+                ].map((row) => (
+                  <div key={row.label} className="pb-5 border-b border-gray-100 last:border-0 last:pb-0">
+                    <div className="text-sm font-medium text-navy-900 mb-2">{row.label}</div>
+                    <div className="grid grid-cols-3 gap-3 text-center">
+                      <div>
+                        <div className="text-xs text-gray-400 mb-1">Retail</div>
+                        <div className="text-sm font-semibold text-gray-500 line-through">{row.solo}</div>
+                      </div>
+                      <div>
+                        <div className="text-xs text-gray-400 mb-1">With GTC</div>
+                        <div className="text-sm font-bold text-navy-900">{row.gtc}</div>
+                      </div>
+                      <div>
+                        <div className="text-xs text-gray-400 mb-1">You Save</div>
+                        <div className="text-sm font-bold text-gold-500">{row.save}</div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+                <div className="bg-navy-900 rounded-lg p-4 text-center">
+                  <div className="text-xs text-white/50 mb-1">Total Annual Savings Per Truck</div>
+                  <div className="font-display text-2xl font-bold text-gold-400">$9,400</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Three Areas */}
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <span className="section-label">What We Negotiate</span>
-            <h2 className="font-display text-4xl text-navy-900 mb-4">Three Areas of Savings</h2>
+            <span className="section-label">Where We Negotiate</span>
+            <h2 className="font-display text-3xl md:text-4xl text-navy-900 mb-4">Three Areas of Immediate Savings</h2>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -53,10 +108,12 @@ export default function CostReductionPage() {
               </div>
               <h3 className="font-display text-2xl text-navy-900 mb-3">Insurance</h3>
               <p className="text-gray-600 mb-4">
-                Liability, cargo, and physical damage coverage at fleet rates. Average savings of 15-25% on annual premiums.
+                Liability, cargo, and physical damage at fleet rates. Most of our carriers see 15–25% lower premiums with identical coverage — same deductibles, same limits, lower price.
               </p>
-              <div className="text-gold-500 font-bold text-2xl">$3,000+</div>
-              <div className="text-gray-500 text-sm">avg. annual savings per truck</div>
+              <div className="pt-4 border-t border-gray-200">
+                <div className="text-gold-500 font-bold text-2xl">$3,000+</div>
+                <div className="text-gray-500 text-sm">avg. annual savings per truck</div>
+              </div>
             </div>
 
             <div className="bg-cream-100 rounded-xl p-8">
@@ -67,10 +124,12 @@ export default function CostReductionPage() {
               </div>
               <h3 className="font-display text-2xl text-navy-900 mb-3">Fuel</h3>
               <p className="text-gray-600 mb-4">
-                Discounted fuel cards with nationwide network access. Save $0.05-0.15 per gallon at thousands of locations.
+                Discounted fuel cards accepted at thousands of locations nationwide. At 6 MPG and 100K miles per year, even $0.05/gallon off saves over $800 annually. Our carriers typically save $0.10–$0.15.
               </p>
-              <div className="text-gold-500 font-bold text-2xl">$4,000+</div>
-              <div className="text-gray-500 text-sm">avg. annual savings per truck</div>
+              <div className="pt-4 border-t border-gray-200">
+                <div className="text-gold-500 font-bold text-2xl">$4,000+</div>
+                <div className="text-gray-500 text-sm">avg. annual savings per truck</div>
+              </div>
             </div>
 
             <div className="bg-cream-100 rounded-xl p-8">
@@ -82,23 +141,25 @@ export default function CostReductionPage() {
               </div>
               <h3 className="font-display text-2xl text-navy-900 mb-3">Maintenance</h3>
               <p className="text-gray-600 mb-4">
-                Preferred pricing at repair shops, tire dealers, and parts suppliers. Priority scheduling and fleet discounts.
+                Preferred pricing at repair shops, tire dealers, and parts suppliers in our network. Priority scheduling when you need it — no waiting behind the fleet accounts that currently get first call.
               </p>
-              <div className="text-gold-500 font-bold text-2xl">$1,400+</div>
-              <div className="text-gray-500 text-sm">avg. annual savings per truck</div>
+              <div className="pt-4 border-t border-gray-200">
+                <div className="text-gold-500 font-bold text-2xl">$1,400+</div>
+                <div className="text-gray-500 text-sm">avg. annual savings per truck</div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-gradient-to-br from-navy-900 to-navy-700">
+      <section className="py-20 bg-gradient-to-br from-navy-900 to-navy-700">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="font-display text-4xl text-white mb-6">
+          <h2 className="font-display text-3xl md:text-4xl text-white mb-6">
             See Your Savings Potential
           </h2>
-          <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-            Book a free call and we&apos;ll analyze your current costs to show exactly where we can help.
+          <p className="text-lg text-white/80 mb-8 max-w-2xl mx-auto">
+            Book a free call. We&apos;ll pull your current insurance, fuel, and maintenance spend and show you exactly where the gaps are — no obligation.
           </p>
           <Link href="/book-call" className="btn btn-primary">
             Book a Call
