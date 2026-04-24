@@ -52,7 +52,7 @@ export default function HomePage() {
         <div className="relative z-10 w-full max-w-[1320px] mx-auto px-6 md:px-10 pb-16 md:pb-24 pt-32">
           <div className="max-w-[900px]">
             {/* Eyebrow */}
-            <div className="flex items-center gap-4 mb-8 opacity-0 animate-fade-up">
+            <div className="flex items-center gap-4 mb-8">
               <div className="h-[1px] w-10 bg-gold-500" />
               <span className="font-display text-[11px] font-semibold tracking-[0.2em] uppercase text-gold-500">
                 Logistics Advisory
@@ -60,7 +60,7 @@ export default function HomePage() {
             </div>
 
             {/* Headline */}
-            <h1 className="font-display text-hero text-white mb-6 opacity-0 animate-fade-up-delay-1">
+            <h1 className="font-display text-hero text-white mb-6-delay-1">
               We&apos;ve Been on the
               <br />
               <span className="text-gold-400">Brokerage Side.</span>
@@ -70,7 +70,7 @@ export default function HomePage() {
             </h1>
 
             {/* Subhead */}
-            <p className="font-display text-[17px] md:text-[19px] font-normal text-white/55 leading-[1.75] max-w-[620px] mb-10 opacity-0 animate-fade-up-delay-2">
+            <p className="font-display text-[17px] md:text-[19px] font-normal text-white/55 leading-[1.75] max-w-[620px] mb-10-delay-2">
               The GTC Group is a logistics advisory firm built by former brokerage
               executives. We apply carrier-side intelligence to renegotiate your
               rates, reduce your operating costs, and build direct shipper
@@ -78,7 +78,7 @@ export default function HomePage() {
             </p>
 
             {/* CTA */}
-            <div className="flex flex-col sm:flex-row items-start gap-4 opacity-0 animate-fade-up-delay-3">
+            <div className="flex flex-col sm:flex-row items-start gap-4-delay-3">
               <Link
                 href="/book-call"
                 className="inline-flex items-center justify-center bg-gold-500 hover:bg-gold-400 text-navy-950 font-display font-bold text-[14px] tracking-[0.04em] uppercase py-4 px-9 transition-colors duration-200"
