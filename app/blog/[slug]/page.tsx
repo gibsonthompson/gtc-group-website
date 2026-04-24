@@ -91,10 +91,10 @@ function mapPillar(cat: string | null) {
     'strategy': 'Strategy',
     'guide': 'Guide',
   }
-  return map[cat] || cat
+  return (map as Record<string, string>)[cat] || cat
 }
 
-function getCTA(category) {
+function getCTA(category: string | null) {
   const ctas = {
     'cost-reduction': {
       heading: "Find Out Exactly Where You're Leaving Money on the Table",
@@ -117,10 +117,10 @@ function getCTA(category) {
       button: 'Book Your Free Assessment',
     },
   }
-  return ctas[category] || ctas['cost-reduction']
+  return (ctas as Record<string, typeof ctas["cost-reduction"]>)[category || "cost-reduction"] || ctas["cost-reduction"]
 }
 
-export default async function GeneratedBlogPost({ params }) {
+export default async function GeneratedBlogPost({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const post = await getPost(slug)
 
