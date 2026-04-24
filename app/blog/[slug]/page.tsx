@@ -81,7 +81,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 }
 
-function mapPillar(cat) {
+function mapPillar(cat: string | null) {
   if (!cat) return 'Cost Reduction'
   const map = {
     'cost-reduction': 'Cost Reduction',
