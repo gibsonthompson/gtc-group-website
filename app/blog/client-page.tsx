@@ -1,13 +1,21 @@
-// app/blog/client-page.js
-// 
-// Renamed from the original app/blog/page.js
-// Now accepts generatedPosts prop from server component wrapper
+// app/blog/client-page.tsx
 
 'use client'
 
 import Link from 'next/link'
 
-const blogPosts = [
+export interface BlogPost {
+  slug: string
+  title: string
+  excerpt: string
+  category: string
+  readTime: string
+  date: string
+  image: string
+  generated?: boolean
+}
+
+const blogPosts: BlogPost[] = [
   {
     slug: 'cut-trucking-insurance-costs-2026',
     title: 'How Small Carriers Can Cut Trucking Insurance Costs in 2026 (Without Reducing Coverage)',
@@ -82,7 +90,11 @@ const blogPosts = [
   },
 ]
 
-export default function BlogIndexPage({ generatedPosts = [] }) {
+interface BlogIndexPageProps {
+  generatedPosts?: BlogPost[]
+}
+
+export default function BlogIndexPage({ generatedPosts = [] }: BlogIndexPageProps) {
   // Merge hardcoded + generated, generated posts appear first (newest)
   const allPosts = [...generatedPosts, ...blogPosts]
 
