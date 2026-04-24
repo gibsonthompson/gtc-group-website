@@ -3,106 +3,72 @@ import WebsiteSignupForm from '@/components/WebsiteSignupForm'
 
 export const metadata = {
   title: 'Online Presence & Brand — Carrier Websites | The GTC Group',
-  description: 'Professional websites and digital presence management for carriers. 80% of shippers research carriers online before awarding freight — we make sure you show up.',
+  description: 'Professional websites and digital presence management for carrier operations. Shipper verification, SEO, and Google Business Profile setup.',
 }
 
 export default function BrandMarketingPage() {
   return (
     <>
-      {/* ─── HERO ─── */}
-      <section className="relative pt-36 md:pt-44 pb-20 md:pb-28 bg-navy-950 overflow-hidden">
+      {/* ── HERO ── */}
+      <section className="relative bg-navy-900 overflow-hidden pt-32 md:pt-40 pb-16 md:pb-24">
         <div className="absolute inset-0 bg-grid-pattern bg-grid" />
-        <div className="absolute inset-0 bg-noise opacity-[0.03]" />
-        <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-gold-500 to-transparent" />
-        <div className="relative z-10 max-w-[1320px] mx-auto px-6 md:px-10">
-          <nav className="flex items-center gap-2 font-display text-[12px] text-white/30 mb-10">
+        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-gold-500 to-transparent" />
+        <div className="relative z-10 max-w-[1100px] mx-auto px-6">
+          <nav className="flex items-center gap-2 font-display text-[12px] text-white/30 mb-8">
             <Link href="/" className="hover:text-white/60 transition-colors">Home</Link>
             <span>/</span>
-            <Link href="/#what-we-do" className="hover:text-white/60 transition-colors">Services</Link>
+            <Link href="/#services" className="hover:text-white/60 transition-colors">Services</Link>
             <span>/</span>
             <span className="text-gold-500">Online Presence & Brand</span>
           </nav>
-
-          <div className="max-w-[800px]">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="h-[1px] w-8 bg-gold-500" />
-              <span className="font-display text-[11px] font-semibold tracking-[0.2em] uppercase text-gold-500">Online Presence & Brand</span>
-            </div>
-
-            <h1 className="font-display text-hero text-white mb-6">
-              Shippers Google
-              <br />
-              You <span className="text-gold-400">Before They Call.</span>
-            </h1>
-
-            <p className="font-display text-[17px] md:text-[19px] font-normal text-white/50 leading-[1.75] max-w-[620px] mb-10">
-              80% of shippers vet carriers online before awarding a load. If
-              your company doesn&apos;t appear — or appears with a blank page
-              and a Gmail address — you&apos;re losing freight to carriers with
-              worse operations and better websites.
-            </p>
-
-            <a
-              href="#request"
-              className="inline-flex items-center justify-center bg-gold-500 hover:bg-gold-400 text-navy-950 font-display font-bold text-[14px] tracking-[0.04em] uppercase py-4 px-9 transition-colors duration-200"
-            >
-              Request Your Website
-            </a>
+          <div className="flex items-center gap-3 mb-4">
+            <div className="h-[1px] w-6 bg-gold-500" />
+            <span className="font-display text-[11px] font-semibold tracking-[0.18em] uppercase text-gold-500">Online Presence & Brand</span>
           </div>
+          <h1 className="font-display text-[28px] md:text-[38px] lg:text-[42px] font-extrabold text-white leading-[1.15] tracking-[-0.025em] max-w-[640px] mb-5">
+            Carrier Websites, Google Business Profiles & Digital Verification
+          </h1>
+          <p className="font-display text-[15px] md:text-[16px] font-normal text-white/50 leading-[1.75] max-w-[520px] mb-8">
+            Shippers and AI-powered screening tools now verify carriers online before awarding freight. We build and manage the digital presence that meets that requirement.
+          </p>
+          <a href="#request" className="btn btn-primary">Request a Website</a>
         </div>
       </section>
 
-      {/* ─── THE VISIBILITY GAP ─── */}
-      <section className="relative py-24 md:py-32 bg-cream-100 overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern-light bg-grid" />
-        <div className="relative z-10 max-w-[1320px] mx-auto px-6 md:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+      {/* ── THE PROBLEM ── */}
+      <section className="py-20 md:py-28 bg-cream-100">
+        <div className="max-w-[1100px] mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-start">
             <div>
-              <div className="flex items-center gap-4 mb-6">
-                <div className="h-[1px] w-8 bg-gold-500" />
-                <span className="font-display text-[11px] font-semibold tracking-[0.2em] uppercase text-gold-600">The Visibility Gap</span>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="h-[1px] w-6 bg-gold-500" />
+                <span className="font-display text-[11px] font-semibold tracking-[0.18em] uppercase text-gold-600">Context</span>
               </div>
-
-              <h2 className="font-display text-h2 text-navy-900 mb-8">
-                Your Operations Are
-                <span className="text-gold-600"> Invisible </span>
-                to the Shippers Looking for You
+              <h2 className="font-display text-[24px] md:text-[28px] font-extrabold text-navy-900 leading-[1.2] tracking-[-0.02em] mb-5">
+                Carriers without a digital presence are being filtered out of shipper workflows.
               </h2>
-
-              <div className="space-y-5 font-display text-[16px] font-normal text-navy-900/55 leading-[1.8]">
+              <div className="space-y-4 font-display text-[15px] font-normal text-navy-900/55 leading-[1.75]">
                 <p>
-                  After double-brokering fraud made national headlines, shippers
-                  and freight brokers now actively verify carrier identity online
-                  before awarding freight. AI-powered carrier screening tools are
-                  filtering out companies with no digital footprint. If you
-                  don&apos;t exist online, you don&apos;t exist to the people
-                  writing checks.
+                  Following the double-brokering fraud wave, shippers and freight brokers actively verify carrier identity online before awarding freight. AI-powered carrier screening platforms now filter out companies with no digital footprint.
                 </p>
                 <p>
-                  We build professional carrier websites with MC/DOT verification,
-                  safety records, fleet capabilities, and contact forms — everything
-                  a shipper needs to say &ldquo;yes&rdquo; before they pick up the
-                  phone. Then we set up and manage your Google Business Profile so
-                  you appear in local search results.
+                  The standard for verification includes a professional website with MC/DOT numbers, insurance documentation, safety records, fleet capabilities, and a contact form. A Google Business Profile with verified location and reviews is increasingly expected as well.
                 </p>
-                <p className="text-navy-900/75 font-medium">
-                  The competitive bar is low. Most carriers have nothing. Even a
-                  well-built site puts you in the top tier immediately.
+                <p className="text-navy-900/70 font-medium">
+                  Most carriers have neither. A well-built site and verified profile immediately places a carrier in the top tier of online visibility.
                 </p>
               </div>
             </div>
 
-            {/* Stats */}
-            <div className="space-y-6">
+            <div className="space-y-4">
               {[
                 { stat: '80%', label: 'of shippers research carriers online before contracting' },
-                { stat: '70%', label: 'of independent carriers have no website at all' },
-                { stat: '60%', label: 'of shippers won\u2019t call a carrier they can\u2019t verify online' },
-                { stat: '3 sec', label: 'average time before a visitor leaves a slow or broken site' },
+                { stat: '70%', label: 'of independent carriers have no website' },
+                { stat: '60%', label: 'of shippers will not call a carrier they cannot verify online' },
               ].map((item) => (
-                <div key={item.label} className="bg-white border border-navy-900/[0.06] p-6 flex items-start gap-5">
-                  <span className="font-display text-[36px] font-black text-gold-500 leading-none min-w-[80px]">{item.stat}</span>
-                  <span className="font-display text-[14px] text-navy-900/50 leading-[1.6] pt-2">{item.label}</span>
+                <div key={item.label} className="bg-white border border-navy-900/[0.06] p-5 flex items-start gap-4">
+                  <span className="font-display text-[28px] font-extrabold text-gold-500 leading-none min-w-[64px]">{item.stat}</span>
+                  <span className="font-display text-[13px] text-navy-900/50 leading-[1.6] pt-1.5">{item.label}</span>
                 </div>
               ))}
             </div>
@@ -110,82 +76,65 @@ export default function BrandMarketingPage() {
         </div>
       </section>
 
-      {/* ─── WHAT WE BUILD ─── */}
-      <section className="relative py-24 md:py-32 bg-navy-950 overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern bg-grid" />
-        <div className="absolute inset-0 bg-noise opacity-[0.03]" />
-        <div className="relative z-10 max-w-[1320px] mx-auto px-6 md:px-10">
-          <div className="flex items-center gap-4 mb-6">
-            <div className="h-[1px] w-8 bg-gold-500" />
-            <span className="font-display text-[11px] font-semibold tracking-[0.2em] uppercase text-gold-500">What We Build</span>
+      {/* ── WHAT WE BUILD ── */}
+      <section className="py-20 md:py-28 bg-navy-900">
+        <div className="max-w-[1100px] mx-auto px-6">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="h-[1px] w-6 bg-gold-500" />
+            <span className="font-display text-[11px] font-semibold tracking-[0.18em] uppercase text-gold-500">Deliverables</span>
           </div>
-
-          <h2 className="font-display text-h2 text-white mb-16 md:mb-20 max-w-[600px]">
-            Everything a Shipper Looks for
-            <span className="text-gold-400"> Before They Call</span>
+          <h2 className="font-display text-[24px] md:text-[28px] font-extrabold text-white leading-[1.2] tracking-[-0.02em] mb-12 max-w-[500px]">
+            Website, verification, and search presence — built for carriers.
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
-              { title: 'Custom Design', body: 'Unique to your operation — your fleet, your routes, your brand. Not a template with a logo swap.' },
-              { title: 'MC/DOT Verification', body: 'Authority numbers, insurance certificates, safety ratings — all the trust signals shippers require.' },
-              { title: 'Mobile Optimized', body: 'Most shipper searches happen on phones. Your site needs to load fast and look sharp on every screen.' },
-              { title: 'SEO Built In', body: 'Structured for Google. When shippers search for carriers in your lanes and region, you show up.' },
-              { title: 'Quote Request Forms', body: 'Make it easy for shippers to request rates. Every form submission is a potential contract.' },
-              { title: 'Google Business Profile', body: 'Setup, optimization, and ongoing management. Show up in local search and Maps with a verified listing.' },
+              { title: 'Custom Website', body: 'Designed for your operation — fleet details, service areas, and capabilities. Not a template.' },
+              { title: 'MC/DOT Verification', body: 'Authority numbers, insurance certificates, and safety ratings displayed for shipper due diligence.' },
+              { title: 'Mobile Optimized', body: 'Responsive design built for the devices shippers actually use to research carriers.' },
+              { title: 'SEO Configuration', body: 'Structured for search visibility in your operating lanes and service region.' },
+              { title: 'Quote Request Forms', body: 'Shipper-facing forms that convert site visitors into rate inquiries.' },
+              { title: 'Google Business Profile', body: 'Setup, verification, and ongoing management. Verified listing in local search and Maps.' },
             ].map((item) => (
-              <div key={item.title} className="bg-navy-800 p-7 md:p-8 border border-white/[0.04]">
-                <h3 className="font-display text-[16px] font-bold text-white mb-2 tracking-[-0.01em]">{item.title}</h3>
-                <p className="font-display text-[14px] font-normal text-white/40 leading-[1.7]">{item.body}</p>
+              <div key={item.title} className="bg-white/[0.03] border border-white/[0.06] p-5">
+                <h3 className="font-display text-[14px] font-bold text-white mb-1.5">{item.title}</h3>
+                <p className="font-display text-[13px] font-normal text-white/35 leading-[1.7]">{item.body}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ─── REQUEST FORM ─── */}
-      <section id="request" className="relative py-24 md:py-32 bg-cream-100 overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern-light bg-grid" />
-        <div className="relative z-10 max-w-[720px] mx-auto px-6 md:px-10">
-          <div className="bg-white border border-navy-900/[0.06] p-8 md:p-12">
+      {/* ── FORM ── */}
+      <section id="request" className="py-20 md:py-28 bg-cream-100">
+        <div className="max-w-[640px] mx-auto px-6">
+          <div className="bg-white border border-navy-900/[0.06] p-6 md:p-10">
             <div className="text-center mb-8">
-              <div className="inline-flex items-center gap-3 mb-4">
-                <div className="h-[1px] w-8 bg-gold-500" />
-                <span className="font-display text-[11px] font-semibold tracking-[0.2em] uppercase text-gold-600">Get Started</span>
-                <div className="h-[1px] w-8 bg-gold-500" />
+              <div className="flex items-center justify-center gap-3 mb-3">
+                <div className="h-[1px] w-6 bg-gold-500" />
+                <span className="font-display text-[11px] font-semibold tracking-[0.18em] uppercase text-gold-600">Get Started</span>
+                <div className="h-[1px] w-6 bg-gold-500" />
               </div>
-              <h2 className="font-display text-h2 text-navy-900 mb-4">Request Your Website</h2>
-              <p className="font-display text-[15px] font-normal text-navy-900/50 leading-[1.7]">
-                Tell us about your operation and we&apos;ll put together a custom
-                proposal tailored to your fleet and market.
+              <h2 className="font-display text-[24px] md:text-[28px] font-extrabold text-navy-900 tracking-[-0.02em] mb-3">Request a Website</h2>
+              <p className="font-display text-[14px] font-normal text-navy-900/45 leading-[1.7]">
+                Provide your details and we&apos;ll follow up with a custom proposal for your operation.
               </p>
             </div>
-
             <WebsiteSignupForm />
           </div>
         </div>
       </section>
 
-      {/* ─── CTA ─── */}
-      <section className="relative py-24 md:py-32 bg-navy-950 overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern bg-grid" />
-        <div className="absolute inset-0 bg-noise opacity-[0.03]" />
-        <div className="relative z-10 max-w-[800px] mx-auto px-6 md:px-10 text-center">
-          <h2 className="font-display text-h2 text-white mb-6">
-            Not Sure Where
-            <span className="text-gold-400"> to Start?</span>
+      {/* ── CTA ── */}
+      <section className="py-20 md:py-28 bg-navy-900">
+        <div className="max-w-[600px] mx-auto px-6 text-center">
+          <h2 className="font-display text-[24px] md:text-[28px] font-extrabold text-white leading-[1.2] tracking-[-0.02em] mb-4">
+            Not sure what you need yet?
           </h2>
-          <p className="font-display text-[17px] font-normal text-white/45 leading-[1.8] max-w-[540px] mx-auto mb-10">
-            Book a call and we&apos;ll audit your current online presence
-            together — what&apos;s working, what&apos;s costing you freight,
-            and what to fix first.
+          <p className="font-display text-[15px] font-normal text-white/45 leading-[1.75] mb-8">
+            Schedule a call and we&apos;ll review your current digital presence — what&apos;s helping, what&apos;s missing, and what to address first.
           </p>
-          <Link
-            href="/book-call"
-            className="inline-flex items-center justify-center bg-gold-500 hover:bg-gold-400 text-navy-950 font-display font-bold text-[14px] tracking-[0.04em] uppercase py-4 px-10 transition-colors duration-200"
-          >
-            Book a Call
-          </Link>
+          <Link href="/book-call" className="btn btn-primary">Schedule a Call</Link>
         </div>
       </section>
     </>
