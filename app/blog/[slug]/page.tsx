@@ -1,4 +1,4 @@
-// app/blog/[slug]/page.js
+// app/blog/[slug]/page.tsx
 //
 // Dynamic catch-all for blog-farm auto-generated posts.
 // Static blog post pages (e.g., app/blog/cut-trucking-insurance-costs-2026/page.js)
@@ -11,8 +11,8 @@ import Link from 'next/link'
 import './generated-post.css'
 
 const blogSupabase = createClient(
-  process.env.BLOG_SUPABASE_URL! || process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.BLOG_SUPABASE_SERVICE_KEY! || process.env.SUPABASE_SERVICE_ROLE_KEY!
+  process.env.BLOG_SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL || '',
+  process.env.BLOG_SUPABASE_SERVICE_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY || ''
 )
 
 const BUSINESS_SLUG = 'gtc-group'
@@ -32,13 +32,13 @@ export async function generateStaticParams() {
       .eq('business_id', biz.id)
       .eq('status', 'published')
 
-    return (posts || []).map(p => ({ slug: p.slug }))
+    return (posts || []).map((p: { slug: string }) => ({ slug: p.slug }))
   } catch {
     return []
   }
 }
 
-async function getPost(slug) {
+async function getPost(slug: string) {
   try {
     const { data: biz } = await blogSupabase
       .from('blog_businesses').select('id').eq('slug', BUSINESS_SLUG).single()
@@ -58,7 +58,7 @@ async function getPost(slug) {
   }
 }
 
-export async function generateMetadata({ params }) {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const post = await getPost(slug)
   if (!post) return {}
@@ -81,9 +81,9 @@ export async function generateMetadata({ params }) {
   }
 }
 
-function mapPillar(cat) {
+function mapPillar(cat: string | null): string {
   if (!cat) return 'Cost Reduction'
-  const map = {
+  const map: Record<string, string> = {
     'cost-reduction': 'Cost Reduction',
     'revenue-growth': 'Revenue Growth',
     'brand-marketing': 'Brand & Marketing',
@@ -94,8 +94,14 @@ function mapPillar(cat) {
   return map[cat] || cat
 }
 
-function getCTA(category) {
-  const ctas = {
+interface CTAContent {
+  heading: string
+  body: string
+  button: string
+}
+
+function getCTA(category: string | null): CTAContent {
+  const ctas: Record<string, CTAContent> = {
     'cost-reduction': {
       heading: "Find Out Exactly Where You're Leaving Money on the Table",
       body: "GTC's free operations assessment identifies your specific cost reduction opportunities — insurance, fuel, maintenance, and more. ROI in one week, or it's free.",
@@ -117,10 +123,10 @@ function getCTA(category) {
       button: 'Book Your Free Assessment',
     },
   }
-  return ctas[category] || ctas['cost-reduction']
+  return ctas[category || 'cost-reduction'] || ctas['cost-reduction']
 }
 
-export default async function GeneratedBlogPost({ params }) {
+export default async function GeneratedBlogPost({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const post = await getPost(slug)
 
@@ -135,7 +141,7 @@ export default async function GeneratedBlogPost({ params }) {
     : new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long' })
 
   // Extract FAQ items for schema
-  const faqItems = []
+  const faqItems: { question: string; answer: string }[] = []
   const faqRegex = /<div[^>]*class="faq-card"[^>]*>[\s\S]*?<(?:h3|h4|p)[^>]*class="faq-question"[^>]*>([\s\S]*?)<\/(?:h3|h4|p)>\s*<p[^>]*class="faq-answer"[^>]*>([\s\S]*?)<\/p>/gi
   let faqMatch
   while ((faqMatch = faqRegex.exec(post.html_content)) !== null) {
@@ -158,7 +164,8 @@ export default async function GeneratedBlogPost({ params }) {
   }
 
   // Build schema
-  const schemaGraph = [
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const schemaGraph: any[] = [
     {
       '@type': 'Article',
       headline: post.title,
