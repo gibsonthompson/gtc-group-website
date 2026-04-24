@@ -1,9 +1,6 @@
-// app/blog/page.js (NEW — server component wrapper)
+// app/blog/page.tsx (server component wrapper)
 //
-// SETUP: Rename the existing app/blog/page.js to app/blog/client-page.js
-// Then place this file as app/blog/page.js
-//
-// This server component fetches generated posts from blog-farm Supabase
+// Fetches generated posts from blog-farm Supabase
 // and passes them to the client component which merges them with hardcoded posts.
 
 import { createClient } from '@supabase/supabase-js'
@@ -18,8 +15,8 @@ export const metadata = {
 }
 
 async function getGeneratedPosts() {
-  const supabaseUrl = process.env.BLOG_SUPABASE_URL! || process.env.NEXT_PUBLIC_SUPABASE_URL!
-  const supabaseKey = process.env.BLOG_SUPABASE_SERVICE_KEY! || process.env.SUPABASE_SERVICE_ROLE_KEY!
+  const supabaseUrl = process.env.BLOG_SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL
+  const supabaseKey = process.env.BLOG_SUPABASE_SERVICE_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY
 
   if (!supabaseUrl || !supabaseKey) return []
 
@@ -37,7 +34,7 @@ async function getGeneratedPosts() {
       .eq('status', 'published')
       .order('publish_date', { ascending: false })
 
-    return (posts || []).map(p => ({
+    return (posts || []).map((p: { slug: string; title: string; meta_description: string | null; category: string | null; publish_date: string | null; read_time: string | null; word_count: number | null }) => ({
       slug: p.slug,
       title: p.title,
       excerpt: p.meta_description || '',
@@ -54,8 +51,8 @@ async function getGeneratedPosts() {
   }
 }
 
-function mapCategory(cat) {
-  const map = {
+function mapCategory(cat: string | null): string {
+  const map: Record<string, string> = {
     'cost-reduction': 'Cost Reduction',
     'revenue-growth': 'Revenue Growth',
     'brand-marketing': 'Brand & Marketing',
@@ -63,17 +60,17 @@ function mapCategory(cat) {
     'strategy': 'Strategy',
     'guide': 'Guide',
   }
-  return map[cat] || cat || 'Guide'
+  return map[cat || ''] || cat || 'Guide'
 }
 
-function getCategoryImage(cat) {
-  const images = {
+function getCategoryImage(cat: string | null): string {
+  const images: Record<string, string> = {
     'cost-reduction': 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80',
     'revenue-growth': 'https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=800&q=80',
     'brand-marketing': 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
     'industry-analysis': 'https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=800&q=80',
   }
-  return images[cat] || images['cost-reduction']
+  return images[cat || ''] || images['cost-reduction']
 }
 
 export default async function Page() {
