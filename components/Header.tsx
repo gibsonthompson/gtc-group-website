@@ -20,10 +20,10 @@ export default function Header() {
   }, [mobileOpen])
 
   const navLinks = [
-    { href: '/#what-we-do', label: 'Services' },
+    { href: '/#services', label: 'Services' },
     { href: '/team', label: 'Team' },
     { href: '/blog', label: 'Insights' },
-    { href: '/#contact', label: 'Contact' },
+    { href: '/book-call', label: 'Contact' },
   ]
 
   return (
@@ -36,7 +36,6 @@ export default function Header() {
     >
       <div className="max-w-[1320px] mx-auto px-6 md:px-10">
         <div className="flex items-center justify-between h-[70px] md:h-[80px]">
-          {/* Logo */}
           <Link href="/" className="flex items-center gap-3">
             <Image
               src="/logo.png"
@@ -55,7 +54,6 @@ export default function Header() {
             </div>
           </Link>
 
-          {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-10">
             <ul className="flex items-center gap-8">
               {navLinks.map((link) => (
@@ -77,7 +75,6 @@ export default function Header() {
             </Link>
           </nav>
 
-          {/* Mobile Toggle */}
           <button
             className="lg:hidden flex flex-col gap-[5px] p-3 -mr-2 touch-manipulation"
             onClick={() => setMobileOpen(!mobileOpen)}
@@ -91,7 +88,6 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <div
         className={`lg:hidden fixed inset-0 top-[70px] bg-navy-950 transition-all duration-300 ${
           mobileOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
